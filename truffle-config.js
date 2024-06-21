@@ -6,20 +6,20 @@ module.exports = {
     development: {
       host: "127.0.0.1",
       port: 7545,
-      network_id: "*", 
+      network_id: "*",
     },
     rinkeby: {
       provider: () => new HDWalletProvider({
         privateKeys: [process.env.PRIVATE_KEY],
-        providerOrUrl: `https://rinkeby.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
-        pollingInterval: 15000  // Increase polling interval
+        providerOrUrl: process.env.INFURA_PROJECT_ID,
+        pollingInterval: 15000
       }),
       network_id: 4,
       gas: 5500000,
-      gasPrice: 20000000000, // 20 Gwei
+      gasPrice: 20000000000,
       confirmations: 2,
-      timeoutBlocks: 200,   // Increase the number of blocks to wait
-      networkCheckTimeout: 1000000, // Increase network check timeout
+      timeoutBlocks: 200,
+      networkCheckTimeout: 1000000,
       skipDryRun: true
     }
   },
