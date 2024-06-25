@@ -5,6 +5,7 @@ import FileUploader from './FileUploader';
 import FileRetrieval from './FileRetrieval';
 import FileList from './FileList';
 import './App.css';
+import './styles.css';
 
 Modal.setAppElement('#root');
 
@@ -78,20 +79,22 @@ function App() {
     setFiles([...files, ipfsHash]);
   };
 
-  const handleFileRetrieve = (ipfsHash) => {
-    setFiles([...files, ipfsHash]);
+  const handleFileRetrieve = (retrievedFiles) => {
+    setFiles(retrievedFiles);
   };
 
   return (
     <div className="app-container">
       <div className="header">
-        <h2>Welcome to</h2> 
-        <h1>B-LOCK</h1> 
+        <h2>Welcome to</h2>
+        <h1>B-LOCK</h1>
         <h2>a blockchain based e-vault</h2>
       </div>
       <div className="main-content">
-        <FileUploader onFileUpload={handleFileUpload} />
-        <FileRetrieval onFileRetrieve={handleFileRetrieve} />
+        <div className="file-operations">
+          <FileUploader onFileUpload={handleFileUpload} />
+          <FileRetrieval onFileRetrieve={handleFileRetrieve} />
+        </div>
       </div>
       <div className="file-list-container">
         <FileList files={files} />
@@ -117,10 +120,9 @@ function App() {
         <h2>MetaMask Not Detected</h2>
         <p>MetaMask is not installed or no accounts found. Please install MetaMask or try again.</p>
         <button className="try-again" onClick={handleRetry}>Try Again</button>
-        <button className="create-account" onClick={handleCreateAccount}>Install MetaMask</button>
-      </Modal>
-    </div>
-  );
-}
-
-export default App;
+        <button className="create-account" onClick={handleCreateAccount}>Install MetaMask</button> 
+        </Modal> 
+        </div> 
+        ); 
+      } 
+      export default App;

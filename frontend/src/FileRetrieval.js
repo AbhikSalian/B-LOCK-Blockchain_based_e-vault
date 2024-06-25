@@ -1,33 +1,35 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './FileRetrieval.css';
 
 const FileRetrieval = ({ onFileRetrieve }) => {
-  const [ipfsHash, setIpfsHash] = useState('');
-  const [retrievalMessage, setRetrievalMessage] = useState('');
+  const [fileList, setFileList] = useState([]);
+  const [retrieveMessage, setRetrieveMessage] = useState('');
 
   const handleRetrieve = async () => {
-    if (ipfsHash) {
-      try {
-        setRetrievalMessage('File retrieved successfully!');
-        onFileRetrieve(ipfsHash);
-      } catch (error) {
-        console.error('Error retrieving file from IPFS', error);
-        setRetrievalMessage('Error retrieving file.');
-      }
+    try {
+      const response = await axios.get('http://localhost:8800/chain');
+      const chain = response.data.chain;
+      const files = chain.flatMap(block => block.transactions);
+      setFileList(files);
+      onFileRetrieve(files);
+      setRetrieveMessage('Files retrieved successfully!');
+    } catch (error) {
+      console.error('Error retrieving files:', error);
+      setRetrieveMessage('Error retrieving files. Check the console for more details.');
     }
   };
 
   return (
     <div className="file-retrieval">
-      <h3>Retrieve a file</h3>
-      <input
-        type="text"
-        placeholder="Enter IPFS hash"
-        value={ipfsHash}
-        onChange={(e) => setIpfsHash(e.target.value)}
-      />
-      <button onClick={handleRetrieve}>Retrieve from IPFS</button>
-      {retrievalMessage && <p className="retrieval-message">{retrievalMessage}</p>}
+      <h3>Retrieve files</h3>
+      <button onClick={handleRetrieve}>Retrieve from Blockchain</button>
+      {retrieveMessage && <p className="retrieve-message">{retrieveMessage}</p>}
+      <ul>
+        {fileList.map((file, index) => (
+          <li key={index}>{file.v_file} ({file.file_size} bytes)</li>
+        ))}
+      </ul>
     </div>
   );
 };
