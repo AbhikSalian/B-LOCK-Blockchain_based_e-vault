@@ -1,100 +1,39 @@
-/* Basic styles */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0; /* Light grey background */
-  margin: 0;
-  padding: 0;
+.app-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 100vh;
 }
 
-/* Main container styles */
-div {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.header {
   text-align: center;
+  margin: 20px;
 }
 
-/* Heading styles */
-h1 {
-  color: #3a3a3a; /* Dark grey */
-  margin-bottom: 20px;
+.main-content {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
 
-/* Paragraph styles */
-p {
-  color: #3a3a3a; /* Dark grey */
-  margin-bottom: 20px;
+.file-list-container {
+  width: 100%;
 }
 
-/* Button styles */
-button {
-  background-color: #007BFF; /* Blue */
+.auth-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.logout {
+  background-color: blue;
   color: white;
   border: none;
   padding: 10px 20px;
-  margin: 5px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #0056b3; /* Darker blue */
-}
-
-button.logout {
-  background-color: #28a745; /* Green */
-}
-
-button.logout:hover {
-  background-color: #218838; /* Darker green */
-}
-
-/* Modal styles */
-.ReactModal__Overlay {
-  background-color: rgba(0, 0, 0, 0.75);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.ReactModal__Content {
-  position: relative;
-  background-color: white;
-  border-radius: 8px;
-  padding: 20px;
-  outline: none;
-  width: 300px;
-  text-align: center;
-}
-
-h2 {
-  color: #6f42c1; /* Purple */
-  margin-bottom: 15px;
-}
-
-.ReactModal__Content p {
-  color: #3a3a3a; /* Dark grey */
-  margin-bottom: 20px;
-}
-
-button.try-again {
-  background-color: #17a2b8; /* Blue */
-}
-
-button.try-again:hover {
-  background-color: #117a8b; /* Darker blue */
-}
-
-button.create-account {
-  background-color: #6610f2; /* Purple */
-}
-
-button.create-account:hover {
-  background-color: #520dc2; /* Darker purple */
+.logout:hover {
+  background-color: green;
 }
