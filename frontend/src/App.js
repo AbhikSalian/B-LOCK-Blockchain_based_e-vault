@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Web3 from 'web3';
 import Modal from 'react-modal';
-import './App.css';  // Import the CSS file
+import FileUploader from './FileUploader';
+import FileRetrieval from './FileRetrieval';
+import FileList from './FileList';
+import './App.css';
 
 Modal.setAppElement('#root');
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [files, setFiles] = useState([]);
 
   useEffect(() => {
     const initialize = async () => {
@@ -70,22 +74,41 @@ function App() {
     window.location.reload();
   };
 
+  const handleFileUpload = (ipfsHash) => {
+    setFiles([...files, ipfsHash]);
+  };
+
+  const handleFileRetrieve = (ipfsHash) => {
+    setFiles([...files, ipfsHash]);
+  };
+
   return (
-    <div>
-      <h2>Welcome to</h2> 
-      <h1>  B-LOCK</h1> 
-      <h2>a blockchain based e-vault</h2>
-      {isLoggedIn ? (
-        <>
-          <p>Successfully logged in</p>
-          <button className="logout" onClick={handleLogout}>Logout</button>
-        </>
-      ) : (
-        <>
-          <p>Please log in with MetaMask</p>
-          <button onClick={handleLogin}>Login with MetaMask</button>
-        </>
-      )}
+    <div className="app-container">
+      <div className="header">
+        <h2>Welcome to</h2> 
+        <h1>B-LOCK</h1> 
+        <h2>a blockchain based e-vault</h2>
+      </div>
+      <div className="main-content">
+        <FileUploader onFileUpload={handleFileUpload} />
+        <FileRetrieval onFileRetrieve={handleFileRetrieve} />
+      </div>
+      <div className="file-list-container">
+        <FileList files={files} />
+      </div>
+      <div className="auth-container">
+        {isLoggedIn ? (
+          <>
+            <p>Successfully logged in</p>
+            <button className="logout" onClick={handleLogout}>Logout</button>
+          </>
+        ) : (
+          <>
+            <p>Please log in with MetaMask</p>
+            <button onClick={handleLogin}>Login with MetaMask</button>
+          </>
+        )}
+      </div>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
