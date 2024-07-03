@@ -6,43 +6,34 @@ const cors = require('cors');
 const { Sequelize, DataTypes } = require('sequelize');
 const Web3 = require('web3');
 const { create } = require('ipfs-http-client');
+require('dotenv').config(); // Load environment variables from .env file
+
+// IPFS setup
 const ipfs = create('https://ipfs.infura.io:5001/api/v0');
 
-// Initialize Express app
-const app = express();
-
-// Use CORS middleware
-app.use(cors());
-
-// Use bodyParser middleware to parse JSON requests
-app.use(bodyParser.json());
-
-// Database setup with Sequelize
+// Database setup
 const sequelize = new Sequelize({
   dialect: 'sqlite',
   storage: './database.sqlite'
 });
 
-// Import and define User model
+// Define models
 const User = require('./models/user')(sequelize, DataTypes);
-// Import and define File model
 const File = require('./models/file')(sequelize, DataTypes);
 
-// Ensure database sync
-sequelize.sync();
+// Express app setup
+const app = express();
+app.use(cors());
+app.use(bodyParser.json());
 
 // Blockchain setup
-const web3 = new Web3(new Web3.providers.HttpProvider('https://rinkeby.infura.io/v3/YOUR_INFURA_PROJECT_ID'));
-
-// ABI and contract address
+const web3 = new Web3(new Web3.providers.HttpProvider(`https://rinkeby.infura.io/v3/${process.env.INFURA_PROJECT_ID}`));
 const BlockVaultABI = require('./build/contracts/BLockVault.json').abi; // ABI from Truffle
-const BlockVaultAddress = 'YOUR_CONTRACT_ADDRESS'; // Replace with your deployed contract address
+const BlockVaultAddress = 'YOUR_CONTRACT_ADDRESS'; // Replace with your contract address
 
 const blockVault = new web3.eth.Contract(BlockVaultABI, BlockVaultAddress);
 
 // Routes
-
-// Root route
 app.get('/', (req, res) => {
   res.send('Welcome to B-LOCK e-vault!');
 });
@@ -68,7 +59,8 @@ app.post('/upload', async (req, res) => {
 
     res.json({ success: true, receipt });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error(error);
+    res.status(500).json({ success: false, error: error.message });
   }
 });
 
@@ -84,6 +76,7 @@ app.get('/files/:address', async (req, res) => {
 
     res.json(user.Files);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: error.message });
   }
 });
