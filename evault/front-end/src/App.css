@@ -12,7 +12,20 @@ h1 {
   text-align: center;
 }
 
+<<<<<<< HEAD
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #1d50b6;
+  min-height: 100vh;
+  
+=======
 .container {
+>>>>>>> 7fead0295dce79c40ffd067af8b52057394c50c4
   display: flex;
   justify-content: space-around;
   align-items: center;

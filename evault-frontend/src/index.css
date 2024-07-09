@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to bottom right, #01000e, #00004d); /* Gradient background */
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  overflow: hidden;
+  position: static;
+  transition: background-color 15.0ss ease;
+}
+
+/* Full-page logo pattern */
+body::before {
+  content: "";
+  position: absolute;
+  top: 50;
+  left: 50;
+  width: 100%;
+  height: 100%;
+  background: url('\logo.jpg'); /* Path to a transparent PNG of the logo */
+  background-size: 200px 200px; /* Adjust size to fit design */
+  opacity: 0.1; /* Adjust for visibility of pattern */
+  z-index: 1;
+  pointer-events: none; /* Prevent interaction */
+}
+
+/* Container for all main content */
+.container {
+  position: relative;
+  z-index: 4; /* Ensure it appears above the background pattern */
+  text-align: center;
+}
+
+/* Adding a subtle shadow to the container */
+.container {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  
+  padding: 5px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark transparent background */
+  backdrop-filter: blur(5px); /* Blur effect for a frosted glass look */
+}
+
+/* Adding subtle hover effect for buttons */
+button {
+  background-color: #004080;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background-color: #0059b3;
+  transform: translateY(-2px);
+}
+
+/* Style for the dropdown menu */
+select {
+  background-color: #004080;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+select:hover {
+  background-color: #0059b3;
+}
+
+/* General styling for headings */
+h1 {
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+/* General styling for text */
+p {
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+.container img {
+  width: 500px; /* Adjust the size of the logo */
+  height: 350px;
+  margin-bottom: 20px;
+}
