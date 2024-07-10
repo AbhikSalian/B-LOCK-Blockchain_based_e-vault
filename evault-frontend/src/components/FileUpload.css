@@ -1,0 +1,30 @@
+.file-upload {
+    position: relative;
+    animation: slideInFromLeft 1s ease-out;
+  }
+  
+  input[type="file"] {
+    display: none;
+  }
+  
+  .custom-file-upload {
+    background-color: #007BFF;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .custom-file-upload:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  .upload-message {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #00ff00; /* Green for success */
+    animation: fadeIn 0.5s ease-out;
+  }
+  
