@@ -10,7 +10,8 @@
   .custom-file-upload {
     background-color: #007BFF;
     color: white;
-    padding: 15px 30px;
+    padding: 10px 30px;
+    padding-bottom: 5px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
