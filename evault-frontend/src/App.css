@@ -7,8 +7,8 @@
   display: listitem;
   flex-direction: columnrow;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
+  justify-content: left;
+  gap: 750px;
   animation: fadeIn 1s ease-out;
 }
 

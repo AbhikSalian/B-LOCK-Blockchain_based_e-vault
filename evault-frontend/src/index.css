@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background: linear-gradient(to bottom right, #01000e, #00004d); /* Gradient background */
+  background: linear-gradient(to bottom left, #01000e, #00000a); /* Gradient background */
   height: 100vh;
   display: flex;
   align-items: center;
@@ -15,10 +15,10 @@ body {
 /* Full-page logo pattern */
 body::before {
   content: "";
-  position: absolute;
+  position: relative;
   top: 50;
-  left: 50;
-  width: 100%;
+  right: 200;
+  width: 150%;
   height: 100%;
   background: url('\logo.jpg'); /* Path to a transparent PNG of the logo */
   background-size: 200px 200px; /* Adjust size to fit design */
@@ -32,6 +32,8 @@ body::before {
   position: relative;
   z-index: 4; /* Ensure it appears above the background pattern */
   text-align: center;
+  display:absolute;
+  justify-content:space-between;
 }
 
 /* Adding a subtle shadow to the container */
@@ -50,7 +52,9 @@ button {
   color: #FFFFFF;
   border: none;
   padding: 10px 20px;
+  gap:10px;
   border-radius: 5px;
+  justify-content:space-between;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
 }
@@ -58,6 +62,7 @@ button {
 button:hover {
   background-color: #0059b3;
   transform: translateY(-2px);
+  justify-content:space-between;
 }
 
 /* Style for the dropdown menu */
@@ -87,7 +92,7 @@ p {
   line-height: 1.5;
 }
 .container img {
-  width: 500px; /* Adjust the size of the logo */
-  height: 350px;
+  width: 400px; /* Adjust the size of the logo */
+  height: 200px;
   margin-bottom: 20px;
 }
