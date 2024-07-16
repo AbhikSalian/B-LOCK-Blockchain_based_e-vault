@@ -1,78 +1,96 @@
 body {
+  margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-}
-
-.App {
-  text-align: center;
-}
-
-h1 {
-  color: purple;
-  text-align: center;
-}
-
-<<<<<<< HEAD
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #1d50b6;
-  min-height: 100vh;
-  
-=======
-.container {
->>>>>>> 7fead0295dce79c40ffd067af8b52057394c50c4
+  height: 100vh;
+  background-image: url('C:\Users\Karthik\Desktop\B-love\evault\front-end\src\space.avif'); /* Update the path accordingly */
+  background-size: cover;
+  background-position: center;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  margin: 20px;
+  color: white;
+  text-shadow: 1px 1px 2px black;
 }
 
-.upload-box, .retrieve-box {
-  border: 1px solid #ccc;
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
   padding: 20px;
-  border-radius: 10px;
-  background-color: white;
-  width: 40%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.upload-box h2, .retrieve-box h2 {
-  color: blue;
+.upload-box, .stored-files {
+  width: 25%;
 }
 
-input[type="file"] {
-  width: calc(100% - 20px);
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.astronaut {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button {
-  background-color: green;
+  background-color: rgba(0, 0, 0, 0.8);
   color: white;
-  padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  padding: 10px 20px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 button:hover {
-  background-color: darkgreen;
+  background-color: rgba(0, 0, 0, 1);
 }
 
-.stored-files {
-  margin: 20px;
+.message {
+  color: yellow;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
   text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Position above */
+  left: 50%;
+  margin-left: -150px; /* Center the tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
-.stored-files h2 {
-  color: purple;
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.pagination button {
+  margin: 0 5px;
+}
+
+.pagination button:hover {
+  background-color: #555;
 }
 
 ul {
@@ -81,66 +99,42 @@ ul {
 }
 
 li {
-  background-color: #fff;
-  padding: 10px;
-  margin: 5px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.app {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  height: 100vh;
+}
+
+.upload-section {
+  width: 20%;
+  padding: 20px;
+  background-color: #f1f1f1;
+}
+.upload-box input[type="file"] {
+  margin-bottom: 10px;
+  justify-content: center;
+}
+.files-section {
+  width: 40%;
+  padding: 20px;
+  background-color: #f9f9f9;
+  overflow-y: auto;
+}
+
+.astronaut-section {
+  width: 40%;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  background-color: #ffffff;
 }
 
-a {
-  text-decoration: none;
-  color: blue;
-  margin-left: 10px;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.message {
-  color: red;
-  margin-top: 10px;
-}
-
-.tooltip {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 200px;
-  background-color: #555;
-  color: #fff;
-  text-align: left;
-  border-radius: 6px;
-  padding: 10px;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%; /* Position above the text */
-  left: 50%;
-  margin-left: -100px; /* Center the tooltip */
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.tooltip .tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 100%; /* Bottom of the tooltip */
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
+.h1{
+  font-size: 2rem;
+  font-weight: bolder;
+  justify-content: center;
+  text-align: center;
 }
