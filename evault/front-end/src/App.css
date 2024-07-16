@@ -2,10 +2,32 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  height: 100vh;
-  background-image: url('C:\Users\Karthik\Desktop\B-love\evault\front-end\src\space.avif'); /* Update the path accordingly */
-  background-size: cover;
-  background-position: center;
+  background-color: #f0f0f0;
+}
+
+.App {
+  text-align: center;
+}
+
+h1 {
+  color: purple;
+  text-align: center;
+}
+
+
+
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+
+
+.App-header {
+  background-color: #1d50b6;
+  min-height: 100vh;
+}
+
+.container {
+
   display: flex;
   justify-content: center;
   align-items: center;

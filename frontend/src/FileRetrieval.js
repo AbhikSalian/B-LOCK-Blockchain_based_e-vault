@@ -27,7 +27,12 @@ const FileRetrieval = ({ onFileRetrieve }) => {
       {retrieveMessage && <p className="retrieve-message">{retrieveMessage}</p>}
       <ul>
         {fileList.map((file, index) => (
-          <li key={index}>{file.v_file} ({file.file_size} bytes)</li>
+          <li key={index}>
+            {file.v_file} ({file.file_size} bytes)
+            <a href={`data:text/plain;base64,${btoa(file.file_data)}`} download={file.v_file}>
+              Download
+            </a>
+          </li>
         ))}
       </ul>
     </div>
