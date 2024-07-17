@@ -2,7 +2,10 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  background-image: url('C:\Users\Karthik\Desktop\B-love\evault\front-end\src\space.avif'); /* Use the uploaded image */
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
 }
 
 .App {
@@ -10,29 +13,10 @@ body {
 }
 
 h1 {
-  color: purple;
-  text-align: center;
-}
-
-
-
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-
-
-.App-header {
-  background-color: #1d50b6;
-  min-height: 100vh;
-}
-
-.container {
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: white;
+  font-size: 3rem;
   text-shadow: 1px 1px 2px black;
+  margin-top: 20px;
 }
 
 .container {
@@ -43,29 +27,32 @@ h1 {
   padding: 20px;
 }
 
-.upload-box, .stored-files {
+.upload-box {
   width: 25%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
 }
 
-.astronaut {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.stored-files {
+  width: 70%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
 }
 
 button {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(255, 255, 255, 0.2);
   color: white;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: rgba(0, 0, 0, 1);
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 .message {
@@ -112,7 +99,7 @@ button:hover {
 }
 
 .pagination button:hover {
-  background-color: #555;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 ul {
@@ -122,41 +109,4 @@ ul {
 
 li {
   margin-bottom: 10px;
-}
-.app {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: 100vh;
-}
-
-.upload-section {
-  width: 20%;
-  padding: 20px;
-  background-color: #f1f1f1;
-}
-.upload-box input[type="file"] {
-  margin-bottom: 10px;
-  justify-content: center;
-}
-.files-section {
-  width: 40%;
-  padding: 20px;
-  background-color: #f9f9f9;
-  overflow-y: auto;
-}
-
-.astronaut-section {
-  width: 40%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffffff;
-}
-
-.h1{
-  font-size: 2rem;
-  font-weight: bolder;
-  justify-content: center;
-  text-align: center;
 }

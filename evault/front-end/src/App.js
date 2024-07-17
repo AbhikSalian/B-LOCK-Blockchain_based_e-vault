@@ -4,9 +4,10 @@ import CryptoJS from "crypto-js";
 import EVault from "./contracts/EVault.json";
 import './App.css';
 import { db } from './firebase';
-import { collection, addDoc, getDocs, query, where } from 'firebase/firestore';
+import { collection, addDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import Retrieve from './Retrieve';
+
 
 function App() {
   const [account, setAccount] = useState("");
@@ -106,9 +107,6 @@ function App() {
             <button type="submit">Upload to Blockchain</button>
           </form>
           {message && <p className="message">{message}</p>}
-        </div>
-        <div className="astronaut">
-          {/* Placeholder for the 3D character */}
         </div>
         <div className="stored-files">
           <Retrieve />
