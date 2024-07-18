@@ -25,6 +25,8 @@ h1 {
   align-items: flex-start;
   width: 100%;
   padding: 20px;
+  color: white;
+  text-align: center
 }
 
 .upload-box, .stored-files {

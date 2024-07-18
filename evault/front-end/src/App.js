@@ -98,11 +98,10 @@ function App() {
       <div className="container">
         <div className="upload-box">
           <h2>Upload a file</h2>
-          <br></br>
           <form onSubmit={storeFile}>
             <div>
               <input type="file" onChange={handleFileChange} required />
-            </div><br></br>
+            </div>
             <button type="submit">Upload to Blockchain</button>
           </form>
           {message && <p className="message">{message}</p>}
