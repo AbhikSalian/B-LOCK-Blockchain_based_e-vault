@@ -6,7 +6,8 @@
   .file-retrieve button {
     background-color: #28a745; /* Green */
     color: white;
-    padding: 15px 30px;
+    padding: 10px 30px;
+    padding-top: 5px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
