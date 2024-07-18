@@ -3,6 +3,7 @@ body {
   padding: 0;
   font-family: Arial, sans-serif;
   background-image: url('C:/Users/Karthik/Desktop/B-love/evault/front-end/src/space.avif');
+  background-image: url('./space.avif'); /* Use the uploaded image */
   background-size: cover;
   background-attachment: fixed;
   color: white;
