@@ -102,7 +102,7 @@ function App() {
           <form onSubmit={storeFile}>
             <div>
               <input type="file" onChange={handleFileChange} required />
-            </div>
+            </div><br></br>
             <button type="submit">Upload to Blockchain</button>
           </form>
           {message && <p className="message">{message}</p>}
