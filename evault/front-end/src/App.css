@@ -30,13 +30,13 @@ h1 {
   }
 }
 
-/* .app-header {
+.App-header {
   background-color: #1d50b6;
   min-height: 100vh;
   
-======= */
+=======
 .container {
-/* >>>>>>> 7fead0295dce79c40ffd067af8b52057394c50c4 */
+>>>>>>> 7fead0295dce79c40ffd067af8b52057394c50c4
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
