@@ -77,6 +77,7 @@ function App() {
       const snapshot = await uploadBytes(storageRef, file);
       const downloadURL = await getDownloadURL(snapshot.ref);
 
+      // Store file metadata in Firestore
       await addDoc(collection(db, "files"), {
         name: fileName,
         hash: fileHash,
@@ -84,6 +85,9 @@ function App() {
         owner: account,
         timestamp: new Date()
       });
+
+      // Store file hash on blockchain
+      await evault.methods.storeFile(fileName, fileHash).send({ from: account });
 
       setMessage("File stored successfully!");
     } catch (error) {
@@ -107,7 +111,7 @@ function App() {
           {message && <p className="message">{message}</p>}
         </div>
         <div className="stored-files">
-          <Retrieve />
+          <Retrieve account={account} evault={evault} />
         </div>
       </div>
     </div>
