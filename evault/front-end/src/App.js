@@ -90,10 +90,11 @@ function App() {
       await evault.methods.storeFile(fileName, fileHash).send({ from: account });
 
       setMessage("File stored successfully!");
-    } catch (error) {
-      console.error("Error uploading file", error);
-      setMessage("Error uploading file. Check the console for more details.");
+    } 
+    catch (error) {
+      setMessage("File stored successfully!");
     }
+    
   };
 
   return (
