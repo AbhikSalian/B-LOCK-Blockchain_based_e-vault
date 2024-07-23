@@ -86,15 +86,15 @@ function App() {
         timestamp: new Date()
       });
 
-      // Store file hash on blockchain
-      await evault.methods.storeFile(fileName, fileHash).send({ from: account });
+      // Estimate gas and store file hash on blockchain
+      const gasEstimate = await evault.methods.storeFile(fileName, fileHash).estimateGas({ from: account });
+      await evault.methods.storeFile(fileName, fileHash).send({ from: account, gas: gasEstimate });
 
       setMessage("File stored successfully!");
-    } 
-    catch (error) {
-      setMessage("File stored successfully!");
+    } catch (error) {
+      console.error("Error storing file:", error);
+      setMessage("Error storing file. Check the console for more details.");
     }
-    
   };
 
   return (
