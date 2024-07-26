@@ -3,7 +3,7 @@ import { db } from './firebase';
 import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import './App.css';
 
-const Retrieve = () => {
+const Retrieve = ({ account }) => {
   const [files, setFiles] = useState([]);
   const [message, setMessage] = useState("");
 
@@ -13,7 +13,9 @@ const Retrieve = () => {
 
   const fetchFiles = async () => {
     const querySnapshot = await getDocs(collection(db, "files"));
-    const filesData = querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+    const filesData = querySnapshot.docs
+      .map(doc => ({ ...doc.data(), id: doc.id }))
+      .filter(file => file.owner === account); // Filter by account
     setFiles(filesData);
   };
 
