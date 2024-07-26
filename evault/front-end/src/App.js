@@ -5,15 +5,17 @@ import EVault from "./contracts/EVault.json";
 import './App.css';
 import { db } from './firebase';
 import { collection, addDoc } from 'firebase/firestore';
-import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import Retrieve from './Retrieve';
+import Navigation from './Navigation';
+import Footer from './Footer';
 
 function App() {
   const [account, setAccount] = useState("");
   const [evault, setEVault] = useState(null);
   const [fileName, setFileName] = useState("");
   const [fileHash, setFileHash] = useState("");
-  const [file, setFile] = useState(null);
+  const [files, setFiles] = useState([]);
   const [message, setMessage] = useState("");
   const storage = getStorage();
 
@@ -42,22 +44,23 @@ function App() {
   };
 
   const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
+    const selectedFiles = Array.from(e.target.files);
 
-    if (!selectedFile) {
+    if (!selectedFiles.length) {
       return;
     }
 
-    setFileName(selectedFile.name);
-    setFile(selectedFile);
+    setFiles(selectedFiles);
 
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const binaryStr = event.target.result;
-      const hash = CryptoJS.SHA256(binaryStr).toString();
-      setFileHash(hash);
-    };
-    reader.readAsBinaryString(selectedFile);
+    selectedFiles.forEach(file => {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const binaryStr = event.target.result;
+        const hash = CryptoJS.SHA256(binaryStr).toString();
+        setFileHash(hash);
+      };
+      reader.readAsBinaryString(file);
+    });
   };
 
   const storeFile = async (e) => {
@@ -67,30 +70,40 @@ function App() {
       return;
     }
 
-    if (!file) {
+    if (!files.length) {
       setMessage("No file selected.");
       return;
     }
 
     try {
-      const storageRef = ref(storage, 'uploads/' + file.name);
-      const snapshot = await uploadBytes(storageRef, file);
-      const downloadURL = await getDownloadURL(snapshot.ref);
+      files.forEach(async (file) => {
+        const storageRef = ref(storage, 'uploads/' + file.name);
+        const uploadTask = uploadBytesResumable(storageRef, file);
 
-      // Store file metadata in Firestore
-      await addDoc(collection(db, "files"), {
-        name: fileName,
-        hash: fileHash,
-        downloadURL,
-        owner: account,
-        timestamp: new Date()
+        uploadTask.on('state_changed', (snapshot) => {
+          // Optional: Handle upload progress
+        }, (error) => {
+          console.error("Error uploading file:", error);
+          setMessage("Error uploading file. Check the console for more details.");
+        }, async () => {
+          const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+
+          // Store file metadata in Firestore
+          await addDoc(collection(db, "files"), {
+            name: file.name,
+            hash: fileHash,
+            downloadURL,
+            owner: account,
+            timestamp: new Date()
+          });
+
+          // Estimate gas and store file hash on blockchain
+          const gasEstimate = await evault.methods.storeFile(file.name, fileHash).estimateGas({ from: account });
+          await evault.methods.storeFile(file.name, fileHash).send({ from: account, gas: gasEstimate });
+
+          setMessage("File stored successfully!");
+        });
       });
-
-      // Estimate gas and store file hash on blockchain
-      const gasEstimate = await evault.methods.storeFile(fileName, fileHash).estimateGas({ from: account });
-      await evault.methods.storeFile(fileName, fileHash).send({ from: account, gas: gasEstimate });
-
-      setMessage("File stored successfully!");
     } catch (error) {
       console.error("Error storing file:", error);
       setMessage("Error storing file. Check the console for more details.");
@@ -99,22 +112,26 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="h1">B-lock</h1>
-      <div className="container">
+      <Navigation />
+      <header>
+        <h1>B-lock</h1>
+      </header>
+      <main className="container">
         <div className="upload-box">
           <h2>Upload a file</h2>
           <form onSubmit={storeFile}>
-            <div>
-              <input type="file" onChange={handleFileChange} required />
+            <div className="file-input-container">
+              <input type="file" onChange={handleFileChange} multiple required />
+              <button type="submit">Upload to Blockchain</button>
             </div>
-            <button type="submit">Upload to Blockchain</button>
           </form>
           {message && <p className="message">{message}</p>}
         </div>
         <div className="stored-files">
           <Retrieve account={account} evault={evault} />
         </div>
-      </div>
+      </main>
+      <Footer />
     </div>
   );
 }
