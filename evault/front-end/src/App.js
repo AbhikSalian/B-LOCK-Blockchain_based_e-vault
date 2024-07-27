@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from "react";
 import Web3 from "web3";
-import CryptoJS from "crypto-js";
 import EVault from "./contracts/EVault.json";
+import UserRegistry from "./contracts/UserRegistry.json";
 import './App.css';
 import { db, storage } from './firebase';
 import { collection, addDoc } from 'firebase/firestore';
@@ -17,7 +17,9 @@ function App() {
   const [evault, setEVault] = useState(null);
   const [fileName, setFileName] = useState("");
   const [fileHash, setFileHash] = useState("");
-  const [file, setFile] = useState(null);
+  const [files, setFiles] = useState([]);
+  const [userRegistry, setUserRegistry] = useState(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [message, setMessage] = useState("");
 
   useEffect(() => {
@@ -31,10 +33,14 @@ function App() {
       setAccount(accounts[0]);
 
       const networkId = await web3.eth.net.getId();
-      const deployedNetwork = EVault.networks[networkId];
-      if (deployedNetwork) {
-        const instance = new web3.eth.Contract(EVault.abi, deployedNetwork.address);
-        setEVault(instance);
+      const evaultDeployedNetwork = EVault.networks[networkId];
+      const userRegistryDeployedNetwork = UserRegistry.networks[networkId];
+
+      if (evaultDeployedNetwork && userRegistryDeployedNetwork) {
+        const evaultInstance = new web3.eth.Contract(EVault.abi, evaultDeployedNetwork.address);
+        const userRegistryInstance = new web3.eth.Contract(UserRegistry.abi, userRegistryDeployedNetwork.address);
+        setEVault(evaultInstance);
+        setUserRegistry(userRegistryInstance);
       } else {
         setMessage("Smart contract not deployed to detected network.");
       }
@@ -45,14 +51,13 @@ function App() {
   };
 
   const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
+    const selectedFiles = Array.from(e.target.files);
 
-    if (!selectedFile) {
+    if (!selectedFiles.length) {
       return;
     }
 
-    setFileName(selectedFile.name);
-    setFile(selectedFile);
+    setFiles(selectedFiles);
 
     const reader = new FileReader();
     reader.onload = (event) => {
@@ -70,28 +75,43 @@ function App() {
       return;
     }
 
-    if (!file) {
+    if (!files.length) {
       setMessage("No file selected.");
       return;
     }
 
     try {
-      const storageRef = ref(storage, 'uploads/' + file.name);
-      const snapshot = await uploadBytes(storageRef, file);
-      const downloadURL = await getDownloadURL(snapshot.ref);
+      files.forEach(async (file) => {
+        const storageRef = ref(storage, 'uploads/' + file.name);
+        const uploadTask = uploadBytesResumable(storageRef, file);
 
-      await addDoc(collection(db, "files"), {
-        name: fileName,
-        hash: fileHash,
-        downloadURL,
-        owner: account,
-        timestamp: new Date()
+        uploadTask.on('state_changed', (snapshot) => {
+          // Optional: Handle upload progress
+        }, (error) => {
+          console.error("Error uploading file:", error);
+          setMessage("Error uploading file. Check the console for more details.");
+        }, async () => {
+          const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+
+          // Store file metadata in Firestore
+          await addDoc(collection(db, "files"), {
+            name: file.name,
+            hash: fileHash,
+            downloadURL,
+            owner: account,
+            timestamp: new Date()
+          });
+
+          // Estimate gas and store file hash on blockchain
+          const gasEstimate = await evault.methods.storeFile(file.name, fileHash).estimateGas({ from: account });
+          await evault.methods.storeFile(file.name, fileHash).send({ from: account, gas: gasEstimate });
+
+          setMessage("File stored successfully!");
+        });
       });
-
-      setMessage("File stored successfully!");
     } catch (error) {
-      console.error("Error uploading file", error);
-      setMessage("Error uploading file. Check the console for more details.");
+      console.error("Error storing file:", error);
+      setMessage("Error storing file. Check the console for more details.");
     }
   };
 
@@ -99,21 +119,40 @@ function App() {
     <div className="App">
       <h1 className="h1">B-lock</h1>
       <div className="container">
+        {!isAuthenticated ? (
+          <div className="auth-box">
+            <SignUp userRegistry={userRegistry} account={account} setMessage={setMessage} />
+            <SignIn userRegistry={userRegistry} account={account} setIsAuthenticated={setIsAuthenticated} setMessage={setMessage} />
+            {message && <p className="message">{message}</p>}
+          </div>
+        ) : (
+          <div className="user-box">
+            <FileUpload evault={evault} account={account} setMessage={setMessage} />
+            <Retrieve account={account} />
+          </div>
+        )}
+      </div>
+      <Navigation />
+      <header>
+        <h1>B-lock</h1>
+      </header>
+      <main className="container">
         <div className="upload-box">
           <h2>Upload a file</h2>
           <br></br>
           <form onSubmit={storeFile}>
-            <div>
-              <input type="file" onChange={handleFileChange} required />
+            <div className="file-input-container">
+              <input type="file" onChange={handleFileChange} multiple required />
+              <button type="submit">Upload to Blockchain</button>
             </div>
-            <button type="submit">Upload to Blockchain</button>
           </form>
           {message && <p className="message">{message}</p>}
         </div>
         <div className="stored-files">
-          <Retrieve />
+          <Retrieve account={account} evault={evault} />
         </div>
-      </div>
+      </main>
+      <Footer />
     </div>
   );
 }

@@ -16,4 +16,14 @@ contract EVault {
     function retrieveFiles() public view returns (File[] memory) {
         return userFiles[msg.sender];
     }
+    function getFilenames() public view returns (string[] memory) {
+        File[] memory files = userFiles[msg.sender];
+        string[] memory fileNames = new string[](files.length);
+
+        for (uint i = 0; i < files.length; i++) {
+            fileNames[i] = files[i].fileName;
+        }
+
+        return fileNames;
+    }
 }

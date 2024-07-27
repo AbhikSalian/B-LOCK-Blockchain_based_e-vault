@@ -1,0 +1,426 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{ragged2e}
+\usepackage{color}
+\usepackage{biblatex}
+\usepackage{tabularx}
+
+
+\addbibresource{reference.bib}
+
+\geometry{
+a4paper,
+total={210mm,297mm},
+left=1.15in,
+right=0.85in,
+top=1.0in,
+bottom=1.0in,
+}
+
+\begin{document}
+
+\pagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%% Front Page  %%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+{\large \textbf{Visvesvaraya Technological University, Belagavi – 590018}}
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=2.3cm,height=3cm]{./pic/vtu}
+\end{figure}
+
+\textbf{MINI-PROJECT REPORT}
+\par
+\textbf{ON}
+\par
+\vspace{6pt}
+{\Large \textbf{B-LOCK: A Blockchain based e-vault application}}
+\par
+\vspace{12pt}
+\par
+\textit{\textbf{Submitted in partial fulfillment for the award of degree of}}
+\par
+\vspace{12pt}
+\large \textbf{BACHELOR OF ENGINEERING }
+\par
+\textbf{in}
+\par
+\large \textbf{COMPUTER SCIENCE \& ENGINEERING}
+\par
+\vspace{12pt}
+\textit{\textbf{Submitted by}}
+
+\begin{center}
+\begin{tabular}{l@{\hspace{2cm}}r}
+\textbf{\large Abhik L Salian } & \textbf{4SO21CS004} \\
+\textbf{\large Ashwitha Shetty} & \textbf{4SO21CS030} \\
+\textbf{\large H Karthik P Nayak } & \textbf{4SO21CS058} \\
+\textbf{\large Jessica Lillian Mathew } & \textbf{4SO21CS066} \\
+\end{tabular}
+\end{center}
+
+\vspace{12pt}
+\textit{\textbf{Under the Guidance of}}
+\par
+\vspace{6pt}
+\textbf{Dr. Santhosh Kumar DK}
+\par
+\vspace{2pt}
+\normalsize { \textcolor{red}{Associate Professor, Department of CSE } }
+\par
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.6]{./pic/sjeclogo}
+\end{figure}
+\large \textbf{DEPT. OF COMPUTER SCIENCE AND ENGINEERING}
+\par \Large \textbf{ST JOSEPH ENGINEERING COLLEGE}
+\par 
+\textbf{An Autonomous Institution}
+\par
+{\large{(Affiliated to VTU Belagavi, Recognized by AICTE, Accredited by NBA)}}
+\par
+{\large \textbf{Vamanjoor, Mangaluru - 575028, Karnataka}}
+\par 
+{\Large \textbf{2023-24}}
+\end{center}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Certificate Page %%%%%%%%%%%%%%%
+\begin{center}
+\LARGE \textbf{ST JOSEPH ENGINEERING COLLEGE}
+\par
+\Large \textbf{An Autonomous Institution}
+\par \large{(Affiliated to VTU Belagavi, Recognized by AICTE, Accredited by NBA)}
+\par \vspace{3pt}
+\large \textbf{Vamanjoor, Mangaluru - 575028, Karnataka}
+\par \vspace{12pt}  
+\par
+\large \textbf{DEPT. OF COMPUTER SCIENCE AND ENGINEERING}
+\par
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.5]{./pic/sjeclogo}
+\end{figure}
+
+
+{\Large \textbf{CERTIFICATE}}
+\end{center}
+\justifying
+\par
+\setstretch{1.2}
+\vspace{0.10in}
+\noindent 
+Certified that the Mini-project work entitled \textbf{``B-LOCK: A Blockchain based e-vault application''} carried out by\vspace{2pt} 
+\par
+\noindent 
+\begin{center}
+\begin{tabular}{l@{\hspace{2cm}}r}
+\textbf{\large Abhik L Salian } & \textbf{4SO21CS004} \\
+\textbf{\large Ashwitha Shetty} & \textbf{4SO21CS030} \\
+\textbf{\large H Karthik P Nayak } & \textbf{4SO21CS058} \\
+\textbf{\large Jessica Lillian Mathew } & \textbf{4SO21CS066} \\
+\end{tabular}
+\end{center}
+\noindent
+the bonafide students of VI semester Computer Science \& Engineering in partial fulfillment for the award of Bachelor of Engineering in Computer Science and Engineering of the Visvesvaraya Technological University, Belagavi during the year 2023-2024. It is certified that all suggestions indicated during internal assessment have been incorporated in the report. The project report has been approved as it satisfies the academic requirements in respect of project work prescribed for the said degree. 
+
+
+\vspace{0.55in}
+\par
+\vspace{0.65in}
+\setstretch{1.15}
+
+\begin{tabularx}{0.95 \textwidth} { 
+   >{\raggedright\arraybackslash}X 
+   >{\centering\arraybackslash}X 
+   >{\raggedleft\arraybackslash}X  }
+     \textbf{Mini-Project Coordinator Name} &  \textbf{Dr Sridevi Saralaya}\\
+     Mini-Project Coordinator &   HOD-CSE \\
+\end{tabularx}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Abstract %%%%%%%%%%%%%%%
+
+\pagestyle{plain}
+\setstretch{1.5}
+\pagenumbering{roman}
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{\numberline{}Abstract}
+Para 1	(Shall introduce the reader the subject matter of the project work. Shall discuss in brief the developments in the area of work/research so far based on the reference to the literature. Identification of the problem and defining exactly the purpose of the intended work or proposition of the novel solution. Research Methodology, brief discussion about the novel solution, experimental work, results and discussions. Conclusions drawn based on the work, advantages or benefits of using novel solution by way saving in cost, labor, space, energy or overall economy. Finally, write the proposition of the scope for future work.)
+
+\setstretch{1.2}
+\renewcommand{\contentsname}{Table of Contents}
+\tableofcontents
+\addcontentsline{toc}{chapter}{\numberline{}Table of Contents}
+\listoffigures
+\addcontentsline{toc}{chapter}{\numberline{}List of Figures}
+\listoftables
+\addcontentsline{toc}{chapter}{\numberline{}List of Tables}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%% Headders and Footers %%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\fontsize{10}{12} \selectfont Video Digest: A Query Based Dynamic Video Synopsis System}
+\rhead{\fontsize{10}{12} \selectfont Chapter \thechapter}
+\lfoot{\fontsize{10}{12} \selectfont Department of Computer Science and Engineering, SJEC, Mangaluru}
+\rfoot{\fontsize{10}{12} \selectfont Page \thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% CHapetr 1 Introduction %%%%%%%%%%%%%
+
+\setstretch{1.2}
+\pagenumbering{arabic}
+
+\chapter{Introduction}
+\par
+\section{Background}
+In article \cite{li2024matching} Query based video summarisation is a crucial activity in many industries, including traffic management and surveillance. This has traditionally been accomplished through the laborious, error-prone, and time-consuming process of manual checking. Automatic object detection and summarisation is now possible thanks to computer vision and deep learning.
+\par 
+Creating a condensed and representative version of a longer video. It involves identifying and extracting key frames or scenes from the original video and arranging them in a way that conveys the essence of the video's content in a shorter amount of time. Video synopsis has become increasingly important due to the growing amount of video data being generated and the need to quickly analyze and understand this data. It has many practical applications in areas such as surveillance, law enforcement, and video search and retrieval.
+\par
+Video synopsis has a wide range of potential users across different industries and applications. For law enforcement agencies, it can help to quickly analyze large amounts of surveillance footage, identify key events or suspects, and track their movements. Security companies can use it to monitor premises and identify potential threats or security breaches. Media companies can benefit from creating condensed versions of longer videos for news reports, documentaries, or other types of content. Marketing companies can use it to identify key moments in video content that are likely to be of interest to viewers and to create targeted advertisements or promotional videos. Overall, video synopsis offers a powerful tool for analyzing and summarizing video content for a variety of purposes.
+
+\section{Problem statement }
+Video digest revolves around developing algorithms and techniques to automatically create concise and coherent summaries of longer videos while retaining the essential content and context of the original footage. The primary goal is to provide an efficient representation of the video, making it easier for users to understand the video's content quickly without having to watch the entire duration. In this project we develop a query based dynamic summarization tool using deept learning techniques. 
+
+
+\section{Scope}
+The scope of query-based video synopsis is to create a condensed and representative version of a longer video that is specifically tailored to a user's query. This allows users to quickly and efficiently find relevant information within a large video dataset.
+Query-based video synopsis is important because it offers a solution to the problem of information overload in large video datasets. With the exponential growth of video data, it is becoming increasingly difficult for users to manually sift through large amounts of video content to find the information they need. Query-based video synopsis provides an automated and efficient way to extract and present the most relevant parts of the video data, making it easier for users to access and use the information they need.
+Another important aspect of query-based video synopsis is its potential applications in various industries and domains. For example, in law enforcement, query-based video synopsis can help investigators quickly identify relevant video footage related to a specific crime or suspect. In education, it can be used to create condensed versions of  lecture videos for students who need to review specific topics or concepts. In marketing, it can be used to identify and extract key moments in promotional videos that are likely to be of interest to customers.
+Overall, query-based video synopsis has significant scope and importance in enabling users to efficiently and effectively access relevant information from large video datasets, and it is likely to continue to play an increasingly important role in a wide range of industries and applications.
+
+
+%---------------------------- Chapter TWO --------------------------
+
+\chapter{Software Requirements Specification}
+\section{Introduction}
+
+paragraph contents... 
+
+\section{Functional requirements}
+paragraph contents... 
+
+\section{Non-Functional requirements}
+paragraph contents... 
+
+\subsection{subsection heading}
+paragraph contents... 
+
+
+\subsection{subsection heading}
+paragraph contents... 
+\section{User Interface requirements}
+paragraph contents... 
+\subsection{subsection heading}
+paragraph contents... 
+\subsection{subsection heading}
+paragraph contents... 
+\section{Software Requirements }
+paragraph contents... 
+\subsection{subsection heading}
+paragraph contents... 
+\subsection{subsection heading}
+paragraph contents... 
+\section{Hardware Requirements }
+paragraph contents... 
+
+
+\chapter{System Design}
+paragraph contents... 
+\section{Architecture Design}
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=4in,height=3in]{./pic/sjeclogo.png}
+\caption{System Architecture Diagram}
+\end{figure}
+This Figure 5.1 illustrates a high-level overview of the audio visual speech separation system. It is important to note that the specific techniques, algorithms, and models used in each component can vary depending on the implementation approach and the requirements of the system.
+\section{Decomposition Description}
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=5in,height=3in]{./pic/sjeclogo.png}
+\caption{Flow chart}
+\end{figure}
+\newpage
+Figure 5.2 represent the flow chart of the proposed system. In audio visual speech separation, the goal is to decompose an audio signal containing multiple overlapping speakers into individual speech signals corresponding to each speaker. The decomposition process involves separating the desired speech signals from the background noise and other interfering sounds.
+
+\section{Data Flow Design}
+\par
+The audio input undergoes pre-processing, while the visual input is processed to extract relevant cues. The pre-processed audio and processed visual data are then integrated. From the integrated representation, features are extracted. These features are utilized in the speech separation stage, where individual speech signals are separated from the mixture. Post-processing techniques are applied to enhance the quality of the separated speech signals. Finally, the individual speech signals are outputted as the result of the system. The data flow design ensures a sequential flow of operations, starting from capturing and processing the inputs, integrating the audio-visual information, extracting features, performing speech separation, applying post-processing, and generating the output. This design allows for effective processing and separation of audio visual data to obtain distinct speech signals from overlapping speakers.
+\\
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.8]{./pic/sample.jpg}
+\caption{Dataflow design}
+\end{figure}
+
+
+
+
+\chapter{Implementation}
+the chapter contains paragraph contents.(Pseudocode, Algorithm etc), for ex: Check the following data
+\section{Audio Extraction}
+\par
+Audio extraction is the process of isolating and extracting the audio content from a multimedia source, such as a video file. It involves separating the audio track from the accompanying video or other elements to obtain a standalone audio file representing the sound present in the source material.
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=5in,height=3in]{./pic/sjeclogo.png}
+\caption{code snippet for audio extraction}
+\end{figure}
+
+\section{Speech Separation}
+\par SpeechBrain is an open-source framework 
+
+\subsection{Sepformer}
+\par SepFormer is an algorithm for speech separation that utilizes self-attention mechanisms. It employs a transformer-based architecture to capture long-range dependencies and model the relationships between time-frequency points in the audio mixture, enabling the separation of multiple speech sources from the mixture.
+
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=5in,height=3in]{./pic/sjeclogo.png}
+\caption{code snippet for speech separation}
+\end{figure}
+
+\section{Speech Enhancement}
+\subsection{Lite Audio Visual Speech Enhancement}
+\par
+Lite AVSE algorithm is used for the separation and enhancement of the speech. The system 
+includes two visual data compression techniques and removes the visual feature extraction 
+network from the training model, yielding better online computation efficiency. As for the audio 
+features, short-time Fourier transform (STFT) is calculated of 3-second audio segments. Each 
+time-frequency (TF) bin contains the real and imaginary parts of a complex number, both of 
+which used as input. Power-law compression used to prevent loud audio from overwhelming soft 
+audio. The same processing is applied to both the noisy signal and the clean reference signal.
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=5in,height=3in]{./pic/sample.jpg}
+\caption{code snippet for speech enhancement using LAVSE}
+\end{figure}
+
+\subsection{Spectral Subtraction}
+Spectral subtraction is a technique used in audio signal processing to reduce background noise from an audio signal. It involves estimating the noise spectrum from a noisy signal and subtracting it from the noisy spectrum to enhance the desired signal. The resulting spectrum is then transformed back into the time domain to obtain a cleaner audio signal.
+\newpage
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=5in,height=3in]{./pic/sample.jpg}
+\caption{code snippet for speech enhancement using spectral subtraction}
+\end{figure}
+
+\section{Speaker Detection}
+\par The cv2 functions provide methods to load the pre-trained models, apply them to images or video frames, and draw bounding boxes around the detected faces. By leveraging cv2's face detection capabilities, you can automate tasks such as facial recognition, emotion analysis, or face tracking in various applications like surveillance, biometrics, or augmented reality.
+
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=5in,height=3in]{./pic/sample.jpg}
+\caption{code snippet for speaker detection}
+\end{figure}
+
+
+
+
+
+
+
+\chapter{Results and Discussion}
+this chapter contains the paragraphs as shown below
+\section{Face detection}
+\begin{figure} [hbtp]
+\centering
+\includegraphics[width=5in,height=3in]{./pic/sample.jpg}
+\caption{Face detection}
+\end{figure}
+\par Above figure 8.1 shows initial face detection process using opencv and dlib. It convert the image to grayscale, apply the model using cv2.detectMultiScale(), and draw bounding boxes around the detected faces using cv2.rectangle(). Display or save the result using cv2.imshow() or cv2.imwrite().
+
+\section{Speaker recognition}
+\begin{figure} [hbtp]
+\centering
+\includegraphics[width=5in,height=3in]{./pic/sample.jpg}
+\caption{Speaker recognition 1,person 1}
+\end{figure}
+
+\begin{figure} [hbtp]
+\centering
+\includegraphics[width=5in,height=3in]{./pic/sample.jpg}
+\caption{Speaker recognition 1,person 2}
+\end{figure}
+
+\begin{figure} [hbtp]
+\centering
+\includegraphics[width=5in,height=3in]{./pic/sample.jpg}
+\caption{Speaker recognition 2,person 1}
+\end{figure}
+
+\begin{figure} [hbtp]
+\centering
+\includegraphics[width=5in,height=3in]{./pic/sample.jpg}
+\caption{Speaker recognition 2,person 2}
+\end{figure}
+
+\begin{figure} [hbtp]
+\centering
+\includegraphics[width=5in,height=3in]{./pic/sample.jpg}
+\caption{Speaker recognition 3,person 1}
+\end{figure}
+
+\begin{figure} [hbtp]
+\centering
+\includegraphics[width=5in,height=3in]{./pic/sample.jpg}
+\caption{Speaker recognition 3,person 2}
+\end{figure}
+\newpage
+\par Above figures from 8.2 to 8.7 shows speaker recognition process using opencv and dlib.Speaker detection using cv2 and dlib involves utilizing dlib's pre-trained models along with cv2 functions to detect and locate human faces. By combining face detection with additional techniques such as audio analysis or lip movement tracking, speaker detection can be achieved in various applications like video conferencing or surveillance.
+
+\chapter{Conclusion and Future Work}
+\cite{bashir2021subjective} \cite{mittal2016}
+The Project will help in narrowing the imprecise communication problem in real-time data using 
+speech separation and speaker identification technique by Deep Learning and Image Processing 
+algorithms. This will impact the communication and security sectors in a greater extent. Overall, this 
+project aims to develop an application or method that can help to separate the audio-visual speech and 
+enhance it based on speaker identification.
+\\
+This project can be further developed as:
+\begin{itemize}
+    \item By incorporating more real-world testing and gathering feedback from individual units.
+    \item  The system can be connected with communication devices or services to enable the users to communicate with others with ease.
+\end{itemize}
+
+
+\cite{Tea} This project has a great potential to make a positive impact on communication and security situations. Its continuous improvement will be important to make this impact 
+even greater
+
+example for citing and bibtex for journal paper \cite{croitoru2023diffusion}, conference paper \cite{mohamad2015smart}, citing website \cite{knuthwebsite}, citing book \cite{dirac}
+
+
+
+
+
+
+
+
+\newpage
+
+\pagestyle{plain}
+\renewcommand{\bibname}{References}
+
+\addcontentsline{toc}{chapter}{References}
+
+\printbibliography
+
+
+
+\end{document}

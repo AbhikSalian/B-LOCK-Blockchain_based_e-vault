@@ -1,3 +1,4 @@
+/* App.css */
 body {
   margin: 0;
   padding: 0;
@@ -17,7 +18,7 @@ body {
   padding: 40px 20px;
 }
 
-h1 {
+header h1 {
   color: white;
   font-size: 3.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -81,6 +82,12 @@ h1 {
 .file-input-wrapper .btn:hover {
   background-color: rgba(255, 255, 255, 0.3);
   transform: scale(1.05);
+}
+
+.file-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 button {

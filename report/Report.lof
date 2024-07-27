@@ -1,0 +1,21 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces System Architecture Diagram}}{5}{}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Flow chart}}{6}{}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Dataflow design}}{7}{}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces code snippet for audio extraction}}{8}{}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces code snippet for speech separation}}{9}{}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces code snippet for speech enhancement using LAVSE}}{10}{}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces code snippet for speech enhancement using spectral subtraction}}{10}{}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces code snippet for speaker detection}}{11}{}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Face detection}}{12}{}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Speaker recognition 1,person 1}}{13}{}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Speaker recognition 1,person 2}}{13}{}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Speaker recognition 2,person 1}}{14}{}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Speaker recognition 2,person 2}}{14}{}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Speaker recognition 3,person 1}}{15}{}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Speaker recognition 3,person 2}}{15}{}%
+\addvspace {10\p@ }
