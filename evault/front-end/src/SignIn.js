@@ -1,105 +1,47 @@
-import React, { useState, useEffect } from "react";
-import Web3 from "web3";
-import UserRegistry from "./contracts/UserRegistry.json";
+import React, { useState } from 'react';
+import { auth } from './firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
-function SignIn({ toggleForm }) {
+function SignIn({ userRegistry, setIsAuthenticated, setMessage }) {
   const [email, setEmail] = useState("");
-  const [passwordHash, setPasswordHash] = useState("");
-  const [message, setMessage] = useState("");
-  const [userRegistry, setUserRegistry] = useState(null);
-  const [account, setAccount] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const loadBlockchainData = async () => {
-      try {
-        const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
-        const accounts = await web3.eth.getAccounts();
-        const networkId = await web3.eth.net.getId();
-        const deployedNetwork = UserRegistry.networks[networkId];
-        if (deployedNetwork) {
-          const instance = new web3.eth.Contract(UserRegistry.abi, deployedNetwork.address);
-          setUserRegistry(instance);
-          setAccount(accounts[0]);
-        } else {
-          setMessage("Smart contract not deployed to detected network.");
-        }
-      } catch (error) {
-        console.error("Error loading blockchain data", error);
-        setMessage("Error loading blockchain data. Check the console for more details.");
-      }
-    };
-
-    loadBlockchainData();
-  }, []);
-
-  const signInUser = async (e) => {
+  const handleSignIn = async (e) => {
     e.preventDefault();
-    if (!userRegistry) {
-      setMessage("Smart contract is not loaded.");
-      return;
-    }
-
     try {
-      // Check if email is registered
-      const isRegistered = await userRegistry.methods.isEmailRegistered(email).call();
-      if (!isRegistered) {
-        setMessage("Email not registered.");
-        return;
-      }
-
-      // Retrieve user data
-      const user = await userRegistry.methods.getUser(account).call();
-      if (user.email === email && user.passwordHash === passwordHash) {
-        setMessage("Sign-in successful!");
-        // Redirect or update UI to show user-specific data
-      } else {
-        setMessage("Invalid credentials.");
-      }
+      await signInWithEmailAndPassword(auth, email, password);
+      setIsAuthenticated(true);
+      navigate('/upload'); // Navigate to upload page on successful sign-in
     } catch (error) {
-      console.error("Error signing in user:", error);
-      setMessage("Error signing in user. Check the console for more details.");
+      setMessage(error.message);
     }
   };
 
   return (
-    <div>
+    <div className="form-wrapper sign-in">
       <h2>Sign In</h2>
-      <form onSubmit={signInUser}>
+      <form onSubmit={handleSignIn}>
         <div className="input-group">
           <input
             type="email"
-            placeholder="Email"
+            required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
           />
-          <label>Email</label>
+          <label>Email</label> 
         </div>
         <div className="input-group">
           <input
             type="password"
-            placeholder="Password"
-            value={passwordHash}
-            onChange={(e) => setPasswordHash(e.target.value)}
             required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <label>Password</label>
         </div>
-        <div className="remember">
-          <label>
-            <input type="checkbox" />
-            Remember Me
-          </label>
-        </div>
         <button type="submit">Sign In</button>
-        <div className="signup-link">
-          <p>
-            Don't have an account?
-            <a href="#" onClick={toggleForm}>
-              Sign Up
-            </a>
-          </p>
-        </div>
       </form>
     </div>
   );

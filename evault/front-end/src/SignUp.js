@@ -1,93 +1,47 @@
-import React, { useState, useEffect } from "react";
-import Web3 from "web3";
-import UserRegistry from "./contracts/UserRegistry.json";
+import React, { useState } from 'react';
+import { auth } from './firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
-function SignUp({ toggleForm }) {
+function SignUp({ userRegistry, account, setMessage, setIsAuthenticated }) {
   const [email, setEmail] = useState("");
-  const [passwordHash, setPasswordHash] = useState("");
-  const [message, setMessage] = useState("");
-  const [userRegistry, setUserRegistry] = useState(null);
-  const [account, setAccount] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const loadBlockchainData = async () => {
-      try {
-        const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
-        const accounts = await web3.eth.getAccounts();
-        const networkId = await web3.eth.net.getId();
-        const deployedNetwork = UserRegistry.networks[networkId];
-        if (deployedNetwork) {
-          const instance = new web3.eth.Contract(UserRegistry.abi, deployedNetwork.address);
-          setUserRegistry(instance);
-          setAccount(accounts[0]);
-        } else {
-          setMessage("Smart contract not deployed to detected network.");
-        }
-      } catch (error) {
-        console.error("Error loading blockchain data", error);
-        setMessage("Error loading blockchain data. Check the console for more details.");
-      }
-    };
-
-    loadBlockchainData();
-  }, []);
-
-  const registerUser = async (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
-    if (!userRegistry) {
-      setMessage("Smart contract is not loaded.");
-      return;
-    }
-
     try {
-      await userRegistry.methods.registerUser(email, passwordHash).send({ from: account });
-      setMessage("User registered successfully!");
-      toggleForm(); // Toggle to Sign In form
+      await createUserWithEmailAndPassword(auth, email, password);
+      setIsAuthenticated(true);
+      navigate('/upload'); // Navigate to upload page on successful sign-up
     } catch (error) {
-      console.error("Error registering user:", error);
-      setMessage("Error registering user. Check the console for more details.");
+      setMessage(error.message);
     }
   };
 
   return (
-    <div>
+    <div className="form-wrapper sign-up">
       <h2>Sign Up</h2>
-      <form onSubmit={registerUser}>
+      <form onSubmit={handleSignUp}>
         <div className="input-group">
           <input
             type="email"
-            placeholder="Email"
+            required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
           />
           <label>Email</label>
         </div>
         <div className="input-group">
           <input
             type="password"
-            placeholder="Password"
-            value={passwordHash}
-            onChange={(e) => setPasswordHash(e.target.value)}
             required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <label>Password</label>
         </div>
-        <div className="remember">
-          <label>
-            <input type="checkbox" required />
-            I agree to the terms & conditions
-          </label>
-        </div>
         <button type="submit">Sign Up</button>
-        <div className="signup-link">
-          <p>
-            Already have an account?
-            <a href="#" onClick={toggleForm}>
-              Sign In
-            </a>
-          </p>
-        </div>
       </form>
     </div>
   );

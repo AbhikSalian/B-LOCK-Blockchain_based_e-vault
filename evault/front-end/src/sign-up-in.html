@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /*background: url();
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;*/
+    background: linear-gradient(to right, #0F2143, #03306a, #023E8A, #0d5175, #0077B6);
+}
+
+.wrapper{
+    position: relative;
+    width: 400px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+}
+
+.form-wrapper{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition: 1s ease-in-out;
+}
+
+.wrapper.active .form-wrapper.sign-in{
+    transform: scale(0) translate(-300px, 500px);
+}
+
+.wrapper .form-wrapper.sign-up{
+    position: absolute;
+    top: 0;
+    transform: scale(0) translate(200px, -500px);
+}
+
+.wrapper.active .form-wrapper.sign-up{
+    transform: scale(1) translate(0, 0);
+}
+
+
+h2{
+    font-size: 30px;
+    color: azure;
+    text-align: center;
+}
+
+.input-group{
+    position: relative;
+    margin: 30px 0;
+    border-bottom: 2px solid azure;
+}
+
+.input-group label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: azure;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.input-group input{
+    width: 320px;
+    height: 40px;
+    font-size: 16px;
+    color: azure;
+    padding: 0 5px;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.input-group input:focus~label,
+.input-group input:valid~label{
+    top: -5px;
+}
+
+.remember {
+    margin: -5px 0 15px 5px;
+}
+
+.remember label{
+    color: azure;
+    font-size: 14px;
+}
+
+.remember label input{
+    accent-color: #023E8A;
+}
+
+button{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    background: #023E8A;
+    font-size: 16px;
+    color: azure;
+    cursor: pointer;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+}
+
+.signup-link{
+    font-size: 14px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.signup-link p{
+    color: azure;
+}
+
+.signup-link p a{
+    color: #023E8A;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signup-link p a:hover{
+    text-decoration: underline;
+}
+
+.social-platform{
+    font-size: 14px;
+    color: azure;
+    text-align: center;
+}
+
+.social-icons a{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background: transparent;
+    border: 1px solid azure;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    margin: 15px 6px 0;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    background: azure;
+}
+
+.social-icons a i{
+    color: azure;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover i{
+    color: rgba(0, 0, 0, 0.3);
+}
+        </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="form-wrapper sign-in">
+            <form id="sign-in-form">
+                <h2>Sign In</h2>
+                <div class="input-group">
+                    <input type="text" id="sign-in-email" required>
+                    <label for="">Email</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="sign-in-password" required>
+                    <label for="">Password</label>
+                </div>
+                <div class="remember">
+                    <label><input type="checkbox">Remember Me</label>
+                </div>
+                <button type="submit">Sign In</button>
+                <div class="signup-link">
+                    <p>Don't have an account?<a href="#" class="signUpBtn-link">Sign Up</a></p>
+                </div>
+                
+            </form>
+        </div>
+
+        <div class="form-wrapper sign-up">
+            <form id="sign-up-form">
+                <h2>Sign Up</h2>
+                <div class="input-group">
+                    <input type="email" id="sign-up-email" required>
+                    <label for="">Email</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="sign-up-password" required>
+                    <label for="">Password</label>
+                </div>
+                <div class="remember">
+                    <label><input type="checkbox">I agree to the terms & conditions</label>
+                </div>
+                <button type="submit">Sign Up</button>
+                <div class="signup-link">
+                    <p>Already have an account?<a href="#" class="signInBtn-link">Sign In</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+        import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const firebaseConfig = {
+                apiKey: "YOUR_API_KEY",
+                authDomain: "YOUR_AUTH_DOMAIN",
+                projectId: "YOUR_PROJECT_ID",
+                storageBucket: "YOUR_STORAGE_BUCKET",
+                messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+                appId: "YOUR_APP_ID",
+                measurementId: "YOUR_MEASUREMENT_ID"
+            };
+
+           
+            const signUpBtnLink = document.querySelector('.signUpBtn-link');
+            const signInBtnLink = document.querySelector('.signInBtn-link');
+            const wrapper = document.querySelector('.wrapper');
+
+            signUpBtnLink.addEventListener('click', () => {
+                wrapper.classList.toggle('active');
+            });
+
+            signInBtnLink.addEventListener('click', () => {
+                wrapper.classList.toggle('active');
+            });
+
+            
+
+            });
+    </script>
+</body>
+</html>
