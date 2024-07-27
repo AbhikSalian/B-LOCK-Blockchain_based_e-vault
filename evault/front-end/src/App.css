@@ -1,26 +1,87 @@
-/* Basic styling for App */
+/* App.css */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+  background-image: url('./space.avif');
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+  line-height: 1.6;
+}
 
 .App {
   text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px;
 }
 
-header {
-  background-color: #f4f4f4;
-  padding: 20px;
+header h1 {
+  color: white;
+  font-size: 3.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 40px;
+  font-weight: 300;
 }
 
-h1 {
-  margin: 0;
-}
-
-.main {
-  padding: 20px;
-}
-
-.form-wrapper {
-  width: 100%;
-  max-width: 400px;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 800px;
   margin: 0 auto;
+}
+
+.upload-box, .stored-files {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  margin-bottom: 30px;
+}
+
+.upload-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.file-input-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.file-input-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.file-input-wrapper .btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.file-input-wrapper .btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
 }
 
 .input-group {
@@ -53,31 +114,103 @@ h1 {
 }
 
 button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  background-color: #28a745;
+  background-color: rgba(255, 255, 255, 0.2);
   color: white;
+  border: none;
+  padding: 12px 24px;
   cursor: pointer;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  margin-top: 15px;
 }
 
 button:hover {
-  background-color: #218838;
-}
-
-.upload-box,
-.retrieve-box {
-  padding: 20px;
-}
-
-.upload-box input[type="file"] {
-  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
 }
 
 .message {
-  color: red;
+  color: #FFD700;
+  font-weight: bold;
+  margin-top: 15px;
 }
 
+.stored-files h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+li {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 12px 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  flex-grow: 1;
+  text-align: left;
+  margin-right: 15px;
+}
+
+li a:hover {
+  color: #FFD700;
+}
+
+li button {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  margin-top: 0;
+}
+
+li .delete-button {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+li .delete-button:hover {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+li .download-button {
+  background-color: rgba(0, 255, 0, 0.2);
+}
+
+li .download-button:hover {
+  background-color: rgba(0, 255, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding: 20px 10px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .upload-box, .stored-files {
+    padding: 20px;
+  }
+}
 .footer {
   background-color: #f4f4f4;
   padding: 10px;
