@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { db } from './firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, query, where, getDocs } from 'firebase/firestore';
 
-const Retrieve = ({ account, evault }) => {
+const Retrieve = ({ account }) => {
   const [files, setFiles] = useState([]);
 
   const fetchFiles = async () => {
     try {
-      const querySnapshot = await getDocs(collection(db, 'files'));
+      // Query to get files where the owner matches the current account
+      const q = query(collection(db, 'files'), where('owner', '==', account));
+      const querySnapshot = await getDocs(q);
       const filesList = querySnapshot.docs.map(doc => doc.data());
       setFiles(filesList);
     } catch (error) {
@@ -16,8 +18,10 @@ const Retrieve = ({ account, evault }) => {
   };
 
   useEffect(() => {
-    fetchFiles();
-  }, []);
+    if (account) {
+      fetchFiles();
+    }
+  }, [account]);
 
   return (
     <div className="retrieve-box">

@@ -6,17 +6,15 @@ import UserRegistry from "./contracts/UserRegistry.json";
 import './App.css';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
-import FileUpload from './FileUpload';
-import { db, storage, auth } from './firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import Dashboard from './Dashboard';
+import { db, storage } from './firebase';
+import { addDoc, collection } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import Retrieve from './Retrieve';
-import Footer from './Footer';
 import CryptoJS from 'crypto-js';
+
 function App() {
   const [account, setAccount] = useState("");
   const [evault, setEVault] = useState(null);
-  const [fileName, setFileName] = useState("");
   const [fileHash, setFileHash] = useState("");
   const [files, setFiles] = useState([]);
   const [userRegistry, setUserRegistry] = useState(null);
@@ -126,27 +124,27 @@ function App() {
         </header>
         <main className="container">
           <Routes>
-            <Route path="/signup" element={<SignUp userRegistry={userRegistry} account={account} setMessage={setMessage} setIsAuthenticated={setIsAuthenticated} />} />
-            <Route path="/signin" element={<SignIn userRegistry={userRegistry} account={account} setIsAuthenticated={setIsAuthenticated} setMessage={setMessage} />} />
-            <Route path="/upload" element={
+            <Route path="/signup" element={<SignUp setMessage={setMessage} setIsAuthenticated={setIsAuthenticated} />} />
+            <Route path="/signin" element={<SignIn setIsAuthenticated={setIsAuthenticated} setMessage={setMessage} setAccount={setAccount} />} />
+            <Route path="/dashboard" element={
               isAuthenticated ? (
-                <FileUpload
+                <Dashboard
                   evault={evault}
                   account={account}
                   setMessage={setMessage}
                   handleFileChange={handleFileChange}
                   storeFile={storeFile}
                   message={message}
+                  isAuthenticated={isAuthenticated}
+                  setIsAuthenticated={setIsAuthenticated}
                 />
               ) : (
-                <p>Please sign in to upload files.</p>
+                <p>Please sign in to access the dashboard.</p>
               )
             } />
-            <Route path="/retrieve" element={<Retrieve account={account} />} />
             <Route path="/" element={<p>Welcome to B-lock. <Link to="/signup">Sign Up</Link> or <Link to="/signin">Sign In</Link></p>} />
           </Routes>
         </main>
-        <Footer />
       </div>
     </Router>
   );

@@ -5,12 +5,12 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import UserRegistry from "./contracts/UserRegistry.json";
 
-function SignIn({ setIsAuthenticated }) {
+function SignIn({ setIsAuthenticated, setMessage, setAccount }) {
   const [email, setEmail] = useState("");
   const [passwordHash, setPasswordHash] = useState("");
-  const [message, setMessage] = useState(""); // Use local state for message
+  const [message, setMessageLocal] = useState(""); // Rename local state to avoid conflict
   const [userRegistry, setUserRegistry] = useState(null);
-  const [account, setAccount] = useState("");
+  const [account, setAccountLocal] = useState(""); // Rename local state to avoid conflict
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,13 +23,13 @@ function SignIn({ setIsAuthenticated }) {
         if (deployedNetwork) {
           const instance = new web3.eth.Contract(UserRegistry.abi, deployedNetwork.address);
           setUserRegistry(instance);
-          setAccount(accounts[0]);
+          setAccountLocal(accounts[0]); // Update local state
         } else {
-          setMessage("Smart contract not deployed to detected network.");
+          setMessageLocal("Smart contract not deployed to detected network.");
         }
       } catch (error) {
         console.error("Error loading blockchain data", error);
-        setMessage("Error loading blockchain data. Check the console for more details.");
+        setMessageLocal("Error loading blockchain data. Check the console for more details.");
       }
     };
 
@@ -39,7 +39,7 @@ function SignIn({ setIsAuthenticated }) {
   const signInUser = async (e) => {
     e.preventDefault();
     if (!userRegistry) {
-      setMessage("Smart contract is not loaded.");
+      setMessageLocal("Smart contract is not loaded.");
       return;
     }
 
@@ -47,22 +47,23 @@ function SignIn({ setIsAuthenticated }) {
       // Check if email is registered
       const isRegistered = await userRegistry.methods.isEmailRegistered(email).call();
       if (!isRegistered) {
-        setMessage("Email not registered.");
+        setMessageLocal("Email not registered.");
         return;
       }
 
       // Retrieve user data
       const user = await userRegistry.methods.getUser(account).call();
       if (user.email === email && user.passwordHash === passwordHash) {
-        setMessage("Sign-in successful!");
-        setIsAuthenticated(true);
-        navigate('/upload'); // Redirect to file upload page
+        setMessageLocal("Sign-in successful!");
+        setIsAuthenticated(true); // Set the authentication status
+        setAccount(account); // Update parent component state
+        navigate('/dashboard'); // Redirect to file upload page
       } else {
-        setMessage("Invalid credentials.");
+        setMessageLocal("Invalid credentials.");
       }
     } catch (error) {
       console.error("Error signing in user:", error);
-      setMessage("Error signing in user. Check the console for more details.");
+      setMessageLocal("Error signing in user. Check the console for more details.");
     }
   };
 
@@ -77,7 +78,7 @@ function SignIn({ setIsAuthenticated }) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <label>Email</label> 
+          <label>Email</label>
         </div>
         <div className="input-group">
           <input
