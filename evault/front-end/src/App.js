@@ -127,7 +127,7 @@ function App() {
         <main className="container">
           <Routes>
             <Route path="/signup" element={<SignUp userRegistry={userRegistry} account={account} setMessage={setMessage} setIsAuthenticated={setIsAuthenticated} />} />
-            <Route path="/signin" element={<SignIn userRegistry={userRegistry} setIsAuthenticated={setIsAuthenticated} setMessage={setMessage} />} />
+            <Route path="/signin" element={<SignIn userRegistry={userRegistry} account={account} setIsAuthenticated={setIsAuthenticated} setMessage={setMessage} />} />
             <Route path="/upload" element={
               isAuthenticated ? (
                 <FileUpload
