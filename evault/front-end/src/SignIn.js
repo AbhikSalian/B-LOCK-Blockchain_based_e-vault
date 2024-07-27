@@ -5,28 +5,13 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import UserRegistry from "./contracts/UserRegistry.json";
 
-function SignIn() {
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const navigate = useNavigate();
-
-  // const handleSignIn = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     await signInWithEmailAndPassword(auth, email, password);
-  //     setIsAuthenticated(true);
-  //     navigate('/upload'); // Navigate to upload page on successful sign-in
-  //   } catch (error) {
-  //     setMessage(error.message);
-  //   }
-  // };
-
-
+function SignIn({ setIsAuthenticated }) {
   const [email, setEmail] = useState("");
   const [passwordHash, setPasswordHash] = useState("");
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState(""); // Use local state for message
   const [userRegistry, setUserRegistry] = useState(null);
   const [account, setAccount] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loadBlockchainData = async () => {
@@ -70,7 +55,8 @@ function SignIn() {
       const user = await userRegistry.methods.getUser(account).call();
       if (user.email === email && user.passwordHash === passwordHash) {
         setMessage("Sign-in successful!");
-        // Redirect or update UI to show user-specific data
+        setIsAuthenticated(true);
+        navigate('/upload'); // Redirect to file upload page
       } else {
         setMessage("Invalid credentials.");
       }
