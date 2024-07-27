@@ -1,12 +1,16 @@
+
 import React, { useState, useEffect } from "react";
 import Web3 from "web3";
 import CryptoJS from "crypto-js";
 import EVault from "./contracts/EVault.json";
 import './App.css';
-import { db } from './firebase';
+import { db, storage } from './firebase';
 import { collection, addDoc } from 'firebase/firestore';
-import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+
+
 import Retrieve from './Retrieve';
+import Upload from './Upload';
 
 function App() {
   const [account, setAccount] = useState("");
@@ -15,7 +19,6 @@ function App() {
   const [fileHash, setFileHash] = useState("");
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState("");
-  const storage = getStorage();
 
   useEffect(() => {
     loadBlockchainData();
@@ -54,10 +57,10 @@ function App() {
     const reader = new FileReader();
     reader.onload = (event) => {
       const binaryStr = event.target.result;
-      const hash = CryptoJS.SHA256(binaryStr).toString();
+      const hash = CryptoJS.SHA256(CryptoJS.lib.WordArray.create(binaryStr)).toString();
       setFileHash(hash);
     };
-    reader.readAsBinaryString(selectedFile);
+    reader.readAsArrayBuffer(selectedFile);
   };
 
   const storeFile = async (e) => {
@@ -98,6 +101,7 @@ function App() {
       <div className="container">
         <div className="upload-box">
           <h2>Upload a file</h2>
+          <br></br>
           <form onSubmit={storeFile}>
             <div>
               <input type="file" onChange={handleFileChange} required />
