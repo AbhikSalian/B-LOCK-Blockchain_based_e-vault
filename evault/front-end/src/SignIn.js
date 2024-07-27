@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Web3 from "web3";
 import UserRegistry from "./contracts/UserRegistry.json";
 
-function SignIn() {
+function SignIn({ toggleForm }) {
   const [email, setEmail] = useState("");
   const [passwordHash, setPasswordHash] = useState("");
   const [message, setMessage] = useState("");
@@ -65,23 +65,42 @@ function SignIn() {
     <div>
       <h2>Sign In</h2>
       <form onSubmit={signInUser}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={passwordHash}
-          onChange={(e) => setPasswordHash(e.target.value)}
-          required
-        />
+        <div className="input-group">
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <label>Email</label>
+        </div>
+        <div className="input-group">
+          <input
+            type="password"
+            placeholder="Password"
+            value={passwordHash}
+            onChange={(e) => setPasswordHash(e.target.value)}
+            required
+          />
+          <label>Password</label>
+        </div>
+        <div className="remember">
+          <label>
+            <input type="checkbox" />
+            Remember Me
+          </label>
+        </div>
         <button type="submit">Sign In</button>
+        <div className="signup-link">
+          <p>
+            Don't have an account?
+            <a href="#" onClick={toggleForm}>
+              Sign Up
+            </a>
+          </p>
+        </div>
       </form>
-      {message && <p className="message">{message}</p>}
     </div>
   );
 }

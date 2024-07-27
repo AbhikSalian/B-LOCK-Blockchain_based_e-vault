@@ -12,15 +12,8 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import Retrieve from './Retrieve';
 import Upload from './Upload';
 
-function App() {
-  const [account, setAccount] = useState("");
-  const [evault, setEVault] = useState(null);
-  const [fileName, setFileName] = useState("");
-  const [fileHash, setFileHash] = useState("");
-  const [files, setFiles] = useState([]);
-  const [userRegistry, setUserRegistry] = useState(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [message, setMessage] = useState("");
+const App = () => {
+  const [isSignUp, setIsSignUp] = useState(true);
 
   useEffect(() => {
     loadBlockchainData();
@@ -155,6 +148,6 @@ function App() {
       <Footer />
     </div>
   );
-}
+};
 
 export default App;
