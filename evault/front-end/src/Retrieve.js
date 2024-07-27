@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { db } from './firebase';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
+import { FaDownload, FaSort } from 'react-icons/fa';
 import './Retrieve.css';
 
 const Retrieve = () => {
   const [files, setFiles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [filesPerPage] = useState(5);
-  const [sortOption, setSortOption] = useState("timestamp");
+  const [sortConfig, setSortConfig] = useState({ key: "timestamp", direction: "asc" });
   const [message, setMessage] = useState("");
 
   useEffect(() => {
     fetchFiles();
-  }, [sortOption]);
+  }, [sortConfig]);
 
   const fetchFiles = async () => {
     try {
-      const q = query(collection(db, "files"), orderBy(sortOption, "asc"));
+      const q = query(collection(db, "files"), orderBy(sortConfig.key, sortConfig.direction));
       const querySnapshot = await getDocs(q);
       const filesData = querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
       setFiles(filesData);
@@ -26,8 +27,12 @@ const Retrieve = () => {
     }
   };
 
-  const handleSortChange = (e) => {
-    setSortOption(e.target.value);
+  const handleSort = (key) => {
+    let direction = 'asc';
+    if (sortConfig.key === key && sortConfig.direction === 'asc') {
+      direction = 'desc';
+    }
+    setSortConfig({ key, direction });
   };
 
   // Pagination logic
@@ -61,20 +66,21 @@ const Retrieve = () => {
   return (
     <div>
       <h2>Stored Files</h2>
-      <div className="sort-container">
-        <label htmlFor="sort">Sort by: </label>
-        <select id="sort" value={sortOption} onChange={handleSortChange}>
-          <option value="timestamp">Upload Date</option>
-          <option value="name">Name</option>
-        </select>
-      </div>
       {files.length > 0 ? (
         <>
+          <div className="file-header">
+            <span onClick={() => handleSort("name")}>Name <FaSort /></span>
+            <span onClick={() => handleSort("timestamp")}>Upload Date <FaSort /></span>
+            <span>Download</span>
+          </div>
           <ul>
             {currentFiles.map(file => (
-              <li key={file.id}>
+              <li key={file.id} className="file-item">
                 <span>{file.name}</span>
-                <button onClick={() => handleDownload(file.downloadURL, file.name)}>Download</button>
+                <span>{new Date(file.timestamp.seconds * 1000).toLocaleString()}</span>
+                <button onClick={() => handleDownload(file.downloadURL, file.name)}>
+                  <FaDownload />
+                </button>
               </li>
             ))}
           </ul>
