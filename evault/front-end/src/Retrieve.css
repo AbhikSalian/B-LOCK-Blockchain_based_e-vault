@@ -1,9 +1,32 @@
 .sort-container {
   margin-bottom: 20px;
+
+  display: flex;
+  align-items: center;
+}
+
+.sort-container label {
+  margin-right: 10px;
+  color: white;
+}
+
+.sort-container select {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+
 }
 
 .pagination {
   margin-top: 20px;
+
+
+  display: flex;
+  justify-content: center;
+
 }
 
 .pagination button {
@@ -11,7 +34,11 @@
   color: white;
   border: none;
   padding: 5px 10px;
+
   margin-right: 5px;
+
+  margin: 0 5px;
+
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s;
@@ -20,6 +47,7 @@
 .pagination button:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
+
 
 .file-header {
   display: flex;
@@ -50,6 +78,27 @@
 }
 
 .file-item button {
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+li span {
+  color: white;
+}
+
+button {
   background-color: rgba(255, 255, 255, 0.2);
   color: white;
   border: none;
@@ -65,4 +114,10 @@
 
 .message {
   color: yellow;
+}
+  text-align: center;
+  margin: 10px 0;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 }

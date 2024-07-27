@@ -22,18 +22,34 @@ header h1 {
 
 .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   width: 100%;
   padding: 20px;
   color: white;
+  overflow: hidden;
 }
 
 .upload-box, .stored-files {
-  width: 45%;
+  width: 80%;
+  max-width: 800px;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 20px;
   border-radius: 10px;
+  position: absolute;
+  transition: transform 0.5s ease-in-out;
+}
+
+.upload-box {
+  transform: translateX(-150%);
+}
+
+.stored-files {
+  transform: translateX(150%);
+}
+
+.upload-box.active, .stored-files.active {
+  transform: translateX(0);
 }
 
 .file-input-container {
@@ -49,15 +65,21 @@ button {
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 button:hover {
   background-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
 }
 
 .message {
   color: yellow;
+  text-align: center;
+  margin: 10px 0;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 }
 
 ul {
@@ -66,10 +88,13 @@ ul {
 }
 
 li {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 5px;
 }
 
 li a {
@@ -79,4 +104,45 @@ li a {
 
 li a:hover {
   text-decoration: underline;
+}
+
+/* Navigation styles */
+nav {
+  margin-bottom: 20px;
+}
+
+nav button {
+  margin: 0 10px;
+}
+
+/* Sort container styles */
+.sort-container {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sort-container label {
+  margin-right: 10px;
+}
+
+.sort-container select {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Pagination styles */
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination button {
+  margin: 0 5px;
 }

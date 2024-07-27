@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Web3 from "web3";
 import CryptoJS from "crypto-js";
 import EVault from "./contracts/EVault.json";
@@ -17,10 +17,41 @@ function App() {
   const [fileHash, setFileHash] = useState("");
   const [files, setFiles] = useState([]);
   const [message, setMessage] = useState("");
-  const storage = getStorage();
+
+  const uploadNavRef = useRef(null);
+  const storageNavRef = useRef(null);
+  const uploadBoxRef = useRef(null);
+  const storedFilesRef = useRef(null);
 
   useEffect(() => {
     loadBlockchainData();
+  }, []);
+
+  useEffect(() => {
+    const handleUploadClick = (e) => {
+      e.preventDefault();
+      uploadBoxRef.current.classList.add('active');
+      storedFilesRef.current.classList.remove('active');
+    };
+
+    const handleStorageClick = (e) => {
+      e.preventDefault();
+      uploadBoxRef.current.classList.remove('active');
+      storedFilesRef.current.classList.add('active');
+    };
+
+    const uploadNav = uploadNavRef.current;
+    const storageNav = storageNavRef.current;
+
+    if (uploadNav && storageNav) {
+      uploadNav.addEventListener('click', handleUploadClick);
+      storageNav.addEventListener('click', handleStorageClick);
+
+      return () => {
+        uploadNav.removeEventListener('click', handleUploadClick);
+        storageNav.removeEventListener('click', handleStorageClick);
+      };
+    }
   }, []);
 
   const loadBlockchainData = async () => {
@@ -76,6 +107,7 @@ function App() {
     }
 
     try {
+      const storage = getStorage();
       files.forEach(async (file) => {
         const storageRef = ref(storage, 'uploads/' + file.name);
         const uploadTask = uploadBytesResumable(storageRef, file);
@@ -112,12 +144,12 @@ function App() {
 
   return (
     <div className="App">
-      <Navigation />
+      <Navigation uploadNavRef={uploadNavRef} storageNavRef={storageNavRef} />
       <header>
         <h1>B-lock</h1>
       </header>
       <main className="container">
-        <div className="upload-box">
+        <div className="upload-box" ref={uploadBoxRef}>
           <h2>Upload a file</h2>
           <form onSubmit={storeFile}>
             <div className="file-input-container">
@@ -127,7 +159,7 @@ function App() {
           </form>
           {message && <p className="message">{message}</p>}
         </div>
-        <div className="stored-files">
+        <div className="stored-files" ref={storedFilesRef}>
           <Retrieve account={account} evault={evault} />
         </div>
       </main>
