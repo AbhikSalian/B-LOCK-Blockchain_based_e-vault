@@ -1,13 +1,13 @@
 import React from "react";
 import './Navigation.css';
 
-function Navigation({ uploadNavRef, storageNavRef }) {
+function Navigation({ onUploadClick, onStorageClick }) {
   return (
     <nav className="navbar">
       <div className="logo">B-lock</div>
       <ul className="nav-links">
-        <li><a href="#upload" ref={uploadNavRef}>Upload</a></li>
-        <li><a href="#files" ref={storageNavRef}>Stored Files</a></li>
+        <li><a href="#upload" onClick={onUploadClick}>Upload</a></li>
+        <li><a href="#files" onClick={onStorageClick}>Stored Files</a></li>
       </ul>
     </nav>
   );

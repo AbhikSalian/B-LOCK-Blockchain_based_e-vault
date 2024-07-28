@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Web3 from "web3";
 import CryptoJS from "crypto-js";
 import EVault from "./contracts/EVault.json";
@@ -24,13 +24,9 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [filesPerPage] = useState(5);
   const [modalFile, setModalFile] = useState(null);
-  const [user, setUser] = useState(null); // New state for user
-  const [authMode, setAuthMode] = useState('signIn'); // Manage auth mode
-
-  const uploadNavRef = useRef(null);
-  const storageNavRef = useRef(null);
-  const uploadBoxRef = useRef(null);
-  const storedFilesRef = useRef(null);
+  const [user, setUser] = useState(null);
+  const [authMode, setAuthMode] = useState('signIn');
+  const [activeContainer, setActiveContainer] = useState('upload');
 
   useEffect(() => {
     loadBlockchainData();
@@ -41,35 +37,6 @@ function App() {
       fetchFiles();
     }
   }, [sortConfig, user]);
-
-  useEffect(() => {
-    const handleUploadClick = (e) => {
-      e.preventDefault();
-      uploadBoxRef.current.classList.add('active');
-      storedFilesRef.current.classList.remove('active');
-    };
-
-    const handleStorageClick = (e) => {
-      e.preventDefault();
-      uploadBoxRef.current.classList.remove('active');
-      storedFilesRef.current.classList.add('active');
-    };
-
-    const uploadNavElement = uploadNavRef.current;
-    const storageNavElement = storageNavRef.current;
-
-    if (uploadNavElement && storageNavElement) {
-      uploadNavElement.addEventListener('click', handleUploadClick);
-      storageNavElement.addEventListener('click', handleStorageClick);
-    }
-
-    return () => {
-      if (uploadNavElement && storageNavElement) {
-        uploadNavElement.removeEventListener('click', handleUploadClick);
-        storageNavElement.removeEventListener('click', handleStorageClick);
-      }
-    };
-  }, []);
 
   const loadBlockchainData = async () => {
     if (window.ethereum) {
@@ -115,7 +82,6 @@ function App() {
       async () => {
         const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
 
-        // Save file metadata to Firestore
         try {
           await addDoc(collection(db, 'files'), {
             name: file.name,
@@ -223,7 +189,7 @@ function App() {
   };
 
   const onSignIn = (email, password) => {
-    setUser(auth.currentUser); // Set authenticated user
+    setUser(auth.currentUser);
   };
 
   const switchToSignIn = () => {
@@ -244,16 +210,25 @@ function App() {
         )
       ) : (
         <>
-          <Navigation uploadNavRef={uploadNavRef} storageNavRef={storageNavRef} />
+          <Navigation 
+            onUploadClick={(e) => {
+              e.preventDefault();
+              setActiveContainer('upload');
+            }} 
+            onStorageClick={(e) => {
+              e.preventDefault();
+              setActiveContainer('storage');
+            }} 
+          />
           <main>
-            <div className="upload-box" ref={uploadBoxRef}>
+            <div className={`upload-box ${activeContainer === 'upload' ? 'active' : ''}`}>
               <h2>Upload Files</h2>
               <input type="file" multiple onChange={handleFileChange} />
               <button onClick={handleUpload}>Upload</button>
               {message && <p>{message}</p>}
             </div>
-
-            <div className="stored-files" ref={storedFilesRef}>
+  
+            <div className={`stored-files ${activeContainer === 'storage' ? 'active' : ''}`}>
               <h2>Stored Files</h2>
               {storedFiles.length > 0 ? (
                 <>
@@ -297,18 +272,18 @@ function App() {
                 <p>No files stored yet.</p>
               )}
             </div>
-            {modalFile && (
-              <div className="modal">
-                <div className="modal-content">
-                  <span className="close" onClick={closeModal}>&times;</span>
-                  <h2>Preview of {modalFile.name}</h2>
-                  <iframe src={modalFile.previewURL} title="File Preview" width="100%" height="400"></iframe>
-                </div>
-              </div>
-            )}
           </main>
           <Footer />
         </>
+      )}
+      {modalFile && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close" onClick={closeModal}>&times;</span>
+            <h2>Preview of {modalFile.name}</h2>
+            <iframe src={modalFile.previewURL} title="File Preview" width="100%" height="400"></iframe>
+          </div>
+        </div>
       )}
     </div>
   );
