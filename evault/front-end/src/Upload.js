@@ -6,8 +6,8 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { collection, addDoc } from "firebase/firestore";
 import { FaDownload, FaSort, FaEye } from "react-icons/fa";
 import "./Upload.css"; // If you have specific styles for the Upload component
-
-function Upload({ evault, account, storage, db, user, fetchFiles }) {
+import Retrieve from "./Retrieve";
+function Upload({ evault, account, storage, db, user}) {
   const [fileHash, setFileHash] = useState("");
   const [fileName, setFileName] = useState("");
   const [files, setFiles] = useState([]);
@@ -45,7 +45,7 @@ function Upload({ evault, account, storage, db, user, fetchFiles }) {
             });
 
             setMessage("File uploaded successfully");
-            fetchFiles();
+            // Retrieve.fetchFiles();
           } catch (error) {
             console.error("Firestore error:", error);
             setMessage("Error saving file data");

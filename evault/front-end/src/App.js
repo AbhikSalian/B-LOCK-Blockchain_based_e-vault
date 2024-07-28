@@ -97,7 +97,7 @@ function App() {
                 storage={storage}
                 db={db}
                 user={user}
-                fetchFiles={Retrieve.fetchFiles} // Pass fetchFiles to update stored files
+                // fetchFiles={Retrieve.fetchFiles} // Pass fetchFiles to update stored files
               />
             ) : (
               <Retrieve
