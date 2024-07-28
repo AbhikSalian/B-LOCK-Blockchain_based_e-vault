@@ -2,15 +2,22 @@ import React, { useState, useEffect } from "react";
 import Web3 from "web3";
 import CryptoJS from "crypto-js";
 import EVault from "./contracts/EVault.json";
-import './App.css';
-import { db, storage, auth } from './firebase';
-import { collection, addDoc, getDocs, query, where, orderBy } from 'firebase/firestore';
-import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import { FaDownload, FaSort, FaEye } from 'react-icons/fa';
-import Navigation from './Navigation';
-import Footer from './Footer';
-import SignUp from './SignUp';
-import SignIn from './SignIn';
+import "./App.css";
+import { db, storage, auth } from "./firebase";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  orderBy,
+} from "firebase/firestore";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { FaDownload, FaSort, FaEye } from "react-icons/fa";
+import Navigation from "./Navigation";
+import Footer from "./Footer";
+import SignUp from "./SignUp";
+import SignIn from "./SignIn";
 
 function App() {
   const [account, setAccount] = useState("");
@@ -20,13 +27,16 @@ function App() {
   const [files, setFiles] = useState([]);
   const [storedFiles, setStoredFiles] = useState([]);
   const [message, setMessage] = useState("");
-  const [sortConfig, setSortConfig] = useState({ key: 'timestamp', direction: 'asc' });
+  const [sortConfig, setSortConfig] = useState({
+    key: "timestamp",
+    direction: "asc",
+  });
   const [currentPage, setCurrentPage] = useState(1);
   const [filesPerPage] = useState(5);
   const [modalFile, setModalFile] = useState(null);
   const [user, setUser] = useState(null);
-  const [authMode, setAuthMode] = useState('signIn');
-  const [activeContainer, setActiveContainer] = useState('upload');
+  const [authMode, setAuthMode] = useState("signIn");
+  const [activeContainer, setActiveContainer] = useState("upload");
 
   useEffect(() => {
     loadBlockchainData();
@@ -64,16 +74,20 @@ function App() {
   };
 
   const uploadFile = async (file) => {
-    const hash = CryptoJS.SHA256(file.name + new Date().toISOString()).toString();
+    const hash = CryptoJS.SHA256(
+      file.name + new Date().toISOString()
+    ).toString();
     setFileHash(hash);
-
+    setFileName(file.name);
     const storageRef = ref(storage, `uploads/${user.uid}/${hash}_${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
 
-    uploadTask.on('state_changed',
+    uploadTask.on(
+      "state_changed",
       (snapshot) => {
-        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        setMessage(`Upload is ${progress.toFixed(2)}% done`);
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        setMessage(`Upload is ${progress.toFixed(2)}\% done`);
       },
       (error) => {
         console.error("Upload error:", error);
@@ -81,19 +95,30 @@ function App() {
       },
       async () => {
         const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-
         try {
-          await addDoc(collection(db, 'files'), {
-            name: file.name,
-            owner: user.uid,
-            downloadURL,
-            timestamp: new Date()
-          });
-          setMessage("File uploaded successfully");
-          fetchFiles();
-        } catch (error) {
-          console.error("Firestore error:", error);
-          setMessage("Error saving file data");
+          // Store file hash on blockchain
+          await evault.methods
+            .storeFile(fileName, fileHash)
+            .send({ from: account });
+          try {
+            await addDoc(collection(db, "files"), {
+              name: file.name,
+              owner: user.uid,
+              downloadURL,
+              timestamp: new Date(),
+            });
+
+            setMessage("File uploaded successfully");
+            fetchFiles();
+          } catch (error) {
+            console.error("Firestore error:", error);
+            setMessage("Error saving file data");
+          }
+        } catch (e) {
+          console.error("Blockchain error: ", e);
+          setMessage(
+            "Error uploading file. Check if your Metamask is connected and Ganache is running"
+          );
         }
       }
     );
@@ -128,10 +153,14 @@ function App() {
     if (!user) return;
 
     try {
-      const filesQuery = query(collection(db, 'files'), where('owner', '==', user.uid), orderBy(sortConfig.key, sortConfig.direction));
+      const filesQuery = query(
+        collection(db, "files"),
+        where("owner", "==", user.uid),
+        orderBy(sortConfig.key, sortConfig.direction)
+      );
       const querySnapshot = await getDocs(filesQuery);
 
-      const filesData = querySnapshot.docs.map(doc => ({
+      const filesData = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
@@ -147,7 +176,7 @@ function App() {
       const response = await fetch(downloadURL);
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
+      const a = document.createElement("a");
       a.href = url;
       a.download = fileName;
       document.body.appendChild(a);
@@ -171,9 +200,9 @@ function App() {
   };
 
   const handleSort = (key) => {
-    let direction = 'asc';
-    if (sortConfig.key === key && sortConfig.direction === 'asc') {
-      direction = 'desc';
+    let direction = "asc";
+    if (sortConfig.key === key && sortConfig.direction === "asc") {
+      direction = "desc";
     }
     setSortConfig({ key, direction });
   };
@@ -185,7 +214,7 @@ function App() {
   const currentFiles = storedFiles.slice(indexOfFirstFile, indexOfLastFile);
 
   const onSignUp = (email, password) => {
-    setAuthMode('signIn');
+    setAuthMode("signIn");
   };
 
   const onSignIn = (email, password) => {
@@ -193,60 +222,88 @@ function App() {
   };
 
   const switchToSignIn = () => {
-    setAuthMode('signIn');
+    setAuthMode("signIn");
   };
 
   const switchToSignUp = () => {
-    setAuthMode('signUp');
+    setAuthMode("signUp");
   };
 
   return (
     <div className="App">
       {!user ? (
-        authMode === 'signUp' ? (
+        authMode === "signUp" ? (
           <SignUp onSignUp={onSignUp} switchToSignIn={switchToSignIn} />
         ) : (
           <SignIn onSignIn={onSignIn} switchToSignUp={switchToSignUp} />
         )
       ) : (
         <>
-          <Navigation 
+          <Navigation
             onUploadClick={(e) => {
               e.preventDefault();
-              setActiveContainer('upload');
-            }} 
+              setActiveContainer("upload");
+            }}
             onStorageClick={(e) => {
               e.preventDefault();
-              setActiveContainer('storage');
-            }} 
+              setActiveContainer("storage");
+            }}
           />
           <main>
-            <div className={`upload-box ${activeContainer === 'upload' ? 'active' : ''}`}>
+            <div
+              className={`upload-box ${
+                activeContainer === "upload" ? "active" : ""
+              }`}
+            >
               <h2>Upload Files</h2>
               <input type="file" multiple onChange={handleFileChange} />
               <button onClick={handleUpload}>Upload</button>
               {message && <p>{message}</p>}
             </div>
-  
-            <div className={`stored-files ${activeContainer === 'storage' ? 'active' : ''}`}>
+
+            <div
+              className={`stored-files ${
+                activeContainer === "storage" ? "active" : ""
+              }`}
+            >
               <h2>Stored Files</h2>
               {storedFiles.length > 0 ? (
                 <>
                   <div className="sort-container">
-                    <button onClick={() => handleSort('name')}>
-                      Sort by Name {sortConfig.key === 'name' && (sortConfig.direction === 'asc' ? <FaSort /> : <FaSort style={{ transform: 'rotate(180deg)' }} />)}
+                    <button onClick={() => handleSort("name")}>
+                      Sort by Name{" "}
+                      {sortConfig.key === "name" &&
+                        (sortConfig.direction === "asc" ? (
+                          <FaSort />
+                        ) : (
+                          <FaSort style={{ transform: "rotate(180deg)" }} />
+                        ))}
                     </button>
-                    <button onClick={() => handleSort('timestamp')}>
-                      Sort by Date {sortConfig.key === 'timestamp' && (sortConfig.direction === 'asc' ? <FaSort /> : <FaSort style={{ transform: 'rotate(180deg)' }} />)}
+                    <button onClick={() => handleSort("timestamp")}>
+                      Sort by Date{" "}
+                      {sortConfig.key === "timestamp" &&
+                        (sortConfig.direction === "asc" ? (
+                          <FaSort />
+                        ) : (
+                          <FaSort style={{ transform: "rotate(180deg)" }} />
+                        ))}
                     </button>
                   </div>
                   <ul className="file-list">
                     {currentFiles.map((file) => (
                       <li key={file.id}>
                         <span>{file.name}</span>
-                        <span>{new Date(file.timestamp.seconds * 1000).toLocaleString()}</span>
+                        <span>
+                          {new Date(
+                            file.timestamp.seconds * 1000
+                          ).toLocaleString()}
+                        </span>
                         <div className="actions">
-                          <button onClick={() => handleDownload(file.downloadURL, file.name)}>
+                          <button
+                            onClick={() =>
+                              handleDownload(file.downloadURL, file.name)
+                            }
+                          >
                             <FaDownload /> Download
                           </button>
                           <button onClick={() => handlePreview(file)}>
@@ -257,15 +314,18 @@ function App() {
                     ))}
                   </ul>
                   <div className="pagination">
-                    {Array.from({ length: Math.ceil(storedFiles.length / filesPerPage) }, (_, index) => (
-                      <button
-                        key={index + 1}
-                        onClick={() => paginate(index + 1)}
-                        className={currentPage === index + 1 ? 'active' : ''}
-                      >
-                        {index + 1}
-                      </button>
-                    ))}
+                    {Array.from(
+                      { length: Math.ceil(storedFiles.length / filesPerPage) },
+                      (_, index) => (
+                        <button
+                          key={index + 1}
+                          onClick={() => paginate(index + 1)}
+                          className={currentPage === index + 1 ? "active" : ""}
+                        >
+                          {index + 1}
+                        </button>
+                      )
+                    )}
                   </div>
                 </>
               ) : (
@@ -279,9 +339,16 @@ function App() {
       {modalFile && (
         <div className="modal">
           <div className="modal-content">
-            <span className="close" onClick={closeModal}>&times;</span>
+            <span className="close" onClick={closeModal}>
+              &times;
+            </span>
             <h2>Preview of {modalFile.name}</h2>
-            <iframe src={modalFile.previewURL} title="File Preview" width="100%" height="400"></iframe>
+            <iframe
+              src={modalFile.previewURL}
+              title="File Preview"
+              width="100%"
+              height="400"
+            ></iframe>
           </div>
         </div>
       )}

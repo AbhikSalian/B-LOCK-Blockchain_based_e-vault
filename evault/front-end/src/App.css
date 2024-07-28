@@ -184,3 +184,7 @@ nav button {
   font-size: 24px;
   cursor: pointer;
 }
+
+.foot-pad{
+  padding-bottom: 10px;
+}
