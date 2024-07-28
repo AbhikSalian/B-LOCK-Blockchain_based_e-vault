@@ -24,6 +24,7 @@ function App() {
   const [account, setAccount] = useState("");
   const [evault, setEVault] = useState(null);
   const [fileHash, setFileHash] = useState("");
+  const [fileName, setFileName] = useState("");
   const [files, setFiles] = useState([]);
   const [storedFiles, setStoredFiles] = useState([]);
   const [message, setMessage] = useState("");
