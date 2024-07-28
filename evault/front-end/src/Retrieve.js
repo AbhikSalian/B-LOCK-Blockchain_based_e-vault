@@ -1,135 +1,148 @@
-import React, { useState, useEffect } from 'react';
+// Retrieve.js
+import React, { useState, useEffect, useRef } from 'react';
 import { db } from './firebase';
-import { collection, getDocs, query, orderBy } from 'firebase/firestore';
-import { getStorage, ref, getDownloadURL } from 'firebase/storage';
-import { FaDownload, FaSort, FaEye } from 'react-icons/fa';
+import { collection, getDocs } from 'firebase/firestore';
 import './Retrieve.css';
 
-const Retrieve = () => {
+function Retrieve({ user, sortConfig, setSortConfig }) {
   const [files, setFiles] = useState([]);
+  const [selectedFile, setSelectedFile] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [filesPerPage] = useState(5);
-  const [sortConfig, setSortConfig] = useState({ key: 'timestamp', direction: 'asc' });
-  const [message, setMessage] = useState('');
-  const [modalFile, setModalFile] = useState(null);
+
+  const modalRef = useRef(null); // Create a ref to track the modal
 
   useEffect(() => {
-    fetchFiles();
-  }, [sortConfig]);
+    const fetchFiles = async () => {
+      const filesCollection = collection(db, 'files');
+      const filesSnapshot = await getDocs(filesCollection);
+      const filesList = filesSnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setFiles(filesList);
+    };
 
-  const fetchFiles = async () => {
-    try {
-      const q = query(collection(db, 'files'), orderBy(sortConfig.key, sortConfig.direction));
-      const querySnapshot = await getDocs(q);
-      const filesData = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-      setFiles(filesData);
-    } catch (error) {
-      console.error('Error fetching files', error);
-      setMessage('Error fetching files. Check the console for more details.');
-    }
+    fetchFiles();
+  }, []);
+
+  const handleDownload = (file) => {
+    // Implement your download logic here
+    console.log('Downloading file:', file);
+  };
+
+  const handleView = (file) => {
+    setSelectedFile(file);
   };
 
   const handleSort = (key) => {
-    let direction = 'asc';
-    if (sortConfig.key === key && sortConfig.direction === 'asc') {
-      direction = 'desc';
+    let direction = 'ascending';
+    if (sortConfig.key === key && sortConfig.direction === 'ascending') {
+      direction = 'descending';
     }
     setSortConfig({ key, direction });
   };
 
+  const handleOpenInNewTab = (url) => {
+    window.open(url, '_blank');
+  };
+
+  const handleOutsideClick = (e) => {
+    if (modalRef.current && !modalRef.current.contains(e.target)) {
+      setSelectedFile(null);
+    }
+  };
+
+  useEffect(() => {
+    if (selectedFile) {
+      document.addEventListener('click', handleOutsideClick);
+    } else {
+      document.removeEventListener('click', handleOutsideClick);
+    }
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, [selectedFile]);
+
+  const sortedFiles = React.useMemo(() => {
+    const sorted = [...files];
+    sorted.sort((a, b) => {
+      if (a[sortConfig.key] < b[sortConfig.key]) {
+        return sortConfig.direction === 'ascending' ? -1 : 1;
+      }
+      if (a[sortConfig.key] > b[sortConfig.key]) {
+        return sortConfig.direction === 'ascending' ? 1 : -1;
+      }
+      return 0;
+    });
+    return sorted;
+  }, [files, sortConfig]);
+
   // Pagination logic
   const indexOfLastFile = currentPage * filesPerPage;
   const indexOfFirstFile = indexOfLastFile - filesPerPage;
-  const currentFiles = files.slice(indexOfFirstFile, indexOfLastFile);
+  const currentFiles = sortedFiles.slice(indexOfFirstFile, indexOfLastFile);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const handleDownload = async (fileUrl, fileName) => {
-    try {
-      const storage = getStorage();
-      const fileRef = ref(storage, fileUrl);
-      const url = await getDownloadURL(fileRef);
-
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const blob = await response.blob();
-      const downloadUrl = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.style.display = 'none';
-      a.href = downloadUrl;
-      a.download = fileName;
-      document.body.appendChild(a);
-      a.click();
-      window.URL.revokeObjectURL(downloadUrl);
-    } catch (error) {
-      console.error('Error downloading file', error);
-      setMessage('Error downloading file. Check the console for more details.');
-    }
-  };
-
-  const handlePreview = async (file) => {
-    try {
-      const storage = getStorage();
-      const fileRef = ref(storage, file.downloadURL);
-      const url = await getDownloadURL(fileRef);
-      setModalFile({ ...file, previewURL: url });
-    } catch (error) {
-      console.error('Error fetching file preview', error);
-      setMessage('Error fetching file preview. Check the console for more details.');
-    }
-  };
-
   const closeModal = () => {
-    setModalFile(null);
+    setSelectedFile(null);
   };
 
   return (
-    <div>
-      <h2>Stored Files</h2>
-      {files.length > 0 ? (
-        <>
-          <div className="file-header">
-            <span onClick={() => handleSort('name')}>Name <FaSort /></span>
-            <span onClick={() => handleSort('timestamp')}>Upload Date <FaSort /></span>
-            <span>Actions</span>
-          </div>
-          <ul>
-            {currentFiles.map((file) => (
-              <li key={file.id} className="file-item">
-                <span>{file.name}</span>
-                <span>{new Date(file.timestamp.seconds * 1000).toLocaleString()}</span>
-                <div className="file-actions">
-                  <button onClick={() => handlePreview(file)}><FaEye /></button>
-                  <button onClick={() => handleDownload(file.downloadURL, file.name)}><FaDownload /></button>
-                </div>
-              </li>
-            ))}
-          </ul>
-          <div className="pagination">
-            {Array.from({ length: Math.ceil(files.length / filesPerPage) }, (_, i) => (
-              <button key={i + 1} onClick={() => paginate(i + 1)}>
-                {i + 1}
-              </button>
-            ))}
-          </div>
-        </>
-      ) : (
-        <p>No files found.</p>
-      )}
-      {message && <p className="message">{message}</p>}
-      {modalFile && (
+    <div className="stored-files">
+      <h2>Retrieve Files</h2>
+
+      <div className="sort-container">
+        <button onClick={() => handleSort('name')}>Sort by Name</button>
+        <button onClick={() => handleSort('date')}>Sort by Date</button>
+      </div>
+
+      <ul className="file-list">
+        {currentFiles.map((file) => (
+          <li key={file.id}>
+            <span>{file.name}</span>
+            <div className="actions">
+              <button onClick={() => handleView(file)}>View</button>
+              <button onClick={() => handleDownload(file)}>Download</button>
+            </div>
+          </li>
+        ))}
+      </ul>
+
+      <div className="pagination">
+        {[...Array(Math.ceil(files.length / filesPerPage))].map((_, index) => (
+          <button
+            key={index + 1}
+            onClick={() => paginate(index + 1)}
+            className={currentPage === index + 1 ? 'active' : ''}
+          >
+            {index + 1}
+          </button>
+        ))}
+      </div>
+
+      {selectedFile && (
         <div className="modal">
-          <div className="modal-content">
+          <div className="modal-content" ref={modalRef}>
             <span className="close" onClick={closeModal}>&times;</span>
-            <h2>{modalFile.name}</h2>
-            <iframe src={modalFile.previewURL} frameBorder="0" title="file preview"></iframe>
+            <h3>File Details</h3>
+            <p className="modal-text"><strong>Name:</strong> {selectedFile.name}</p>
+            <p className="modal-text"><strong>Date:</strong> {selectedFile.date}</p>
+            <p className="modal-text"><strong>Description:</strong> {selectedFile.description}</p>
+            <div className="image-container">
+              <img src={selectedFile.url} alt={selectedFile.name} />
+            </div>
+            <div className="modal-actions">
+              <button onClick={() => handleDownload(selectedFile)}>Download</button>
+              <button onClick={() => handleOpenInNewTab(selectedFile.url)}>Open in New Tab</button>
+              <button onClick={closeModal}>Close</button>
+            </div>
           </div>
         </div>
       )}
     </div>
   );
-};
+}
 
 export default Retrieve;
