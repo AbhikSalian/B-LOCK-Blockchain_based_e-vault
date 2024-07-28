@@ -1,0 +1,10 @@
+.App {
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  background-color: #FBFEF9;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+}
