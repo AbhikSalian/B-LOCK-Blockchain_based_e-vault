@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Web3 from "web3";
-import CryptoJS from "crypto-js";
 import EVault from "./contracts/EVault.json";
+import UserRegistry from "./contracts/UserRegistry.json";
 import './App.css';
+<<<<<<< HEAD
 import { db, storage, auth } from './firebase';
 import { collection, addDoc, getDocs, query, where, orderBy } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
@@ -11,13 +13,22 @@ import Navigation from './Navigation';
 import Footer from './Footer';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
+=======
+import SignUp from './SignUp';
+import SignIn from './SignIn';
+import Dashboard from './Dashboard';
+import { db, storage } from './firebase';
+import { addDoc, collection } from 'firebase/firestore';
+import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import CryptoJS from 'crypto-js';
+>>>>>>> 31e7d488fffc28bf812c930ffbdbbd644c1aa30f
 
 function App() {
   const [account, setAccount] = useState("");
   const [evault, setEVault] = useState(null);
-  const [fileName, setFileName] = useState("");
   const [fileHash, setFileHash] = useState("");
   const [files, setFiles] = useState([]);
+<<<<<<< HEAD
   const [storedFiles, setStoredFiles] = useState([]);
   const [message, setMessage] = useState("");
   const [sortConfig, setSortConfig] = useState({ key: 'timestamp', direction: 'asc' });
@@ -27,14 +38,43 @@ function App() {
   const [user, setUser] = useState(null);
   const [authMode, setAuthMode] = useState('signIn');
   const [activeContainer, setActiveContainer] = useState('upload');
+=======
+  const [userRegistry, setUserRegistry] = useState(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [message, setMessage] = useState("");
+>>>>>>> 31e7d488fffc28bf812c930ffbdbbd644c1aa30f
 
   useEffect(() => {
     loadBlockchainData();
   }, []);
 
+<<<<<<< HEAD
   useEffect(() => {
     if (user) {
       fetchFiles();
+=======
+  const loadBlockchainData = async () => {
+    try {
+      const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
+      const accounts = await web3.eth.getAccounts();
+      setAccount(accounts[0]);
+
+      const networkId = await web3.eth.net.getId();
+      const evaultDeployedNetwork = EVault.networks[networkId];
+      const userRegistryDeployedNetwork = UserRegistry.networks[networkId];
+
+      if (evaultDeployedNetwork && userRegistryDeployedNetwork) {
+        const evaultInstance = new web3.eth.Contract(EVault.abi, evaultDeployedNetwork.address);
+        const userRegistryInstance = new web3.eth.Contract(UserRegistry.abi, userRegistryDeployedNetwork.address);
+        setEVault(evaultInstance);
+        setUserRegistry(userRegistryInstance);
+      } else {
+        setMessage("Smart contract not deployed to detected network.");
+      }
+    } catch (error) {
+      console.error("Error loading blockchain data", error);
+      setMessage("Error loading blockchain data. Check the console for more details.");
+>>>>>>> 31e7d488fffc28bf812c930ffbdbbd644c1aa30f
     }
   }, [sortConfig, user]);
 
@@ -201,6 +241,7 @@ function App() {
   };
 
   return (
+<<<<<<< HEAD
     <div className="App">
       {!user ? (
         authMode === 'signUp' ? (
@@ -286,6 +327,38 @@ function App() {
         </div>
       )}
     </div>
+=======
+    <Router>
+      <div className="App">
+        <header>
+          <h1>B-lock</h1>
+        </header>
+        <main className="container">
+          <Routes>
+            <Route path="/signup" element={<SignUp setMessage={setMessage} setIsAuthenticated={setIsAuthenticated} />} />
+            <Route path="/signin" element={<SignIn setIsAuthenticated={setIsAuthenticated} setMessage={setMessage} setAccount={setAccount} />} />
+            <Route path="/dashboard" element={
+              isAuthenticated ? (
+                <Dashboard
+                  evault={evault}
+                  account={account}
+                  setMessage={setMessage}
+                  handleFileChange={handleFileChange}
+                  storeFile={storeFile}
+                  message={message}
+                  isAuthenticated={isAuthenticated}
+                  setIsAuthenticated={setIsAuthenticated}
+                />
+              ) : (
+                <p>Please sign in to access the dashboard.</p>
+              )
+            } />
+            <Route path="/" element={<p>Welcome to B-lock. <Link to="/signup">Sign Up</Link> or <Link to="/signin">Sign In</Link></p>} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
+>>>>>>> 31e7d488fffc28bf812c930ffbdbbd644c1aa30f
   );
 }
 

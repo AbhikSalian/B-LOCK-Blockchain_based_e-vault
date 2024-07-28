@@ -1,6 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
+const multer = require('multer');
+const FormData = require('form-data');
+require('dotenv').config();
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -8,16 +12,27 @@ const PORT = process.env.PORT || 5000;
 // Enable CORS for all origins
 app.use(cors());
 
+// Set up Multer for handling file uploads
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
+
 // Proxy endpoint to forward requests to Pinata
-app.post('/api/upload-to-ipfs', async (req, res) => {
+app.post('/api/upload-to-ipfs', upload.single('file'), async (req, res) => {
   try {
-    const { file } = req.body; // Assuming you send the file as a JSON body parameter
+    const file = req.file;
+
+    if (!file) {
+      return res.status(400).json({ error: 'No file uploaded' });
+    }
+
+    const formData = new FormData();
+    formData.append('file', file.buffer, file.originalname);
 
     // Forward the request to Pinata
-    const response = await axios.post('https://gateway.pinata.cloud/api/v0/add', file, {
+    const response = await axios.post('https://api.pinata.cloud/pinning/pinFileToIPFS', formData, {
       headers: {
-        'Content-Type': 'multipart/form-data',
-        // Add any necessary authentication headers if required by Pinata
+        ...formData.getHeaders(),
+        Authorization: `Bearer ${process.env.PINATA_JWT}`, // Replace with your Pinata JWT token
       },
     });
 

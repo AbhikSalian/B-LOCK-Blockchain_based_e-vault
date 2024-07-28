@@ -13,7 +13,11 @@
     "ipfs-http-client": "^60.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+<<<<<<< HEAD
     "react-icons": "^5.2.1",
+=======
+    "react-router-dom": "^6.25.1",
+>>>>>>> 31e7d488fffc28bf812c930ffbdbbd644c1aa30f
     "react-scripts": "^5.0.1",
     "schema-utils": "^4.2.0",
     "terser-webpack-plugin": "^5.3.10",
