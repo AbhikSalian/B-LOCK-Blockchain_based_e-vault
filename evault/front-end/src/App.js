@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Web3 from "web3";
 import CryptoJS from "crypto-js";
 import EVault from "./contracts/EVault.json";
