@@ -1,3 +1,4 @@
+// SignIn.js
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from './firebase';
@@ -11,13 +12,17 @@ const SignIn = ({ onSignIn, switchToSignUp }) => {
     e.preventDefault();
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      if (userCredential.user.emailVerified) {
+      const user = userCredential.user;
+
+      if (user.emailVerified) {
         onSignIn(email, password);
         setError(''); // Clear any previous errors
       } else {
         setError('Please verify your email before signing in.');
+        alert('Email not verified. Please check your inbox for the verification email.');
       }
     } catch (err) {
+      console.error("Sign-in error:", err);
       setError(err.message);
     }
   };

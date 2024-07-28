@@ -1,7 +1,8 @@
+// firebase.js
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
-import { getAuth } from 'firebase/auth';
+import { getAuth, sendEmailVerification } from 'firebase/auth';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDUXMhYFwg4RxCcY_Yk-cUqQf4_X_j-Q1I",
@@ -27,10 +28,12 @@ const auth = getAuth(app);
 const sendVerificationEmail = async (user) => {
   if (user) {
     try {
-      await user.sendEmailVerification();
-      console.log('Verification email sent');
+      await sendEmailVerification(user);  // Send verification email
+      console.log('Verification email sent successfully.');
     } catch (error) {
-      console.error('Error sending verification email:', error);
+      console.error('Error sending verification email:', error); // Log detailed error
+      // Display a user-friendly error message
+      alert('Error sending verification email. Please try again later.');
     }
   }
 };
