@@ -1,10 +1,9 @@
-import React from "react";
-import './Footer.css';
+import React from 'react';
 
 function Footer() {
   return (
-    <footer className="footer">
-      <p>&copy; 2024 B-lock. All rights reserved.</p>
+    <footer>
+      <p>&copy; {new Date().getFullYear()} B-lock. All rights reserved.</p>
     </footer>
   );
 }

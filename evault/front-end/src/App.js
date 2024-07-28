@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Web3 from "web3";
 import CryptoJS from "crypto-js";
 import EVault from "./contracts/EVault.json";
@@ -22,7 +23,6 @@ import SignIn from "./SignIn";
 function App() {
   const [account, setAccount] = useState("");
   const [evault, setEVault] = useState(null);
-  const [fileName, setFileName] = useState("");
   const [fileHash, setFileHash] = useState("");
   const [files, setFiles] = useState([]);
   const [storedFiles, setStoredFiles] = useState([]);
@@ -41,10 +41,10 @@ function App() {
   useEffect(() => {
     loadBlockchainData();
   }, []);
-
   useEffect(() => {
     if (user) {
       fetchFiles();
+
     }
   }, [sortConfig, user]);
 
@@ -353,6 +353,7 @@ function App() {
         </div>
       )}
     </div>
+
   );
 }
 

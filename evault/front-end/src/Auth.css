@@ -1,10 +1,19 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .auth-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(to right, #0F2143, #03306a, #023E8A, #0d5175, #0077B6);
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(to right, #0F2143, #03306a, #023E8A, #0d5175, #0077B6);
+}
+
+/* Rest of your CSS remains the same */
   
   .auth-form {
     background: rgba(255, 255, 255, 0.2);
