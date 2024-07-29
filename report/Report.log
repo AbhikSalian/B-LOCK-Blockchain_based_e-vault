@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.1)  30 JUL 2024 02:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.1)  30 JUL 2024 02:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -598,57 +598,111 @@ Overfull \hbox (16.13pt too wide) in paragraph at lines 468--469
 [10
 
 ] [11]
-<./pic/sample.jpg, id=75, 700.6175pt x 401.5pt>
-File: ./pic/sample.jpg Graphic file (type jpg)
-<use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 517.
-(pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
- [12 <./pic/sample.jpg>]
-File: ./pic/sample.jpg Graphic file (type jpg)
-<use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 526.
-(pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
-File: ./pic/sample.jpg Graphic file (type jpg)
-<use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 536.
-(pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
- [13]
+Overfull \hbox (195.49097pt too wide) in paragraph at lines 527--528
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (64.4195pt too wide) in paragraph at lines 534--535
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (236.88196pt too wide) in paragraph at lines 535--536
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[12]
+Overfull \hbox (16.13pt too wide) in paragraph at lines 558--559
+[][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (195.49097pt too wide) in paragraph at lines 564--565
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (98.91199pt too wide) in paragraph at lines 580--581
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (43.724pt too wide) in paragraph at lines 583--584
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (112.70898pt too wide) in paragraph at lines 584--585
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 585.
+(C:\Users\hp\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
+File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+Overfull \hbox (98.91199pt too wide) in paragraph at lines 585--586
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (133.40448pt too wide) in paragraph at lines 591--592
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (2.33301pt too wide) in paragraph at lines 592--593
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[13]
+Overfull \hbox (85.11499pt too wide) in paragraph at lines 598--599
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (154.09998pt too wide) in paragraph at lines 600--601
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[14]
 Chapter 5.
+<./pic/sample.jpg, id=86, 700.6175pt x 401.5pt>
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 551.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 643.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 559.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 651.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 565.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 657.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 571.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 663.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 577.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 669.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 583.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 675.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 589.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 681.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
-[14
+[15
 
-] [15] [16] [17] [18]
+ <./pic/sample.jpg>] [16] [17] [18] [19]
 Chapter 6.
-[19
+[20
 
-] [20
+] [21
 
 ] (Report.aux)
  ***********
@@ -660,17 +714,17 @@ Package logreq Info: Writing requests to 'Report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 12851 strings out of 474486
- 233383 string characters out of 5745172
- 1951542 words of memory out of 5000000
- 35000 multiletter control sequences out of 15000+600000
- 570432 words of font info for 82 fonts, out of 8000000 for 9000
+ 12936 strings out of 474486
+ 234754 string characters out of 5745172
+ 1980542 words of memory out of 5000000
+ 35081 multiletter control sequences out of 15000+600000
+ 570730 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 66i,12n,81p,1171b,1270s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\hp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Report.pdf (27 pages, 342479 bytes).
+ 66i,13n,81p,1171b,1775s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\hp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1095.pk> <C:\Users\hp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on Report.pdf (28 pages, 357139 bytes).
 PDF statistics:
- 150 PDF objects out of 1000 (max. 8388607)
+ 158 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

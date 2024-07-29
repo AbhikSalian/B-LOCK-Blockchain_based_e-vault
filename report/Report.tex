@@ -501,44 +501,136 @@ The system is a blockchain-based e-vault application designed to securely store 
 \end{itemize}
 
 
-\section{Speech Enhancement}
-\subsection{Lite Audio Visual Speech Enhancement}
+\section{Key Components Implementation}
+\subsection{Frontend (React)}
 \par
-Lite AVSE algorithm is used for the separation and enhancement of the speech. The system 
-includes two visual data compression techniques and removes the visual feature extraction 
-network from the training model, yielding better online computation efficiency. As for the audio 
-features, short-time Fourier transform (STFT) is calculated of 3-second audio segments. Each 
-time-frequency (TF) bin contains the real and imaginary parts of a complex number, both of 
-which used as input. Power-law compression used to prevent loud audio from overwhelming soft 
-audio. The same processing is applied to both the noisy signal and the clean reference signal.
+The frontend is developed using React.js and consists of the following key components:
+\begin{itemize}
+   \item \textbf{SignIn Component:} Handles user login.
+   \item \textbf{SignUp Component:} Manages user registration and email verification.
+   \item \textbf{Upload Component:} Manages file upload and progress display.
+   \item \textbf{Retrieve Component:} Allows users to view and manage uploaded files.
+\end{itemize}
+\begin{lstlisting}[caption=Frontend Code Snippet]
+   import React, { useState } from 'react';
+   import { signInWithEmailAndPassword } from 'firebase/auth';
+   import { auth } from './firebase';
+   
+   const SignIn = ({ onSignIn, switchToSignUp }) => {
+       const [email, setEmail] = useState('');
+       const [password, setPassword] = useState('');
+       const [error, setError] = useState('');
+   
+       const handleSubmit = async (e) => {
+           e.preventDefault();
+           try {
+               const userCredential = await signInWithEmailAndPassword(auth, email, password);
+               const user = userCredential.user;
+   
+               if (user.emailVerified) {
+                   onSignIn(email, password);
+                   setError(''); // Clear previous errors
+               } else {
+                   setError('Please verify your email before signing in.');
+                   alert('Email not verified. Please check your inbox for the verification email.');
+               }
+           } catch (err) {
+               console.error("Sign-in error:", err);
+               setError(err.message);
+           }
+       };
+   
+       return (
+           <div className="auth-form">
+               <h2>Sign In</h2>
+               <form onSubmit={handleSubmit}>
+                   <input 
+                       type="email" 
+                       placeholder="Email" 
+                       value={email} 
+                       onChange={(e) => setEmail(e.target.value)} 
+                       required 
+                   />
+                   <input 
+                       type="password" 
+                       placeholder="Password" 
+                       value={password} 
+                       onChange={(e) => setPassword(e.target.value)} 
+                       required 
+                   />
+                   <button type="submit">Sign In</button>
+               </form>
+               {error && <p className="error">{error}</p>}
+               <p>Don't have an account? <button onClick={switchToSignUp}>Sign Up</button></p>
+           </div>
+       );
+   };
+   
+   export default SignIn;
+   
+   \end{lstlisting}
 
-\begin{figure}[hbtp]
-\centering
-\includegraphics[width=5in,height=3in]{./pic/sample.jpg}
-\caption{code snippet for speech enhancement using LAVSE}
-\end{figure}
+\subsection{Backend (Firebase and Blockchain)}
+\begin{itemize}
+   \item \textbf{Firebase Storage:} Stores the uploaded files.
+   \item \textbf{Firestore Database:} Saves metadata about the files.
+   \item \textbf{Ethereum Blockchain:} Stores the file hashes for verification.
+\end{itemize}
+\begin{lstlisting}[caption=Backend Code Snippet]
+   import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { collection, addDoc } from "firebase/firestore";
 
-\subsection{Spectral Subtraction}
-Spectral subtraction is a technique used in audio signal processing to reduce background noise from an audio signal. It involves estimating the noise spectrum from a noisy signal and subtracting it from the noisy spectrum to enhance the desired signal. The resulting spectrum is then transformed back into the time domain to obtain a cleaner audio signal.
-\newpage
-\begin{figure}[hbtp]
-\centering
-\includegraphics[width=5in,height=3in]{./pic/sample.jpg}
-\caption{code snippet for speech enhancement using spectral subtraction}
-\end{figure}
+const uploadFile = async (file, user, storage, db, evault, account) => {
+    const hash = CryptoJS.SHA256(file.name + new Date().toISOString()).toString();
+    const storageRef = ref(storage, `uploads/${user.uid}/${hash}_${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
 
-\section{Speaker Detection}
-\par The cv2 functions provide methods to load the pre-trained models, apply them to images or video frames, and draw bounding boxes around the detected faces. By leveraging cv2's face detection capabilities, you can automate tasks such as facial recognition, emotion analysis, or face tracking in various applications like surveillance, biometrics, or augmented reality.
+    uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log(`Upload is ${progress.toFixed(2)}% done`);
+        },
+        (error) => {
+            console.error("Upload error:", error);
+        },
+        async () => {
+            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+            try {
+                await evault.methods.storeFile(file.name, hash).send({ from: account });
+                await addDoc(collection(db, "files"), {
+                    name: file.name,
+                    owner: user.uid,
+                    downloadURL,
+                    timestamp: new Date(),
+                });
+                console.log("File uploaded successfully");
+            } catch (error) {
+                console.error("Error saving file data", error);
+            }
+        }
+    );
+};
+
+   \end{lstlisting}
 
 
-\begin{figure}[hbtp]
-\centering
-\includegraphics[width=5in,height=3in]{./pic/sample.jpg}
-\caption{code snippet for speaker detection}
-\end{figure}
-
-
-
+\section{Integration}
+\par The frontend components interact with the Firebase 
+backend and Ethereum blockchain to provide a seamless user 
+experience. Authentication is handled via Firebase 
+Authentication, ensuring that users are securely signed in. 
+File uploads are managed through Firebase Storage, allowing 
+users to upload and access their files easily. Metadata related 
+to the files, such as names and download URLs, is stored in 
+Firestore, providing quick and reliable access to file 
+information. The integration with the Ethereum blockchain 
+guarantees that file hashes are securely stored and verifiable, 
+leveraging smart contracts to maintain the integrity and 
+ownership of each file. This combination of Firebase and 
+blockchain technologies ensures that the application is both 
+secure and scalable, providing a robust solution for digital
+ file management.
 
 
 
