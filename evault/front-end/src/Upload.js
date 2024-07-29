@@ -1,69 +1,95 @@
-import React, { useState } from 'react';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
-import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { initializeApp } from 'firebase/app';
+// Upload.js
 
-// Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyDUXMhYFwg4RxCcY_Yk-cUqQf4_X_j-Q1I",
-    authDomain: "b-lock-a-blockchain-e-vault.firebaseapp.com",
-    projectId: "b-lock-a-blockchain-e-vault",
-    storageBucket: "b-lock-a-blockchain-e-vault.appspot.com",
-    messagingSenderId: "451994949044",
-    appId: "1:451994949044:web:2de1df44332663ff708ee1",
-    measurementId: "G-EV28R21MF6"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const storage = getStorage(app);
-
-function Upload() {
-  const [file, setFile] = useState(null);
+import React, { useState } from "react";
+import CryptoJS from "crypto-js";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { collection, addDoc } from "firebase/firestore";
+import { FaDownload, FaSort, FaEye } from "react-icons/fa";
+import "./Upload.css"; // If you have specific styles for the Upload component
+import Retrieve from "./Retrieve";
+function Upload({ evault, account, storage, db, user}) {
+  const [fileHash, setFileHash] = useState("");
+  const [fileName, setFileName] = useState("");
+  const [files, setFiles] = useState([]);
   const [message, setMessage] = useState("");
 
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+  const uploadFile = async (file) => {
+    const hash = CryptoJS.SHA256(file.name + new Date().toISOString()).toString();
+    setFileHash(hash);
+    setFileName(file.name);
+
+    const storageRef = ref(storage, `uploads/${user.uid}/${hash}_${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        setMessage(`Upload is ${progress.toFixed(2)}% done`);
+      },
+      (error) => {
+        console.error("Upload error:", error);
+        setMessage("Error uploading file");
+      },
+      async () => {
+        const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+        try {
+          // Store file hash on blockchain
+          await evault.methods.storeFile(fileName, fileHash).send({ from: account });
+          try {
+            await addDoc(collection(db, "files"), {
+              name: file.name,
+              owner: user.uid,
+              downloadURL,
+              timestamp: new Date(),
+            });
+
+            setMessage("File uploaded successfully");
+            // Retrieve.fetchFiles();
+          } catch (error) {
+            console.error("Firestore error:", error);
+            setMessage("Error saving file data");
+          }
+        } catch (e) {
+          console.error("Blockchain error: ", e);
+          setMessage(
+            "Error uploading file. Check if your Metamask is connected and Ganache is running"
+          );
+        }
+      }
+    );
   };
 
-  const handleUpload = async (e) => {
-    e.preventDefault();
-    if (!file) {
-      setMessage("Please select a file first.");
+  const handleFileChange = (e) => {
+    const selectedFiles = e.target.files;
+    setFiles(Array.from(selectedFiles));
+  };
+
+  const handleUpload = async () => {
+    if (!user) {
+      setMessage("Please sign in to upload files");
+      return;
+    }
+    if (!evault) {
+      setMessage("Blockchain not loaded");
+      return;
+    }
+    if (files.length === 0) {
+      setMessage("No file selected");
       return;
     }
 
-    try {
-      // Upload file to Firebase Storage
-      const storageRef = ref(storage, 'uploads/' + file.name);
-      const snapshot = await uploadBytes(storageRef, file);
-      const firebaseURL = await getDownloadURL(snapshot.ref);
-      console.log('Uploaded to Firebase Storage:', firebaseURL);
-
-      // Store Firebase download URL in Firestore
-      const docRef = await addDoc(collection(db, "uploadedFiles"), {
-        fileName: file.name,
-        downloadURL: firebaseURL,
-        timestamp: new Date()
-      });
-      console.log("Document written with ID: ", docRef.id);
-
-      setMessage("File uploaded successfully!");
-
-    } catch (error) {
-      console.error("Error uploading file", error);
-      setMessage("Error uploading file. Check the console for more details.");
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      uploadFile(file);
     }
   };
 
   return (
-    <div className="container">
-      <h2>Upload a file to Firebase Storage</h2>
-      <form onSubmit={handleUpload}>
-        <input type="file" onChange={handleFileChange} required />
-        <button type="submit">Upload to Firebase</button>
-      </form>
+    <div className="upload-box">
+      <h2>Upload Files</h2>
+      <input type="file" multiple onChange={handleFileChange} />
+      <button onClick={handleUpload}>Upload</button>
       {message && <p>{message}</p>}
     </div>
   );
