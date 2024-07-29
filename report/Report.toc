@@ -32,7 +32,13 @@
 \contentsline {subsection}{\numberline {4.3.2}Backend (Firebase and Blockchain)}{13}{}%
 \contentsline {section}{\numberline {4.4}Integration}{14}{}%
 \contentsline {chapter}{\numberline {5}Results and Discussion}{15}{}%
-\contentsline {section}{\numberline {5.1}Face detection}{15}{}%
-\contentsline {section}{\numberline {5.2}Speaker recognition}{15}{}%
-\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{20}{}%
-\contentsline {chapter}{References}{21}{}%
+\contentsline {section}{\numberline {5.1}Results}{15}{}%
+\contentsline {section}{\numberline {5.2}Discussion}{16}{}%
+\contentsline {section}{\numberline {5.3}Screenshots}{16}{}%
+\contentsline {subsection}{\numberline {5.3.1}User Registration and Login}{16}{}%
+\contentsline {subsection}{\numberline {5.3.2}File Upload Interface}{19}{}%
+\contentsline {subsection}{\numberline {5.3.3}File Management Dashboard}{19}{}%
+\contentsline {subsection}{\numberline {5.3.4}File Details and Blockchain Verification}{19}{}%
+\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{21}{}%
+\contentsline {section}{\numberline {6.1}Conclusion}{21}{}%
+\contentsline {section}{\numberline {6.2}Future Work}{21}{}%

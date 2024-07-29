@@ -2361,13 +2361,6 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">reference.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1" intorder="1">bashir2021subjective</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">mittal2016</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">Tea</bcf:citekey>
-    <bcf:citekey order="4" intorder="1">croitoru2023diffusion</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">mohamad2015smart</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">knuthwebsite</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">dirac</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

@@ -19,54 +19,6 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
-    \entry{bashir2021subjective}{article}{}
-      \name{author}{5}{}{%
-        {{hash=504e19fc4a46c3b6bb210cf6842378ff}{%
-           family={Bashir},
-           familyi={B\bibinitperiod},
-           given={Muhammad\bibnamedelima Farrukh},
-           giveni={M\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
-        {{hash=6674c4960987e4ea170c710e2046e154}{%
-           family={Arshad},
-           familyi={A\bibinitperiod},
-           given={Hamza},
-           giveni={H\bibinitperiod}}}%
-        {{hash=b4cd4a5aa97063a7cf7855bae352003f}{%
-           family={Javed},
-           familyi={J\bibinitperiod},
-           given={Abdul\bibnamedelima Rehman},
-           giveni={A\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
-        {{hash=6d5e725a8cc690095f3a4353a01d343a}{%
-           family={Kryvinska},
-           familyi={K\bibinitperiod},
-           given={Natalia},
-           giveni={N\bibinitperiod}}}%
-        {{hash=92f580576019720baae3eb309d51faef}{%
-           family={Band},
-           familyi={B\bibinitperiod},
-           given={Shahab\bibnamedelima S},
-           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {IEEE}%
-      }
-      \strng{namehash}{43b54f51217e1b3902d89bcc1e7ac2cc}
-      \strng{fullhash}{b9cab826b216a21e05b784f93b3104f9}
-      \strng{bibnamehash}{43b54f51217e1b3902d89bcc1e7ac2cc}
-      \strng{authorbibnamehash}{43b54f51217e1b3902d89bcc1e7ac2cc}
-      \strng{authornamehash}{43b54f51217e1b3902d89bcc1e7ac2cc}
-      \strng{authorfullhash}{b9cab826b216a21e05b784f93b3104f9}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Access}
-      \field{title}{Subjective answers evaluation using machine learning and natural language processing}
-      \field{volume}{9}
-      \field{year}{2021}
-      \field{pages}{158972\bibrangedash 158983}
-      \range{pages}{12}
-    \endentry
     \entry{croitoru2023diffusion}{article}{}
       \name{author}{3}{}{%
         {{hash=30dabab3612e9796210debbb340dd889}{%
@@ -160,62 +112,6 @@
       \verb http://www-cs-faculty.stanford.edu/~uno/abcde.html
       \endverb
       \keyw{latex,knuth}
-    \endentry
-    \entry{mittal2016}{inproceedings}{}
-      \name{author}{2}{}{%
-        {{hash=795e6606f90d0ae1c865a8f4c6c71fee}{%
-           family={Mittal},
-           familyi={M\bibinitperiod},
-           given={Himani},
-           giveni={H\bibinitperiod}}}%
-        {{hash=44dd5b9189d2deb8fe35efc50c76c03e}{%
-           family={Syamala\bibnamedelima Devi},
-           familyi={S\bibinitperiod\bibinitdelim D\bibinitperiod},
-           given={M.},
-           giveni={M\bibinitperiod}}}%
-      }
-      \name{editor}{3}{}{%
-        {{hash=e8c153d7826b4b9b283dc719b71d4999}{%
-           family={Saini},
-           familyi={S\bibinitperiod},
-           given={H.\bibnamedelimi S.},
-           giveni={H\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
-        {{hash=168e544d7db71081f8e0a53bd678c02f}{%
-           family={Sayal},
-           familyi={S\bibinitperiod},
-           given={Rishi},
-           giveni={R\bibinitperiod}}}%
-        {{hash=472cd241dd3bd8f24f963fbeafd26355}{%
-           family={Rawat},
-           familyi={R\bibinitperiod},
-           given={Sandeep\bibnamedelima Singh},
-           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Singapore}%
-      }
-      \list{publisher}{1}{%
-        {Springer Singapore}%
-      }
-      \strng{namehash}{451fb5b6c031d65a6bc8909914de8c5e}
-      \strng{fullhash}{451fb5b6c031d65a6bc8909914de8c5e}
-      \strng{bibnamehash}{451fb5b6c031d65a6bc8909914de8c5e}
-      \strng{authorbibnamehash}{451fb5b6c031d65a6bc8909914de8c5e}
-      \strng{authornamehash}{451fb5b6c031d65a6bc8909914de8c5e}
-      \strng{authorfullhash}{451fb5b6c031d65a6bc8909914de8c5e}
-      \strng{editorbibnamehash}{d44543963bcbb5d730ef3a4b8c1a4dc5}
-      \strng{editornamehash}{d44543963bcbb5d730ef3a4b8c1a4dc5}
-      \strng{editorfullhash}{d44543963bcbb5d730ef3a4b8c1a4dc5}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Innovations in Computer Science and Engineering}
-      \field{isbn}{978-981-10-0419-3}
-      \field{title}{Computerized Evaluation of Subjective Answers Using Hybrid Technique}
-      \field{year}{2016}
-      \field{pages}{295\bibrangedash 303}
-      \range{pages}{9}
     \endentry
     \entry{mohamad2015smart}{inproceedings}{}
       \name{author}{1}{}{%

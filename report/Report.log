@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.1)  30 JUL 2024 02:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.1)  30 JUL 2024 04:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -568,12 +568,12 @@ Chapter 3.
 <./pic/architecture.drawio.png, id=52, 483.8075pt x 247.92625pt>
 File: ./pic/architecture.drawio.png Graphic file (type png)
 <use ./pic/architecture.drawio.png>
-Package pdftex.def Info: ./pic/architecture.drawio.png  used on input line 408.
+Package pdftex.def Info: ./pic/architecture.drawio.png  used on input line 412.
 (pdftex.def)             Requested size: 397.49986pt x 216.81009pt.
 <./pic/flowchart.png, id=53, 162.6075pt x 438.63875pt>
 File: ./pic/flowchart.png Graphic file (type png)
 <use ./pic/flowchart.png>
-Package pdftex.def Info: ./pic/flowchart.png  used on input line 416.
+Package pdftex.def Info: ./pic/flowchart.png  used on input line 420.
 (pdftex.def)             Requested size: 122.86095pt x 289.0875pt.
 [7
 
@@ -581,130 +581,129 @@ Package pdftex.def Info: ./pic/flowchart.png  used on input line 416.
 <./pic/dataflow.png, id=58, 383.4325pt x 438.63875pt>
 File: ./pic/dataflow.png Graphic file (type png)
 <use ./pic/dataflow.png>
-Package pdftex.def Info: ./pic/dataflow.png  used on input line 433.
-(pdftex.def)             Requested size: 191.71577pt x 219.31883pt.
+Package pdftex.def Info: ./pic/dataflow.png  used on input line 437.
+(pdftex.def)             Requested size: 268.40092pt x 307.04501pt.
  [8 <./pic/flowchart.png>] [9 <./pic/dataflow.png>]
 Chapter 4.
 
-Overfull \hbox (2.33301pt too wide) in paragraph at lines 458--459
+Overfull \hbox (2.33301pt too wide) in paragraph at lines 462--463
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (16.13pt too wide) in paragraph at lines 468--469
+Overfull \hbox (16.13pt too wide) in paragraph at lines 472--473
 [][][][][][][][][][][][][][][][][] 
  []
 
 [10
 
 ] [11]
-Overfull \hbox (195.49097pt too wide) in paragraph at lines 527--528
+Overfull \hbox (195.49097pt too wide) in paragraph at lines 531--532
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (64.4195pt too wide) in paragraph at lines 534--535
+Overfull \hbox (64.4195pt too wide) in paragraph at lines 538--539
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (236.88196pt too wide) in paragraph at lines 535--536
+Overfull \hbox (236.88196pt too wide) in paragraph at lines 539--540
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 [12]
-Overfull \hbox (16.13pt too wide) in paragraph at lines 558--559
+Overfull \hbox (16.13pt too wide) in paragraph at lines 562--563
 [][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (195.49097pt too wide) in paragraph at lines 564--565
+Overfull \hbox (195.49097pt too wide) in paragraph at lines 568--569
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (98.91199pt too wide) in paragraph at lines 580--581
+Overfull \hbox (98.91199pt too wide) in paragraph at lines 584--585
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (43.724pt too wide) in paragraph at lines 583--584
+Overfull \hbox (43.724pt too wide) in paragraph at lines 587--588
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (112.70898pt too wide) in paragraph at lines 584--585
+Overfull \hbox (112.70898pt too wide) in paragraph at lines 588--589
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 585.
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 589.
 (C:\Users\hp\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
 File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-Overfull \hbox (98.91199pt too wide) in paragraph at lines 585--586
+Overfull \hbox (98.91199pt too wide) in paragraph at lines 589--590
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (133.40448pt too wide) in paragraph at lines 591--592
+Overfull \hbox (133.40448pt too wide) in paragraph at lines 595--596
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (2.33301pt too wide) in paragraph at lines 592--593
+Overfull \hbox (2.33301pt too wide) in paragraph at lines 596--597
 [][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 [13]
-Overfull \hbox (85.11499pt too wide) in paragraph at lines 598--599
+Overfull \hbox (85.11499pt too wide) in paragraph at lines 602--603
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (154.09998pt too wide) in paragraph at lines 600--601
+Overfull \hbox (154.09998pt too wide) in paragraph at lines 604--605
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 [14]
 Chapter 5.
-<./pic/sample.jpg, id=86, 700.6175pt x 401.5pt>
-File: ./pic/sample.jpg Graphic file (type jpg)
-<use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 643.
-(pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
-File: ./pic/sample.jpg Graphic file (type jpg)
-<use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 651.
-(pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
-File: ./pic/sample.jpg Graphic file (type jpg)
-<use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 657.
-(pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
-File: ./pic/sample.jpg Graphic file (type jpg)
-<use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 663.
-(pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
-File: ./pic/sample.jpg Graphic file (type jpg)
-<use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 669.
-(pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
-File: ./pic/sample.jpg Graphic file (type jpg)
-<use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 675.
-(pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
-File: ./pic/sample.jpg Graphic file (type jpg)
-<use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 681.
-(pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
 [15
 
- <./pic/sample.jpg>] [16] [17] [18] [19]
+]
+File: ./pic/dataflow.png Graphic file (type png)
+<use ./pic/dataflow.png>
+Package pdftex.def Info: ./pic/dataflow.png  used on input line 683.
+(pdftex.def)             Requested size: 191.71577pt x 219.31883pt.
+File: ./pic/dataflow.png Graphic file (type png)
+<use ./pic/dataflow.png>
+Package pdftex.def Info: ./pic/dataflow.png  used on input line 689.
+(pdftex.def)             Requested size: 191.71577pt x 219.31883pt.
+File: ./pic/dataflow.png Graphic file (type png)
+<use ./pic/dataflow.png>
+Package pdftex.def Info: ./pic/dataflow.png  used on input line 695.
+(pdftex.def)             Requested size: 191.71577pt x 219.31883pt.
+File: ./pic/dataflow.png Graphic file (type png)
+<use ./pic/dataflow.png>
+Package pdftex.def Info: ./pic/dataflow.png  used on input line 704.
+(pdftex.def)             Requested size: 191.71577pt x 219.31883pt.
+ [16] [17] [18]
+File: ./pic/dataflow.png Graphic file (type png)
+<use ./pic/dataflow.png>
+Package pdftex.def Info: ./pic/dataflow.png  used on input line 713.
+(pdftex.def)             Requested size: 191.71577pt x 219.31883pt.
+File: ./pic/dataflow.png Graphic file (type png)
+<use ./pic/dataflow.png>
+Package pdftex.def Info: ./pic/dataflow.png  used on input line 722.
+(pdftex.def)             Requested size: 191.71577pt x 219.31883pt.
+ [19] [20]
 Chapter 6.
-[20
+[21
 
-] [21
+] [22]
 
-] (Report.aux)
+LaTeX Warning: Empty bibliography on input line 770.
+
+(Report.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -714,17 +713,17 @@ Package logreq Info: Writing requests to 'Report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 12936 strings out of 474486
- 234754 string characters out of 5745172
+ 12691 strings out of 474486
+ 229309 string characters out of 5745172
  1980542 words of memory out of 5000000
- 35081 multiletter control sequences out of 15000+600000
- 570730 words of font info for 83 fonts, out of 8000000 for 9000
+ 34837 multiletter control sequences out of 15000+600000
+ 570429 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  66i,13n,81p,1171b,1775s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\hp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1095.pk> <C:\Users\hp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Report.pdf (28 pages, 357139 bytes).
+ <C:\Users\hp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1095.pk> <C:\Users\hp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on Report.pdf (29 pages, 292558 bytes).
 PDF statistics:
- 158 PDF objects out of 1000 (max. 8388607)
+ 145 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

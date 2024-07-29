@@ -400,8 +400,12 @@ The non-functional requirements define the quality attributes, performance stand
        \item \textbf{Firewall Settings:} Configure firewalls to allow traffic through necessary ports while blocking unauthorized access.
        \item \textbf{Data Encryption:} All data transmitted over the network must be encrypted using TLS to prevent interception.
    \end{itemize}
+
+
+
+
+
 \chapter{System Design}
-paragraph contents... 
 \section{Architecture Design}
 \begin{figure}[hbtp]
 \centering
@@ -430,7 +434,7 @@ Figure \ref{fig:flowchart} presents a decomposition diagram (or a flow chart) of
 
 \begin{figure}[hbtp]
 \centering
-\includegraphics[scale=0.5]{./pic/dataflow.png}
+\includegraphics[scale=0.7]{./pic/dataflow.png}
 \caption{Dataflow Diagram}
 \label{fig:dataflow}
 \end{figure}
@@ -636,75 +640,122 @@ secure and scalable, providing a robust solution for digital
 
 
 \chapter{Results and Discussion}
-this chapter contains the paragraphs as shown below
-\section{Face detection}
-\begin{figure} [hbtp]
-\centering
-\includegraphics[width=5in,height=3in]{./pic/sample.jpg}
-\caption{Face detection}
-\end{figure}
-\par Above figure 8.1 shows initial face detection process using opencv and dlib. It convert the image to grayscale, apply the model using cv2.detectMultiScale(), and draw bounding boxes around the detected faces using cv2.rectangle(). Display or save the result using cv2.imshow() or cv2.imwrite().
+\section{Results}
+\par After successfully implementing B-LOCK, our blockchain-based e-vault application, we conducted a series of tests to evaluate its performance and functionality. Below are the key results from these tests:
+\begin{enumerate}
+   \item User Authentication and Verification:
+   \begin{itemize}
+      \item \textbf{Result:} The application successfully authenticated users via Firebase Authentication.
+      \item \textbf{Discussion:} The integration of Firebase ensured a smooth and secure sign-in process. Users received verification emails promptly, and only verified users could upload and access files.
+   \end{itemize}
+   \item File Upload and Storage:
+   \begin{itemize}
+      \item \textbf{Result:} Files were uploaded to Firebase Storage and their metadata was correctly stored in Firestore.
+      \item \textbf{Discussion:} Upload speeds were satisfactory, and users were able to retrieve download URLs without delay. The metadata storage in Firestore allowed for efficient file management and retrieval.
+   \end{itemize}
+   \item Blockchain Integration:
+   \begin{itemize}
+      \item \textbf{Result:} File hashes were successfully stored on the Ethereum blockchain.
+      \item \textbf{Discussion:} Storing file hashes on the blockchain provided an additional layer of security, ensuring the integrity and ownership of files. Users could verify their file's existence and authenticity using blockchain transactions.
+   \end{itemize}
+   \item Performance Metrics:
+   \begin{itemize}
+      \item \textbf{Result:} The system handled concurrent uploads and downloads efficiently.
+      \item \textbf{Discussion:} The application's performance remained stable under various load conditions. The integration of Firebase and blockchain technologies did not significantly impact the responsiveness of the application.
+   \end{itemize}
+\end{enumerate}
 
-\section{Speaker recognition}
-\begin{figure} [hbtp]
-\centering
-\includegraphics[width=5in,height=3in]{./pic/sample.jpg}
-\caption{Speaker recognition 1,person 1}
-\end{figure}
-
-\begin{figure} [hbtp]
-\centering
-\includegraphics[width=5in,height=3in]{./pic/sample.jpg}
-\caption{Speaker recognition 1,person 2}
-\end{figure}
-
-\begin{figure} [hbtp]
-\centering
-\includegraphics[width=5in,height=3in]{./pic/sample.jpg}
-\caption{Speaker recognition 2,person 1}
-\end{figure}
-
-\begin{figure} [hbtp]
-\centering
-\includegraphics[width=5in,height=3in]{./pic/sample.jpg}
-\caption{Speaker recognition 2,person 2}
-\end{figure}
-
-\begin{figure} [hbtp]
-\centering
-\includegraphics[width=5in,height=3in]{./pic/sample.jpg}
-\caption{Speaker recognition 3,person 1}
-\end{figure}
-
-\begin{figure} [hbtp]
-\centering
-\includegraphics[width=5in,height=3in]{./pic/sample.jpg}
-\caption{Speaker recognition 3,person 2}
-\end{figure}
-\newpage
-\par Above figures from 8.2 to 8.7 shows speaker recognition process using opencv and dlib.Speaker detection using cv2 and dlib involves utilizing dlib's pre-trained models along with cv2 functions to detect and locate human faces. By combining face detection with additional techniques such as audio analysis or lip movement tracking, speaker detection can be achieved in various applications like video conferencing or surveillance.
-
-\chapter{Conclusion and Future Work}
-\cite{bashir2021subjective} \cite{mittal2016}
-The Project will help in narrowing the imprecise communication problem in real-time data using 
-speech separation and speaker identification technique by Deep Learning and Image Processing 
-algorithms. This will impact the communication and security sectors in a greater extent. Overall, this 
-project aims to develop an application or method that can help to separate the audio-visual speech and 
-enhance it based on speaker identification.
-\\
-This project can be further developed as:
+\section{Discussion}
+The development of B-LOCK has shown promising results in creating a secure and reliable e-vault application using blockchain technology. Several key aspects were highlighted during the development and testing phases:
 \begin{itemize}
-    \item By incorporating more real-world testing and gathering feedback from individual units.
-    \item  The system can be connected with communication devices or services to enable the users to communicate with others with ease.
+   \item \textbf{Security:} The use of Firebase Authentication provided a robust mechanism for user verification. Combining this with blockchain for storing file hashes enhanced security by ensuring file integrity and ownership, making it difficult for unauthorized users to tamper with the stored data.
+   \item \textbf{Scalability:} The architecture of B-LOCK allows for scalability. Firebase’s cloud-based solutions can handle an increasing number of users and files. The use of blockchain, while slightly increasing transaction time due to network confirmations, scales effectively with user demand for verification and integrity checks.
+   \item \textbf{User Experience:} User feedback indicated a positive experience with the interface and the ease of use for both uploading and retrieving files. The clear instructions and responsive design contributed to a smooth user journey.
+   \item \textbf{Integration Challenges:} Integrating blockchain with traditional cloud services like Firebase posed some challenges, particularly in ensuring seamless interaction between different technologies. However, these were overcome with thorough testing and incremental integration approaches.
 \end{itemize}
 
+\section{Screenshots}
+Below are screenshots of the B-LOCK application demonstrating key features and user interface elements.
 
-\cite{Tea} This project has a great potential to make a positive impact on communication and security situations. Its continuous improvement will be important to make this impact 
-even greater example for citing and bibtex for journal paper \cite{croitoru2023diffusion}, conference paper \cite{mohamad2015smart}, citing website \cite{knuthwebsite}, citing book \cite{dirac}
+\subsection{User Registration and Login}
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[scale=0.5]{./pic/dataflow.png}
+    \caption{Sign Up Page to register new users}
+    \label{fig:signup}
+\end{figure}
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[scale=0.5]{./pic/dataflow.png}
+    \caption{Sign In Page to login already registered users}
+    \label{fig:signin}
+\end{figure}
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[scale=0.5]{./pic/dataflow.png}
+    \caption{Verification email that users receive after signing up}
+    \label{fig:emailver}
+\end{figure}
+Figures \ref{fig:signup} and \ref{fig:signin} show the user registration and login interface. Users can create an account by entering their email and password, and existing users can sign in using their credentials. Upon successful registration, a verification email is sent to the user to confirm their email address before accessing the application, as shown in Figure \ref{fig:emailver}.
+
+\subsection{File Upload Interface}
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[scale=0.5]{./pic/dataflow.png}
+    \caption{File Upload Interface}
+    \label{fig:fileupload}
+\end{figure}
+The file upload interface, as shown in Figure \ref{fig:fileupload}, allows users to select files from their local device to upload to the e-vault. The interface supports multiple file uploads and provides feedback on the upload progress. Users are notified of the upload status, ensuring they are aware of successful uploads or any errors encountered during the process.
+
+\subsection{File Management Dashboard}
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[scale=0.5]{./pic/dataflow.png}
+    \caption{File Management Dashboard}
+    \label{fig:dashboard}
+\end{figure}
+Figure \ref{fig:dashboard} displays the file management dashboard, where users can view the list of uploaded files. The dashboard provides details such as the file name, upload date, and file size. Users can also download or delete files from this interface, making it easy to manage their stored documents.
+
+\subsection{File Details and Blockchain Verification}
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[scale=0.5]{./pic/dataflow.png}
+    \caption{File Details and Blockchain Verification}
+    \label{fig:filedetails}
+\end{figure}
+Figure \ref{fig:filedetails} shows the file details page, where users can view specific information about their uploaded files. The page includes the file name, hash, and download link. Additionally, it shows the blockchain verification status, confirming that the file hash has been successfully stored on the Ethereum blockchain, ensuring the integrity and authenticity of the file.
 
 
+\chapter{Conclusion and Future Work}
+\section{Conclusion}
+% \cite{bashir2021subjective} \cite{mittal2016}
+The B-LOCK project successfully demonstrates the integration of blockchain technology with file storage solutions to create a secure e-vault application. Throughout the development process, we addressed critical aspects of data security, user authentication, and file integrity. By leveraging Ethereum's blockchain, we ensured that every uploaded file is securely hashed and its integrity verifiable, thus preventing unauthorized tampering or data breaches.
+\\
+Key accomplishments of the B-LOCK project include:
+\begin{itemize}
+\item \textbf{Secure File Uploads:} Implementation of an intuitive interface allowing users to upload files securely.
+\item \textbf{Blockchain Verification:} Integration with the Ethereum blockchain to store file hashes, ensuring the authenticity and integrity of uploaded files.
+\item \textbf{User Authentication:} A robust user registration and login system, including email verification for added security.
+\item \textbf{Efficient File Management:} A user-friendly dashboard for managing uploaded files, with options to view, download, and delete files.
+
+\end{itemize}
+
+\section{Future Work}
+While the current implementation of B-LOCK meets its primary objectives, there are several areas for potential improvement and expansion. Future work could focus on the following aspects:
+\begin{itemize}
+   \item \textbf{Enhanced Scalability:} As the user base grows, optimizing the system for better scalability will be crucial. This may involve exploring more efficient blockchain solutions or layer-2 scaling techniques.
+   \item \textbf{Mobile Application:} Developing a mobile version of B-LOCK to extend accessibility and usability across various devices.
+   \item \textbf{Advanced Security Features:} Integrating additional security measures such as multi-factor authentication (MFA), biometric verification, and encryption for stored files.
+   \item \textbf{Decentralized Storage Integration:} Exploring decentralized storage solutions such as IPFS (InterPlanetary File System) or Filecoin to further enhance data availability and redundancy.
+   \item \textbf{Smart Contract Enhancements:} Improving the smart contract logic to include features like file versioning, access control, and more sophisticated file-sharing mechanisms.
+   \item \textbf{User Experience Improvements:} Continuously refining the user interface and experience based on user feedback and emerging best practices in UI/UX design.
+   \item \textbf{Automated Backup and Recovery:} Implementing automated backup and disaster recovery solutions to ensure data availability and integrity in case of system failures.
+\end{itemize}
+By addressing these areas, B-LOCK can evolve into a more comprehensive and versatile e-vault solution, offering enhanced security, scalability, and user experience. The project's success serves as a testament to the potential of blockchain technology in revolutionizing secure data storage and management systems.
 
 
+% \cite{Tea} This project has a great potential to make a positive impact on communication and security situations. Its continuous improvement will be important to make this impact 
+% even greater example for citing and bibtex for journal paper \cite{croitoru2023diffusion}, conference paper \cite{mohamad2015smart}, citing website \cite{knuthwebsite}, citing book \cite{dirac}
 
 
 
