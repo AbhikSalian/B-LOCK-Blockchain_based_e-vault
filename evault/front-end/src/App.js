@@ -7,8 +7,8 @@ import Navigation from "./Navigation";
 import Footer from "./Footer";
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
-import Upload from "./Upload"; // Import Upload component
-import Retrieve from "./Retrieve"; // Import Retrieve component
+import Upload from "./Upload";
+import Retrieve from "./Retrieve";
 
 function App() {
   const [account, setAccount] = useState("");
@@ -66,6 +66,11 @@ function App() {
     setAuthMode("signUp");
   };
 
+  const onSignOut = () => {
+    auth.signOut();
+    setUser(null);
+  };
+
   return (
     <div className="App">
       {!user ? (
@@ -85,6 +90,7 @@ function App() {
               e.preventDefault();
               setActiveContainer("storage");
             }}
+            onSignOut={onSignOut}
           />
           <main className="container">
             <div className={`upload-box ${activeContainer === "upload" ? 'show' : 'hide'}`}>
@@ -94,7 +100,6 @@ function App() {
                 storage={storage}
                 db={db}
                 user={user}
-                // fetchFiles={Retrieve.fetchFiles} // Pass fetchFiles to update stored files
               />
             </div>
             <div className={`stored-files ${activeContainer === "storage" ? 'show' : 'hide'}`}>

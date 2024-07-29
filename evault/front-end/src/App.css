@@ -49,6 +49,10 @@ header h1 {
   transform: translate(-50%, -50%);
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  position: relative; /* Change to relative for better control within the container */
+  margin: 0 auto; /* Center horizontally */
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
 .upload-box.show {
@@ -209,6 +213,18 @@ li button {
   font-size: 0.9rem;
   margin-top: 0;
 }
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed; /* Change from absolute to fixed */
+  width: 100%;
+  bottom: 0; /* Position it at the bottom */
+  z-index: 100;
+  line-height: 1.6; /* Adjust line-height for better spacing */
+}
+
 
 @media (max-width: 768px) {
   .App {
