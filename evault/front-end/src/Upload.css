@@ -5,17 +5,18 @@
   text-align: center;
   padding: 20px;
   font-family: Arial, sans-serif;
-  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background for blending */
+  background-color: rgba(33, 33, 33, 0.9); /* Semi-transparent dark background for blending */
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(8px); /* Blurs the content behind */
+  color: #fff; /* White text color for better contrast */
 }
 
 .upload-area {
   border: 2px dashed #007aff;
   border-radius: 8px;
   padding: 40px;
-  background-color: rgba(240, 240, 255, 0.8); /* Soft white with a tint */
+  background-color: rgba(55, 55, 55, 0.8); /* Dark background with a tint */
   margin: 20px 0;
   transition: background-color 0.3s, border-color 0.3s;
   position: relative;
@@ -23,7 +24,7 @@
 }
 
 .upload-area.dragging {
-  background-color: rgba(220, 220, 255, 0.9);
+  background-color: rgba(85, 85, 85, 0.9);
   border-color: #005fbd;
 }
 
@@ -34,7 +35,7 @@
 
 .upload-area p {
   margin: 10px 0;
-  color: #555;
+  color: #ddd; /* Lighter text color for better contrast */
   font-size: 16px;
 }
 
@@ -71,7 +72,7 @@
 }
 
 .upload-message {
-  color: #333;
+  color: #ddd; /* Lighter text color for better contrast */
   margin-top: 10px;
   font-size: 16px;
 }
@@ -88,7 +89,7 @@
   margin-top: 20px;
   text-align: left;
   font-size: 16px;
-  color: #333;
+  color: #fff; /* White text color for better contrast */
 }
 
 .selected-files h4 {
@@ -105,10 +106,10 @@
   margin: 5px 0;
   padding: 5px 10px;
   border-radius: 4px;
-  background-color: #f0f8ff;
+  background-color: #444; /* Darker background for list items */
   transition: background-color 0.3s;
 }
 
 .selected-files li:hover {
-  background-color: #e6f1ff;
+  background-color: #555;
 }
