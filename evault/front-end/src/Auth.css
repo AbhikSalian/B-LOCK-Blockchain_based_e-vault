@@ -11,16 +11,19 @@ html, body {
   height: 100vh;
   width: 100vw;
   background: linear-gradient(to right, #0F2143, #03306a, #023E8A, #0d5175, #0077B6);
+  
 }
 
 /* Rest of your CSS remains the same */
   
   .auth-form {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 40px;
+    background: rgba(55, 52, 52, 0.2);
+    padding: 20px;
     border-radius: 20px;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 50px rgba(246, 239, 239, 0.1);
     width: 400px;
+    align-items: center;
+    justify-content: center;
   }
   
   .auth-form h2 {
@@ -50,7 +53,7 @@ html, body {
     width: 320px;
     height: 40px;
     font-size: 16px;
-    color: azure;
+    color: rgb(24, 223, 223);
     padding: 0 5px;
     background: transparent;
     border: none;
