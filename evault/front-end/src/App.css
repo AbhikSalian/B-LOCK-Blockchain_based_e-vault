@@ -1,76 +1,115 @@
-/* App.css */
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
   background-image: url('./bg1.jpg');
   background-size: cover;
   background-attachment: fixed;
   color: white;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  line-height: 1.6;
 }
 
 .App {
   text-align: center;
-  flex: 1;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  padding: 40px 20px;
 }
 
 header h1 {
   color: white;
-  font-size: 3rem;
-  text-shadow: 1px 1px 2px black;
-  margin-top: 20px;
+  font-size: 3.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 40px;
+  font-weight: 300;
 }
 
 .container {
-  flex: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  width: 100%;
-  padding: 20px;
-  color: white;
-  overflow: hidden;
-  position: relative;
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .upload-box, .stored-files {
-  width: 80%;
-  max-width: 800px;
-  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
   padding: 30px;
   border-radius: 15px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  margin-bottom: 30px;
 }
 
 .upload-box {
-  transform: translate(-50%, -50%) translateX(-150%);
-  opacity: 0;
-}
-
-.stored-files {
-  transform: translate(-50%, -50%) translateX(150%);
-  opacity: 0;
-}
-
-.upload-box.active, .stored-files.active {
-  transform: translate(-50%, -50%) translateX(0);
-  opacity: 1;
-}
-
-.file-input-container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin-bottom: 20px;
+  align-items: center;
+}
+
+.file-input-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.file-input-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.file-input-wrapper .btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.file-input-wrapper .btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.input-group {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-group label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #aaa;
+  transition: 0.2s;
+  pointer-events: none;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 10px;
+  font-size: 12px;
+  color: #333;
 }
 
 button {
@@ -79,28 +118,33 @@ button {
   border: none;
   padding: 12px 24px;
   cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s, transform 0.2s;
-  font-size: 16px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  margin-top: 15px;
 }
 
 button:hover {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.3);
   transform: scale(1.05);
 }
 
 .message {
-  color: yellow;
-  text-align: center;
-  margin: 15px 0;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 5px;
+  color: #FFD700;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.stored-files h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 ul {
   list-style-type: none;
   padding: 0;
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 li {
@@ -108,24 +152,72 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 12px 20px;
   border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 li a {
   color: white;
   text-decoration: none;
+  transition: color 0.3s ease;
+  flex-grow: 1;
+  text-align: left;
+  margin-right: 15px;
 }
 
 li a:hover {
-  text-decoration: underline;
+  color: #FFD700;
+}
+
+li button {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  margin-top: 0;
+}
+
+li .delete-button {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+li .delete-button:hover {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+li .download-button {
+  background-color: rgba(0, 255, 0, 0.2);
+}
+
+li .download-button:hover {
+  background-color: rgba(0, 255, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding: 20px 10px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .upload-box, .stored-files {
+    padding: 20px;
+  }
+}
+.footer {
+  background-color: #f4f4f4;
+  padding: 10px;
+  text-align: center;
 }
 
 /* Navigation styles */
 nav {
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 15px 0;
   margin-bottom: 20px;
 }
 
@@ -139,6 +231,7 @@ nav button {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap:10px;
 }
 
 .sort-container label {
@@ -149,10 +242,9 @@ nav button {
   background-color: rgba(255, 255, 255, 0.2);
   color: white;
   border: none;
-  padding: 8px 12px;
+  padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 14px;
 }
 
 /* Pagination styles */
@@ -164,4 +256,37 @@ nav button {
 
 .pagination button {
   margin: 0 5px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.foot-pad {
+  padding-bottom: 10px;
 }
