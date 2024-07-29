@@ -1,7 +1,4 @@
-// App.js
-
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Web3 from "web3";
 import EVault from "./contracts/EVault.json";
 import "./App.css";
@@ -89,8 +86,8 @@ function App() {
               setActiveContainer("storage");
             }}
           />
-          <main>
-            {activeContainer === "upload" ? (
+          <main className="container">
+            <div className={`upload-box ${activeContainer === "upload" ? 'show' : 'hide'}`}>
               <Upload
                 evault={evault}
                 account={account}
@@ -99,14 +96,15 @@ function App() {
                 user={user}
                 // fetchFiles={Retrieve.fetchFiles} // Pass fetchFiles to update stored files
               />
-            ) : (
+            </div>
+            <div className={`stored-files ${activeContainer === "storage" ? 'show' : 'hide'}`}>
               <Retrieve
                 db={db}
                 user={user}
                 sortConfig={sortConfig}
                 setSortConfig={setSortConfig}
               />
-            )}
+            </div>
           </main>
           <Footer />
         </>

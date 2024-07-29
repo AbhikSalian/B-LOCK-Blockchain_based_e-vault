@@ -26,24 +26,52 @@ header h1 {
 }
 
 .container {
+  flex: 1;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 90%;
-  max-width: 800px;
-  margin: 0 auto;
+  width: 100%;
+  padding: 20px;
+  color: white;
+  overflow: hidden;
+  position: relative;
 }
 
 .upload-box, .stored-files {
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.1);
+  width: 80%;
+  max-width: 800px;
+  background-color: rgba(0, 0, 0, 0.7);
   padding: 30px;
   border-radius: 15px;
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  margin-bottom: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
+
+.upload-box.show {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.stored-files.show {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.upload-box.hide {
+  opacity: 0;
+  transform: translate(-150%, -50%);
+}
+
+.stored-files.hide {
+  opacity: 0;
+  transform: translate(150%, -50%);
+}
+
+
 
 .upload-box {
   display: flex;
@@ -202,14 +230,19 @@ li .download-button:hover {
     padding: 20px 10px;
   }
 
-  h1 {
+  header h1 {
     font-size: 2.5rem;
   }
 
   .upload-box, .stored-files {
     padding: 20px;
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
+
 .footer {
   background-color: #f4f4f4;
   padding: 10px;
@@ -231,7 +264,7 @@ nav button {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap:10px;
+  gap: 10px;
 }
 
 .sort-container label {
