@@ -2,26 +2,42 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+/*body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; 
+  padding: 20px;
+}*/
+
+body{
+  justify-content: center;
+  align-items: center;
 }
 
 .auth-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
   background: linear-gradient(to right, #0F2143, #03306a, #023E8A, #0d5175, #0077B6);
-  
 }
 
-/* Rest of your CSS remains the same */
-  
   .auth-form {
     background: rgba(55, 52, 52, 0.2);
-    padding: 20px;
+    padding: 80px;
     border-radius: 20px;
-    box-shadow: 0 0 50px rgba(246, 239, 239, 0.1);
+    box-shadow: 0 0 50px rgba(246, 239, 239, 0.3);
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
     width: 400px;
+    max-width: 400px;
     align-items: center;
     justify-content: center;
   }
@@ -30,6 +46,7 @@ html, body {
     font-size: 30px;
     color: azure;
     text-align: center;
+    margin-bottom: 20px;
   }
   
   .auth-form .input-group {
@@ -82,4 +99,5 @@ html, body {
     text-align: center;
     margin-top: 15px;
   }
+
   
