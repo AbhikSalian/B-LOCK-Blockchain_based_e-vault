@@ -210,22 +210,6 @@ li button {
   margin-top: 0;
 }
 
-li .delete-button {
-  background-color: rgba(255, 0, 0, 0.2);
-}
-
-li .delete-button:hover {
-  background-color: rgba(255, 0, 0, 0.3);
-}
-
-li .download-button {
-  background-color: rgba(0, 255, 0, 0.2);
-}
-
-li .download-button:hover {
-  background-color: rgba(0, 255, 0, 0.3);
-}
-
 @media (max-width: 768px) {
   .App {
     padding: 20px 10px;

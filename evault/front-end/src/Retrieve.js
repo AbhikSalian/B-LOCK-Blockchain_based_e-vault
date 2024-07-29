@@ -1,12 +1,11 @@
-// Retrieve.js
-
 import React, { useState, useEffect } from "react";
-import { collection, getDocs, query, where, orderBy } from "firebase/firestore";
-import { FaDownload, FaSort, FaEye } from "react-icons/fa";
-import "./Retrieve.css"; // If you have specific styles for the Retrieve component
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { FaSort, FaEye } from "react-icons/fa";
+import "./Retrieve.css";
 
 function Retrieve({ db, user, sortConfig, setSortConfig }) {
   const [storedFiles, setStoredFiles] = useState([]);
+  const [allStoredFiles, setAllStoredFiles] = useState([]); // Track all files
   const [currentPage, setCurrentPage] = useState(1);
   const [filesPerPage] = useState(5);
   const [modalFile, setModalFile] = useState(null);
@@ -15,7 +14,7 @@ function Retrieve({ db, user, sortConfig, setSortConfig }) {
     if (user) {
       fetchFiles();
     }
-  }, [sortConfig, user]);
+  }, [user]);
 
   const fetchFiles = async () => {
     if (!user) return;
@@ -24,7 +23,6 @@ function Retrieve({ db, user, sortConfig, setSortConfig }) {
       const filesQuery = query(
         collection(db, "files"),
         where("owner", "==", user.uid),
-        orderBy(sortConfig.key, sortConfig.direction)
       );
       const querySnapshot = await getDocs(filesQuery);
 
@@ -33,26 +31,10 @@ function Retrieve({ db, user, sortConfig, setSortConfig }) {
         ...doc.data(),
       }));
 
-      setStoredFiles(filesData);
+      setAllStoredFiles(filesData); // Set all files
+      setStoredFiles(filesData); // Set files to be displayed
     } catch (error) {
       console.error("Error fetching files:", error);
-    }
-  };
-
-  const handleDownload = async (downloadURL, fileName) => {
-    try {
-      const response = await fetch(downloadURL);
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = fileName;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      window.URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error("Download error:", error);
     }
   };
 
@@ -73,6 +55,21 @@ function Retrieve({ db, user, sortConfig, setSortConfig }) {
       direction = "desc";
     }
     setSortConfig({ key, direction });
+
+    const sortedFiles = [...allStoredFiles].sort((a, b) => {
+      if (key === "timestamp") {
+        return direction === "asc"
+          ? a.timestamp.seconds - b.timestamp.seconds
+          : b.timestamp.seconds - a.timestamp.seconds;
+      } else if (key === "name") {
+        return direction === "asc"
+          ? a.name.localeCompare(b.name)
+          : b.name.localeCompare(a.name);
+      }
+      return 0;
+    });
+
+    setStoredFiles(sortedFiles); // Update displayed files after sorting
   };
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -80,6 +77,10 @@ function Retrieve({ db, user, sortConfig, setSortConfig }) {
   const indexOfLastFile = currentPage * filesPerPage;
   const indexOfFirstFile = indexOfLastFile - filesPerPage;
   const currentFiles = storedFiles.slice(indexOfFirstFile, indexOfLastFile);
+
+  const handleFileClick = (url) => {
+    window.open(url, '_blank');
+  };
 
   return (
     <div className="stored-files">
@@ -109,16 +110,9 @@ function Retrieve({ db, user, sortConfig, setSortConfig }) {
           <ul className="file-list">
             {currentFiles.map((file) => (
               <li key={file.id}>
-                <span>{file.name}</span>
-                <span>
-                  {new Date(file.timestamp.seconds * 1000).toLocaleString()}
-                </span>
+                <span onClick={() => handleFileClick(file.downloadURL)} style={{cursor: "pointer", color: "#ffffff"}}>{file.name}</span>
+                <span>{new Date(file.timestamp.seconds * 1000).toLocaleString()}</span>
                 <div className="actions">
-                  <button
-                    onClick={() => handleDownload(file.downloadURL, file.name)}
-                  >
-                    <FaDownload /> Download
-                  </button>
                   <button onClick={() => handlePreview(file)}>
                     <FaEye /> Preview
                   </button>
@@ -146,18 +140,20 @@ function Retrieve({ db, user, sortConfig, setSortConfig }) {
       )}
 
       {modalFile && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={closeModal}>
-              &times;
-            </span>
-            <h2>Preview of {modalFile.name}</h2>
-            <iframe
-              src={modalFile.previewURL}
-              title="File Preview"
-              width="100%"
-              height="400"
-            ></iframe>
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-content">
+              <span className="close" onClick={closeModal}>
+                &times;
+              </span>
+              <h2>Preview of {modalFile.name}</h2>
+              <iframe
+                src={modalFile.previewURL}
+                title="File Preview"
+                width="100%"
+                height="400"
+              ></iframe>
+            </div>
           </div>
         </div>
       )}

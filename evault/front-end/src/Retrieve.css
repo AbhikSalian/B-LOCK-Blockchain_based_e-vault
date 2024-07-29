@@ -1,4 +1,3 @@
-/* Retrieve.css */
 .retrieve-container {
   padding: 20px;
   margin: auto;
@@ -21,6 +20,12 @@
 
 .file-table th {
   background-color: #f4f4f4;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .pagination button {
@@ -60,7 +65,7 @@
   text-align: center;
 }
 
-.close-button {
+.close {
   position: absolute;
   top: 10px;
   right: 15px;
@@ -68,29 +73,173 @@
   cursor: pointer;
 }
 
-.modal-image {
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal iframe {
   width: 100%;
-  height: auto;
-  max-height: 400px;
-  object-fit: contain;
+  height: 400px;
+}
+
+.foot-pad {
+  padding-bottom: 10px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+  background-image: url('./bg1.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+  line-height: 1.6;
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px;
+}
+
+header h1 {
+  color: white;
+  font-size: 3.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  color: white;
+  overflow: hidden;
+  position: relative;
+}
+
+.upload-box, .stored-files {
+  width: 150%;
+  max-width: 800px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  border-radius: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.upload-box.show {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.stored-files.show {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.upload-box.hide {
+  opacity: 0;
+  transform: translate(-150%, -50%);
+}
+
+.stored-files.hide {
+  opacity: 0;
+  transform: translate(150%, -50%);
+}
+
+.upload-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.upload-box h2 {
   margin-bottom: 20px;
 }
 
-.modal-buttons {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 10px;
+.upload-box input {
+  width: 100%;
+  margin-bottom: 20px;
 }
 
-.modal-buttons button {
+.upload-box button {
   padding: 10px 20px;
+  font-size: 16px;
   background-color: #4A90E2;
-  color: white;
   border: none;
+  border-radius: 5px;
+  color: white;
   cursor: pointer;
-  border-radius: 4px;
+  transition: background-color 0.3s ease-in-out;
 }
 
-.modal-buttons button:hover {
+.upload-box button:hover {
   background-color: #357ABD;
+}
+
+.stored-files {
+  width: 100%;
+  text-align: left;
+}
+
+.stored-files h2 {
+  margin-bottom: 20px;
+}
+
+.stored-files ul {
+  list-style: none;
+  padding: 0;
+}
+
+.stored-files li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.stored-files li:hover {
+  background-color: #4A90E2;
+}
+
+.stored-files .actions {
+  display: flex;
+  align-items: center;
+}
+
+.stored-files .actions button {
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #4A90E2;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.stored-files .actions button:hover {
+  background-color: #357ABD;
+}
+.stored-files li .file-name {
+  color: #fafafa; /* Change this to your desired color */
 }
