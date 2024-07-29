@@ -91,7 +91,7 @@ bottom=1.0in,
 \end{center}
 \newpage
 
-%%%%%%%%%%%%%%%%%%%%%%%%%% Certificate Page %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%% Certificate Page %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{center}
 \LARGE \textbf{ST JOSEPH ENGINEERING COLLEGE}
 \par
@@ -155,9 +155,9 @@ the bonafide students of VI semester Computer Science \& Engineering in partial 
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{\numberline{}Abstract}
 The advent of blockchain technology has revolutionized the 
-way data is stored and managed, offering unparalleled security, 
-transparency, and immutability. This report presents the 
-development of a blockchain-based eVault, a decentralized 
+way data is stored and managed, security, transparency, and 
+immutability. This report presents the development of a 
+blockchain-based eVault, a decentralized 
 application designed to securely store, retrieve, download, 
 and delete files and documents. The eVault leverages blockchain's 
 distributed ledger technology to ensure the integrity and 
@@ -245,36 +245,130 @@ The application is particularly suited for sectors where data privacy is critica
 %---------------------------- Chapter TWO --------------------------
 
 \chapter{Software Requirements Specification}
+
 \section{Introduction}
 
-paragraph contents... 
+The purpose of this Software Requirements Specification (SRS) document is to outline the functional and non-functional requirements for the blockchain-based eVault project. The eVault is a decentralized application designed to provide a secure and user-friendly platform for storing, retrieving, downloading, and deleting files using blockchain technology. This document will serve as a guide for the development team and stakeholders, ensuring that all aspects of the system are well-defined and aligned with the project's goals.
 
-\section{Functional requirements}
-paragraph contents... 
+This document is structured into two main sections: Functional Requirements and Non-Functional Requirements. The Functional Requirements section describes the core functionalities that the eVault must provide to meet the user's needs. The Non-Functional Requirements section details the quality attributes, performance standards, and other constraints that the system must adhere to for optimal operation.
 
-\section{Non-Functional requirements}
-paragraph contents... 
+\section{Functional Requirements}
 
-\subsection{subsection heading}
-paragraph contents... 
+The functional requirements define the specific behavior and functionalities of the eVault system. These requirements ensure that the application meets user expectations and provides the necessary capabilities for secure document management. The key functional requirements for the eVault include:
 
+\textbf{1. User Registration and Authentication:}
+   - The system must allow users to register and create an account using a secure registration process.
+   - Users must be able to log in using their credentials, with multi-factor authentication for added security.
+   - Passwords must be stored securely using encryption.
 
-\subsection{subsection heading}
-paragraph contents... 
-\section{User Interface requirements}
-paragraph contents... 
-\subsection{subsection heading}
-paragraph contents... 
-\subsection{subsection heading}
-paragraph contents... 
-\section{Software Requirements }
-paragraph contents... 
-\subsection{subsection heading}
-paragraph contents... 
-\subsection{subsection heading}
-paragraph contents... 
-\section{Hardware Requirements }
-paragraph contents... 
+\textbf{2. Secure File Upload:}
+   - Users must be able to upload files to the eVault, where each file is encrypted before storage.
+   - The system must assign a unique identifier to each file for easy retrieval and management.
+
+\textbf{3. File Retrieval and Access Control:}
+   - Users must be able to search and retrieve files using the unique identifiers.
+   - Access control mechanisms must be implemented to ensure that only authorized users can access specific files.
+
+\textbf{4. File Download and Deletion:}
+   - Users must be able to download files securely, with the option to decrypt them upon download.
+   - Users should be able to delete files, ensuring that the deletion process is secure and irreversible.
+
+\textbf{5. Blockchain Integration:}
+   - The system must integrate with a blockchain platform to ensure the immutability and security of stored files.
+   - All transactions related to file operations (upload, download, delete) must be recorded on the blockchain for auditability.
+
+\textbf{6. User Interface:}
+   - The application must provide a user-friendly interface that is intuitive and easy to navigate.
+   - The interface should support multiple languages and accessibility features.
+
+\section{Non-Functional Requirements}
+
+The non-functional requirements define the quality attributes, performance standards, and other constraints of the eVault system. These requirements ensure that the application operates efficiently and meets user expectations regarding performance, security, and usability. The key non-functional requirements for the eVault include:
+
+\textbf{1. Performance:}
+   - The system must handle a high volume of transactions and file uploads/downloads without significant delays.
+   - File retrieval times should not exceed a specified threshold, ensuring quick access to documents.
+
+\textbf{2. Scalability:}
+   - The eVault must be able to scale to accommodate a growing number of users and files.
+   - The system should support horizontal scaling to handle increased demand.
+
+\textbf{3. Security:}
+   - All data, including user credentials and files, must be encrypted to protect against unauthorized access and breaches.
+   - The system should comply with industry security standards and regulations (e.g., GDPR, HIPAA).
+
+\textbf{4. Reliability:}
+   - The eVault must provide high availability and uptime, minimizing downtime and disruptions.
+   - The system should have backup and recovery mechanisms to ensure data integrity and availability.
+
+\textbf{5. Usability:}
+   - The application should be intuitive and easy to use, with clear instructions and help resources available.
+   - User feedback mechanisms should be in place to gather input for future improvements.
+
+\textbf{6. Compatibility:}
+   - The eVault must be compatible with various operating systems and devices, including desktops, tablets, and smartphones.
+   - The system should support major web browsers and adhere to web standards.
+
+\textbf{7. Maintainability:}
+   - The system architecture should be modular and easy to maintain, allowing for future updates and enhancements.
+   - Code documentation and best practices should be followed to facilitate development and troubleshooting.
+
+   \section{User Interface Requirements}
+
+   This section outlines the design and functional requirements of the user interface (UI) for the eVault system. It includes considerations for usability, accessibility, and aesthetic appeal, ensuring an intuitive experience for all users.
+   
+   \subsection{Design Principles}
+   The user interface should adhere to modern design principles to enhance usability and user satisfaction.
+   \begin{itemize}
+       \item \textbf{Consistency:} The UI should maintain consistency in design elements across all screens, including fonts, colors, and button styles.
+       \item \textbf{Simplicity:} The design should be clean and clutter-free, emphasizing essential functions to avoid overwhelming the user.
+       \item \textbf{Responsiveness:} The interface must be responsive and adaptable to various screen sizes and devices, including desktops, tablets, and smartphones.
+   \end{itemize}
+   
+   \subsection{Accessibility}
+   The application should be accessible to all users, including those with disabilities, by adhering to accessibility standards.
+   \begin{itemize}
+       \item \textbf{Screen Readers:} The UI should support screen readers to assist visually impaired users in navigating the application.
+       \item \textbf{Keyboard Navigation:} Users should be able to navigate the application using keyboard shortcuts without relying on a mouse.
+       \item \textbf{Color Contrast:} Ensure sufficient contrast between text and background colors to improve readability for users with visual impairments.
+   \end{itemize}
+   
+   \subsection{User Feedback}
+   Feedback mechanisms should be implemented to gather user input and improve the application over time.
+   \begin{itemize}
+       \item \textbf{Error Messages:} Provide clear and informative error messages to guide users in resolving issues.
+       \item \textbf{User Surveys:} Periodic surveys can be conducted to collect user feedback on the UI and identify areas for improvement.
+       \item \textbf{Help Resources:} Offer tutorials and help sections to assist users in understanding and using the application's features.
+   \end{itemize}
+   
+   \section{Software Requirements}
+   
+   This section specifies the technical requirements of the eVault system, covering hardware, software, network, and operational aspects to ensure efficient and reliable performance.
+   
+   \subsection{Hardware Requirements}
+   The eVault system requires specific hardware configurations to operate efficiently and support user needs.
+   \begin{itemize}
+       \item \textbf{Server Specifications:} Minimum server requirements include 16 GB RAM, 4-core CPU, and 500 GB SSD for optimal performance.
+       \item \textbf{User Devices:} Users should have access to devices with at least 4 GB RAM and a modern web browser to use the application effectively.
+   \end{itemize}
+   
+   \subsection{Software Dependencies}
+   The eVault relies on various software components and libraries to function correctly.
+   \begin{itemize}
+       \item \textbf{Operating Systems:} Compatible with Windows, macOS, and Linux for server deployments.
+       \item \textbf{Database Systems:} Supports MySQL and MongoDB for data storage and management.
+       \item \textbf{Programming Languages:} Developed using Python and JavaScript, leveraging frameworks such as Django and React.
+   \end{itemize}
+   
+   \subsection{Network Requirements}
+   Ensure stable and secure network connectivity to support application operations and data transmission.
+   \begin{itemize}
+       \item \textbf{Bandwidth:} The application requires a minimum internet speed of 10 Mbps for smooth operation.
+       \item \textbf{Firewall Settings:} Configure firewalls to allow traffic through necessary ports while blocking unauthorized access.
+       \item \textbf{Data Encryption:} All data transmitted over the network must be encrypted using TLS to prevent interception.
+   \end{itemize}
+   
+
 
 
 \chapter{System Design}
@@ -440,9 +534,7 @@ This project can be further developed as:
 
 
 \cite{Tea} This project has a great potential to make a positive impact on communication and security situations. Its continuous improvement will be important to make this impact 
-even greater
-
-example for citing and bibtex for journal paper \cite{croitoru2023diffusion}, conference paper \cite{mohamad2015smart}, citing website \cite{knuthwebsite}, citing book \cite{dirac}
+even greater example for citing and bibtex for journal paper \cite{croitoru2023diffusion}, conference paper \cite{mohamad2015smart}, citing website \cite{knuthwebsite}, citing book \cite{dirac}
 
 
 

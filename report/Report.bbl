@@ -71,16 +71,16 @@
     \endentry
     \entry{croitoru2023diffusion}{article}{}{}
       \name{author}{3}{}{%
-        {{hash=5c0de0419c2a6c66a6a97da7ab48f9e8}{%
+        {{hash=30dabab3612e9796210debbb340dd889}{%
            family={Croitoru},
            familyi={C\bibinitperiod},
-           given={Florinel-Alin},
-           giveni={F\bibinithyphendelim A\bibinitperiod}}}%
-        {{hash=e6467db5d2b8449755204a1db5f054ea}{%
-           family={Hondru},
-           familyi={H\bibinitperiod},
-           given={Vlad},
-           giveni={V\bibinitperiod}}}%
+           given={Florin-Gabriel},
+           giveni={F\bibinithyphendelim G\bibinitperiod}}}%
+        {{hash=03e85ba8c54988cecb50997952b5dc71}{%
+           family={Leordeanu},
+           familyi={L\bibinitperiod},
+           given={Marius},
+           giveni={M\bibinitperiod}}}%
         {{hash=0c881a20b685d760d9286b0c22525505}{%
            family={Ionescu},
            familyi={I\bibinitperiod},
@@ -88,23 +88,27 @@
            giveni={R\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {IEEE}%
+        {MDPI}%
       }
-      \strng{namehash}{1c9ffa6450fd20a6cfcbe7b867e13c0b}
-      \strng{fullhash}{1c9ffa6450fd20a6cfcbe7b867e13c0b}
-      \strng{fullhashraw}{1c9ffa6450fd20a6cfcbe7b867e13c0b}
-      \strng{bibnamehash}{1c9ffa6450fd20a6cfcbe7b867e13c0b}
-      \strng{authorbibnamehash}{1c9ffa6450fd20a6cfcbe7b867e13c0b}
-      \strng{authornamehash}{1c9ffa6450fd20a6cfcbe7b867e13c0b}
-      \strng{authorfullhash}{1c9ffa6450fd20a6cfcbe7b867e13c0b}
-      \strng{authorfullhashraw}{1c9ffa6450fd20a6cfcbe7b867e13c0b}
+      \strng{namehash}{701402216254bfb4321af298ecef755c}
+      \strng{fullhash}{701402216254bfb4321af298ecef755c}
+      \strng{fullhashraw}{701402216254bfb4321af298ecef755c}
+      \strng{bibnamehash}{701402216254bfb4321af298ecef755c}
+      \strng{authorbibnamehash}{701402216254bfb4321af298ecef755c}
+      \strng{authornamehash}{701402216254bfb4321af298ecef755c}
+      \strng{authorfullhash}{701402216254bfb4321af298ecef755c}
+      \strng{authorfullhashraw}{701402216254bfb4321af298ecef755c}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Pattern Analysis and Machine Intelligence}
-      \field{title}{Diffusion models in vision: A survey}
+      \field{journaltitle}{Journal of Imaging}
+      \field{number}{1}
+      \field{title}{Diffusion Models for Image Super-Resolution: A Survey}
+      \field{volume}{9}
       \field{year}{2023}
+      \field{pages}{16}
+      \range{pages}{1}
     \endentry
     \entry{dirac}{inbook}{}{}
       \name{author}{1}{}{%

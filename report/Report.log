@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.28)  28 JUL 2024 14:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.28)  29 JUL 2024 18:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -546,119 +546,123 @@ Chapter 2.
 ]
 
 [4]
+
+[5]
+
+[6]
 Chapter 3.
 File: ./pic/sjeclogo.png Graphic file (type png)
 <use ./pic/sjeclogo.png>
-Package pdftex.def Info: ./pic/sjeclogo.png  used on input line 285.
+Package pdftex.def Info: ./pic/sjeclogo.png  used on input line 379.
 (pdftex.def)             Requested size: 289.1293pt x 216.82574pt.
 File: ./pic/sjeclogo.png Graphic file (type png)
 <use ./pic/sjeclogo.png>
-Package pdftex.def Info: ./pic/sjeclogo.png  used on input line 292.
+Package pdftex.def Info: ./pic/sjeclogo.png  used on input line 386.
 (pdftex.def)             Requested size: 361.41283pt x 216.82574pt.
 
 
-[5
+[7
 
 ]
-<./pic/sample.jpg, id=47, 700.6175pt x 401.5pt>
+<./pic/sample.jpg, id=55, 700.6175pt x 401.5pt>
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 304.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 398.
 (pdftex.def)             Requested size: 560.49475pt x 321.20042pt.
 
-Overfull \hbox (107.52686pt too wide) in paragraph at lines 304--305
+Overfull \hbox (107.52686pt too wide) in paragraph at lines 398--399
  [][] 
  []
 
 
 
-[6]
+[8]
 
-[7 <./pic/sample.jpg>]
+[9 <./pic/sample.jpg>]
 Chapter 4.
 File: ./pic/sjeclogo.png Graphic file (type png)
 <use ./pic/sjeclogo.png>
-Package pdftex.def Info: ./pic/sjeclogo.png  used on input line 319.
+Package pdftex.def Info: ./pic/sjeclogo.png  used on input line 413.
 (pdftex.def)             Requested size: 361.41283pt x 216.82574pt.
 
 
-[8
+[10
 
 ]
 File: ./pic/sjeclogo.png Graphic file (type png)
 <use ./pic/sjeclogo.png>
-Package pdftex.def Info: ./pic/sjeclogo.png  used on input line 332.
+Package pdftex.def Info: ./pic/sjeclogo.png  used on input line 426.
 (pdftex.def)             Requested size: 361.41283pt x 216.82574pt.
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 349.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 443.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
 
-
-[9]
-File: ./pic/sample.jpg Graphic file (type jpg)
-<use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 358.
-(pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
-File: ./pic/sample.jpg Graphic file (type jpg)
-<use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 368.
-(pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
-
-
-[10]
 
 [11]
+File: ./pic/sample.jpg Graphic file (type jpg)
+<use ./pic/sample.jpg>
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 452.
+(pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
+File: ./pic/sample.jpg Graphic file (type jpg)
+<use ./pic/sample.jpg>
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 462.
+(pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
+
+
+[12]
+
+[13]
 Chapter 5.
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 383.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 477.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 391.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 485.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 397.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 491.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 403.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 497.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 409.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 503.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 415.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 509.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 421.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 515.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
 
 
-[12
+[14
 
 ]
-
-[13]
-
-[14]
 
 [15]
 
 [16]
+
+[17]
+
+[18]
 Chapter 6.
 
 
-[17
+[19
 
 ]
 
-[18
+[20
 
 ] (Report.aux)
  ***********
@@ -678,9 +682,9 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  66i,12n,81p,1229b,1279s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\jessi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/jessi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/jessi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/jessi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/jessi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/jessi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/jessi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/jessi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Report.pdf (25 pages, 270328 bytes).
+Output written on Report.pdf (27 pages, 278589 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
+ 134 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
