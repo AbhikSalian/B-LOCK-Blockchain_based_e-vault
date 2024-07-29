@@ -20,16 +20,17 @@
 \contentsline {subsection}{\numberline {2.5.3}Network Requirements}{6}{}%
 \contentsline {chapter}{\numberline {3}System Design}{7}{}%
 \contentsline {section}{\numberline {3.1}Architecture Design}{7}{}%
-\contentsline {section}{\numberline {3.2}Decomposition Description}{7}{}%
+\contentsline {section}{\numberline {3.2}Decomposition Description}{8}{}%
 \contentsline {section}{\numberline {3.3}Data Flow Design}{8}{}%
 \contentsline {chapter}{\numberline {4}Implementation}{10}{}%
-\contentsline {section}{\numberline {4.1}Audio Extraction}{10}{}%
-\contentsline {section}{\numberline {4.2}Speech Separation}{10}{}%
-\contentsline {subsection}{\numberline {4.2.1}Sepformer}{11}{}%
+\contentsline {section}{\numberline {4.1}System Overview}{10}{}%
+\contentsline {section}{\numberline {4.2}Pseudocode and Algorithms}{10}{}%
+\contentsline {subsection}{\numberline {4.2.1}File Upload Algorithm}{10}{}%
+\contentsline {subsection}{\numberline {4.2.2}User Authentication Algorithm}{11}{}%
 \contentsline {section}{\numberline {4.3}Speech Enhancement}{11}{}%
 \contentsline {subsection}{\numberline {4.3.1}Lite Audio Visual Speech Enhancement}{11}{}%
-\contentsline {subsection}{\numberline {4.3.2}Spectral Subtraction}{11}{}%
-\contentsline {section}{\numberline {4.4}Speaker Detection}{12}{}%
+\contentsline {subsection}{\numberline {4.3.2}Spectral Subtraction}{12}{}%
+\contentsline {section}{\numberline {4.4}Speaker Detection}{13}{}%
 \contentsline {chapter}{\numberline {5}Results and Discussion}{14}{}%
 \contentsline {section}{\numberline {5.1}Face detection}{14}{}%
 \contentsline {section}{\numberline {5.2}Speaker recognition}{14}{}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.1)  29 JUL 2024 21:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.1)  30 JUL 2024 02:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -374,6 +374,45 @@ Package: tabularx 2023/07/08 v2.11c `tabularx' package (DPC)
 \TX@delta=\dimen157
 \TX@cols=\count393
 \TX@ftn=\toks23
+) (C:\Users\hp\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count394
+\lst@gtempboxa=\box54
+\lst@token=\toks24
+\lst@length=\count395
+\lst@currlwidth=\dimen158
+\lst@column=\count396
+\lst@pos=\count397
+\lst@lostspace=\dimen159
+\lst@width=\dimen160
+\lst@newlines=\count398
+\lst@lineno=\count399
+\lst@maxwidth=\dimen161
+ (C:\Users\hp\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+\c@lstnumber=\count400
+\lst@skipnumbers=\count401
+\lst@framebox=\box55
+) (C:\Users\hp\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2023/02/27 1.9 listings configuration
+))
+Package: listings 2023/02/27 1.9 (Carsten Heinz)
+ (C:\Users\hp\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+ (C:\Users\hp\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+LaTeX Info: Redefining \color on input line 758.
+ (C:\Users\hp\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
 )
 
 Package geometry Warning: Over-specification in `h'-direction.
@@ -383,38 +422,38 @@ Package geometry Warning: Over-specification in `h'-direction.
 Package geometry Warning: Over-specification in `v'-direction.
     `height' (845.04684pt) is ignored.
 
-\@quotelevel=\count394
-\@quotereset=\count395
+\@quotelevel=\count402
+\@quotereset=\count403
 (Report.aux)
 \openout1 = `Report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
  (C:\Users\hp\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count396
-\scratchdimen=\dimen158
-\scratchbox=\box54
-\nofMPsegments=\count397
-\nofMParguments=\count398
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count399
-\MPscratchDim=\dimen159
-\MPnumerator=\count400
-\makeMPintoPDFobject=\count401
-\everyMPtoPDFconversion=\toks25
+\scratchcounter=\count404
+\scratchdimen=\dimen162
+\scratchbox=\box56
+\nofMPsegments=\count405
+\nofMParguments=\count406
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count407
+\MPscratchDim=\dimen163
+\MPnumerator=\count408
+\makeMPintoPDFobject=\count409
+\everyMPtoPDFconversion=\toks26
 ) (C:\Users\hp\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -468,32 +507,33 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Report.bbl' found.
  (Report.bbl)
-Package biblatex Info: Reference section=0 on input line 26.
-Package biblatex Info: Reference segment=0 on input line 26.
+Package biblatex Info: Reference section=0 on input line 59.
+Package biblatex Info: Reference segment=0 on input line 59.
+\c@lstlisting=\count410
 <./pic/vtu.png, id=1, 189.70876pt x 266.9975pt>
 File: ./pic/vtu.png Graphic file (type png)
 <use ./pic/vtu.png>
-Package pdftex.def Info: ./pic/vtu.png  used on input line 35.
+Package pdftex.def Info: ./pic/vtu.png  used on input line 68.
 (pdftex.def)             Requested size: 65.4409pt x 85.35945pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 60.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 93.
  (C:\Users\hp\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 60.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 93.
  (C:\Users\hp\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 <./pic/sjeclogo.png, id=2, 158.09062pt x 145.29282pt>
 File: ./pic/sjeclogo.png Graphic file (type png)
 <use ./pic/sjeclogo.png>
-Package pdftex.def Info: ./pic/sjeclogo.png  used on input line 79.
+Package pdftex.def Info: ./pic/sjeclogo.png  used on input line 112.
 (pdftex.def)             Requested size: 94.85509pt x 87.17635pt.
  [1
 
 {C:/Users/hp/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./pic/vtu.png> <./pic/sjeclogo.png>]
 File: ./pic/sjeclogo.png Graphic file (type png)
 <use ./pic/sjeclogo.png>
-Package pdftex.def Info: ./pic/sjeclogo.png  used on input line 108.
+Package pdftex.def Info: ./pic/sjeclogo.png  used on input line 141.
 (pdftex.def)             Requested size: 79.0451pt x 72.64622pt.
  [1] [2
 
@@ -525,82 +565,82 @@ Chapter 2.
 
 ] [4] [5] [6]
 Chapter 3.
-File: ./pic/sjeclogo.png Graphic file (type png)
-<use ./pic/sjeclogo.png>
-Package pdftex.def Info: ./pic/sjeclogo.png  used on input line 379.
-(pdftex.def)             Requested size: 289.1293pt x 216.82574pt.
-File: ./pic/sjeclogo.png Graphic file (type png)
-<use ./pic/sjeclogo.png>
-Package pdftex.def Info: ./pic/sjeclogo.png  used on input line 386.
-(pdftex.def)             Requested size: 361.41283pt x 216.82574pt.
+<./pic/architecture.drawio.png, id=52, 483.8075pt x 247.92625pt>
+File: ./pic/architecture.drawio.png Graphic file (type png)
+<use ./pic/architecture.drawio.png>
+Package pdftex.def Info: ./pic/architecture.drawio.png  used on input line 408.
+(pdftex.def)             Requested size: 397.49986pt x 216.81009pt.
+<./pic/flowchart.png, id=53, 162.6075pt x 438.63875pt>
+File: ./pic/flowchart.png Graphic file (type png)
+<use ./pic/flowchart.png>
+Package pdftex.def Info: ./pic/flowchart.png  used on input line 416.
+(pdftex.def)             Requested size: 122.86095pt x 289.0875pt.
 [7
 
-]
-<./pic/sample.jpg, id=55, 700.6175pt x 401.5pt>
-File: ./pic/sample.jpg Graphic file (type jpg)
-<use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 398.
-(pdftex.def)             Requested size: 560.49475pt x 321.20042pt.
+ <./pic/architecture.drawio.png>]
+<./pic/dataflow.png, id=58, 383.4325pt x 438.63875pt>
+File: ./pic/dataflow.png Graphic file (type png)
+<use ./pic/dataflow.png>
+Package pdftex.def Info: ./pic/dataflow.png  used on input line 433.
+(pdftex.def)             Requested size: 191.71577pt x 219.31883pt.
+ [8 <./pic/flowchart.png>] [9 <./pic/dataflow.png>]
+Chapter 4.
 
-Overfull \hbox (107.52686pt too wide) in paragraph at lines 398--399
- [][] 
+Overfull \hbox (2.33301pt too wide) in paragraph at lines 458--459
+[][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[8] [9 <./pic/sample.jpg>]
-Chapter 4.
-File: ./pic/sjeclogo.png Graphic file (type png)
-<use ./pic/sjeclogo.png>
-Package pdftex.def Info: ./pic/sjeclogo.png  used on input line 413.
-(pdftex.def)             Requested size: 361.41283pt x 216.82574pt.
+
+Overfull \hbox (16.13pt too wide) in paragraph at lines 468--469
+[][][][][][][][][][][][][][][][][] 
+ []
+
 [10
 
-]
-File: ./pic/sjeclogo.png Graphic file (type png)
-<use ./pic/sjeclogo.png>
-Package pdftex.def Info: ./pic/sjeclogo.png  used on input line 426.
-(pdftex.def)             Requested size: 361.41283pt x 216.82574pt.
+] [11]
+<./pic/sample.jpg, id=75, 700.6175pt x 401.5pt>
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 443.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 517.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
- [11]
+ [12 <./pic/sample.jpg>]
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 452.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 526.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 462.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 536.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
- [12] [13]
+ [13]
 Chapter 5.
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 477.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 551.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 485.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 559.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 491.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 565.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 497.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 571.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 503.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 577.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 509.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 583.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
 File: ./pic/sample.jpg Graphic file (type jpg)
 <use ./pic/sample.jpg>
-Package pdftex.def Info: ./pic/sample.jpg  used on input line 515.
+Package pdftex.def Info: ./pic/sample.jpg  used on input line 589.
 (pdftex.def)             Requested size: 361.35123pt x 216.81288pt.
 [14
 
@@ -620,17 +660,17 @@ Package logreq Info: Writing requests to 'Report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 10666 strings out of 474486
- 203320 string characters out of 5745172
- 1934542 words of memory out of 5000000
- 32833 multiletter control sequences out of 15000+600000
- 569964 words of font info for 80 fonts, out of 8000000 for 9000
+ 12851 strings out of 474486
+ 233383 string characters out of 5745172
+ 1951542 words of memory out of 5000000
+ 35000 multiletter control sequences out of 15000+600000
+ 570432 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 66i,12n,81p,1171b,1271s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\hp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Report.pdf (27 pages, 278574 bytes).
+ 66i,12n,81p,1171b,1270s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\hp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on Report.pdf (27 pages, 342479 bytes).
 PDF statistics:
- 134 PDF objects out of 1000 (max. 8388607)
+ 150 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

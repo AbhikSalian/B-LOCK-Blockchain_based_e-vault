@@ -10,6 +10,39 @@
 \usepackage{color}
 \usepackage{biblatex}
 \usepackage{tabularx}
+\usepackage{listings}
+\usepackage{xcolor} 
+
+
+\lstdefinelanguage{JavaScript}{
+  keywords={break, case, catch, class, const, continue, debugger, default, delete, do, else, export, extends, false, finally, for, function, if, import, in, instanceof, let, new, null, return, super, switch, this, throw, true, try, typeof, var, void, while, with, yield},
+  keywordstyle=\color{blue},
+  stringstyle=\color{red},
+  commentstyle=\color{green},
+  morecomment=[l][\color{magenta}]{//},
+  morecomment=[s][\color{magenta}]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+  backgroundcolor=\color{lightgray},
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{green},
+  stringstyle=\color{red},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=5pt,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  frame=single,
+  tabsize=2,
+  captionpos=b,
+  language=JavaScript,  % Set default language to JavaScript
+}
 
 
 \addbibresource{reference.bib}
@@ -40,7 +73,7 @@ bottom=1.0in,
 \textbf{ON}
 \par
 \vspace{6pt}
-{\Large \textbf{B-LOCK: A Blockchain based e-vault application}}
+{\Large \textbf{B-LOCK: Blockchain based eVault application}}
 \par
 \vspace{12pt}
 \par
@@ -116,7 +149,7 @@ bottom=1.0in,
 \setstretch{1.2}
 \vspace{0.10in}
 \noindent 
-Certified that the Mini-project work entitled \textbf{``B-LOCK: A Blockchain based e-vault application''} carried out by\vspace{2pt} 
+Certified that the Mini-project work entitled \textbf{``B-LOCK: Blockchain based eVault application''} carried out by\vspace{2pt} 
 \par
 \noindent 
 \begin{center}
@@ -206,7 +239,7 @@ privacy.
 
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{\fontsize{10}{12} \selectfont Video Digest: A Query Based Dynamic Video Synopsis System}
+\lhead{\fontsize{10}{12} \selectfont B-LOCK: Blockchain based eVault application}
 \rhead{\fontsize{10}{12} \selectfont Chapter \thechapter}
 \lfoot{\fontsize{10}{12} \selectfont Department of Computer Science and Engineering, SJEC, Mangaluru}
 \rfoot{\fontsize{10}{12} \selectfont Page \thepage}
@@ -322,7 +355,7 @@ The non-functional requirements define the quality attributes, performance stand
    \begin{itemize}
        \item \textbf{Consistency:} The UI should maintain consistency in design elements across all screens, including fonts, colors, and button styles.
        \item \textbf{Simplicity:} The design should be clean and clutter-free, emphasizing essential functions to avoid overwhelming the user.
-       \item \textbf{Responsiveness:} The interface must be responsive and adaptable to various screen sizes and devices, including desktops, tablets, and smartphones.
+       \item \textbf{Clarity:} The interface should be organized in a way that makes it easy for users to navigate and find features. Key actions such as file upload, download, and account management should be easily accessible.
    \end{itemize}
    
    \subsection{Accessibility}
@@ -367,65 +400,106 @@ The non-functional requirements define the quality attributes, performance stand
        \item \textbf{Firewall Settings:} Configure firewalls to allow traffic through necessary ports while blocking unauthorized access.
        \item \textbf{Data Encryption:} All data transmitted over the network must be encrypted using TLS to prevent interception.
    \end{itemize}
-   
-
-
-
 \chapter{System Design}
 paragraph contents... 
 \section{Architecture Design}
 \begin{figure}[hbtp]
 \centering
-\includegraphics[width=4in,height=3in]{./pic/sjeclogo.png}
+\includegraphics[width=5.5in,height=3in]{./pic/architecture.drawio.png}
 \caption{System Architecture Diagram}
+\label{fig:architecture}
 \end{figure}
-This Figure 5.1 illustrates a high-level overview of the audio visual speech separation system. It is important to note that the specific techniques, algorithms, and models used in each component can vary depending on the implementation approach and the requirements of the system.
+Figure \ref{fig:architecture} illustrates the high-level architecture of the B-LOCK system. This architecture comprises several key components: the user interface, blockchain smart contracts, and the storage backend. The user interface allows users to interact with the application, facilitating file uploads and retrieval. The blockchain smart contracts, deployed on Ethereum, handle file metadata storage and verification. The storage backend, implemented using Firebase, manages the actual file storage and retrieval. This design ensures a secure and user-friendly application where file integrity and ownership are maintained through blockchain technology.
 \section{Decomposition Description}
 \begin{figure}[hbtp]
 \centering
-\includegraphics[width=5in,height=3in]{./pic/sjeclogo.png}
+\includegraphics[width=1.7in,height=4in]{./pic/flowchart.png}
 \caption{Flow chart}
+\label{fig:flowchart}
 \end{figure}
-\newpage
-Figure 5.2 represent the flow chart of the proposed system. In audio visual speech separation, the goal is to decompose an audio signal containing multiple overlapping speakers into individual speech signals corresponding to each speaker. The decomposition process involves separating the desired speech signals from the background noise and other interfering sounds.
+Figure \ref{fig:flowchart} presents a decomposition diagram (or a flow chart) of the B-LOCK system. This diagram breaks down the system into its core modules: user authentication, file upload, blockchain integration, and data retrieval. Each module is responsible for specific functionalities:
+\begin{itemize}
+   \item \textbf{User Authentication:} Manages user sign-in and sign-up, including email verification and session management.
+   \item \textbf{File Upload:} Handles file selection, uploading to Firebase Storage, and associating file metadata with the blockchain.
+   \item \textbf{Blockchain Integration:} Interacts with Ethereum smart contracts to store and retrieve file hashes and metadata.
+   \item \textbf{Data Retrieval:} Provides mechanisms for users to access their uploaded files and associated data.
+\end{itemize}
+
 
 \section{Data Flow Design}
-\par
-The audio input undergoes pre-processing, while the visual input is processed to extract relevant cues. The pre-processed audio and processed visual data are then integrated. From the integrated representation, features are extracted. These features are utilized in the speech separation stage, where individual speech signals are separated from the mixture. Post-processing techniques are applied to enhance the quality of the separated speech signals. Finally, the individual speech signals are outputted as the result of the system. The data flow design ensures a sequential flow of operations, starting from capturing and processing the inputs, integrating the audio-visual information, extracting features, performing speech separation, applying post-processing, and generating the output. This design allows for effective processing and separation of audio visual data to obtain distinct speech signals from overlapping speakers.
-\\
+
 \begin{figure}[hbtp]
 \centering
-\includegraphics[scale=0.8]{./pic/sample.jpg}
-\caption{Dataflow design}
+\includegraphics[scale=0.5]{./pic/dataflow.png}
+\caption{Dataflow Diagram}
+\label{fig:dataflow}
 \end{figure}
-
+Figure \ref{fig:dataflow} depicts the data flow within the B-LOCK application. The diagram illustrates the process from file upload to storage and retrieval. When a user uploads a file, the file is first hashed and then uploaded to Firebase Storage. The file's metadata, including its name and hash, is sent to the Ethereum smart contract for secure storage on the blockchain. Upon successful upload, the application updates the user interface to reflect the new file and its status. During file retrieval, the application queries both Firebase and the blockchain to provide users with the necessary information and access to their files.
 
 
 
 \chapter{Implementation}
-the chapter contains paragraph contents.(Pseudocode, Algorithm etc), for ex: Check the following data
-\section{Audio Extraction}
+\section{System Overview}
 \par
-Audio extraction is the process of isolating and extracting the audio content from a multimedia source, such as a video file. It involves separating the audio track from the accompanying video or other elements to obtain a standalone audio file representing the sound present in the source material.
+The system is a blockchain-based e-vault application designed to securely store and manage files with metadata. The core components include:
+\begin{itemize}
+   \item \textbf{Frontend:} A React application for user interaction.
+   \item \textbf{Backend:} Firebase for file storage and Firestore for metadata management.
+   \item \textbf{Blockchain:} Ethereum for file hash storage and verification.
+\end{itemize}
 
-\begin{figure}[hbtp]
-\centering
-\includegraphics[width=5in,height=3in]{./pic/sjeclogo.png}
-\caption{code snippet for audio extraction}
-\end{figure}
+\section{Pseudocode and Algorithms}
 
-\section{Speech Separation}
-\par SpeechBrain is an open-source framework 
+\subsection{File Upload Algorithm}
 
-\subsection{Sepformer}
-\par SepFormer is an algorithm for speech separation that utilizes self-attention mechanisms. It employs a transformer-based architecture to capture long-range dependencies and model the relationships between time-frequency points in the audio mixture, enabling the separation of multiple speech sources from the mixture.
+\begin{lstlisting}[caption=File Upload Algorithm]
+   function uploadFile(file):
+    hash = generateFileHash(file.name, currentTimestamp)
+    storageRef = createStorageReference(user.uid, hash, file.name)
+    uploadTask = uploadFileToStorage(storageRef, file)
 
+    onUploadProgress(uploadTask):
+        progress = calculateUploadProgress(uploadTask)
+        displayUploadProgress(progress)
 
-\begin{figure}[hbtp]
-\centering
-\includegraphics[width=5in,height=3in]{./pic/sjeclogo.png}
-\caption{code snippet for speech separation}
-\end{figure}
+    onUploadComplete(uploadTask):
+        downloadURL = getDownloadURL(uploadTask)
+        storeFileHashInBlockchain(fileName, fileHash)
+        saveFileMetadataInFirestore(fileName, downloadURL, user.uid)
+        displaySuccessMessage("File uploaded successfully")
+
+    onUploadError(uploadTask):
+        displayErrorMessage("Error uploading file")
+
+   \end{lstlisting}
+   
+\begin{itemize}
+   \item \textbf{Generate File Hash:} Create a unique hash using the file name and current timestamp.
+   \item \textbf{Create Storage Reference:} Create a reference in Firebase Storage using the hash and file name.
+   \item \textbf{Upload File:} Perform the file upload asynchronously.
+   \item \textbf{Progress Monitoring:} Update progress based on the upload state.
+   \item \textbf{Completion Handling:} On success, store the file hash in the blockchain and metadata in Firestore.
+   \item \textbf{Error Handling:} Display appropriate error messages if the upload fails.
+\end{itemize}
+
+\subsection{User Authentication Algorithm}
+\begin{lstlisting}[caption=User Authentication Algorithm]
+   function signIn(email, password):
+    try:
+        user = authenticateUserWithEmail(email, password)
+        if user.isEmailVerified:
+            redirectToDashboard()
+        else:
+            displayErrorMessage("Email not verified")
+    except AuthenticationError as e:
+        displayErrorMessage(e.message)
+   \end{lstlisting}
+\begin{itemize}
+   \item \textbf{Authenticate User:} Check user credentials against Firebase Authentication.
+   \item \textbf{Email Verification Check:} Ensure the user’s email is verified before granting access.
+   \item \textbf{Error Handling:} Handle and display errors during authentication.
+\end{itemize}
+
 
 \section{Speech Enhancement}
 \subsection{Lite Audio Visual Speech Enhancement}

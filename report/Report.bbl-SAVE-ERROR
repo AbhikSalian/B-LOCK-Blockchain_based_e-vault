@@ -1,0 +1,276 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{bashir2021subjective}{article}{}
+      \name{author}{5}{}{%
+        {{hash=504e19fc4a46c3b6bb210cf6842378ff}{%
+           family={Bashir},
+           familyi={B\bibinitperiod},
+           given={Muhammad\bibnamedelima Farrukh},
+           giveni={M\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=6674c4960987e4ea170c710e2046e154}{%
+           family={Arshad},
+           familyi={A\bibinitperiod},
+           given={Hamza},
+           giveni={H\bibinitperiod}}}%
+        {{hash=b4cd4a5aa97063a7cf7855bae352003f}{%
+           family={Javed},
+           familyi={J\bibinitperiod},
+           given={Abdul\bibnamedelima Rehman},
+           giveni={A\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=6d5e725a8cc690095f3a4353a01d343a}{%
+           family={Kryvinska},
+           familyi={K\bibinitperiod},
+           given={Natalia},
+           giveni={N\bibinitperiod}}}%
+        {{hash=92f580576019720baae3eb309d51faef}{%
+           family={Band},
+           familyi={B\bibinitperiod},
+           given={Shahab\bibnamedelima S},
+           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{43b54f51217e1b3902d89bcc1e7ac2cc}
+      \strng{fullhash}{b9cab826b216a21e05b784f93b3104f9}
+      \strng{bibnamehash}{43b54f51217e1b3902d89bcc1e7ac2cc}
+      \strng{authorbibnamehash}{43b54f51217e1b3902d89bcc1e7ac2cc}
+      \strng{authornamehash}{43b54f51217e1b3902d89bcc1e7ac2cc}
+      \strng{authorfullhash}{b9cab826b216a21e05b784f93b3104f9}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Access}
+      \field{title}{Subjective answers evaluation using machine learning and natural language processing}
+      \field{volume}{9}
+      \field{year}{2021}
+      \field{pages}{158972\bibrangedash 158983}
+      \range{pages}{12}
+    \endentry
+    \entry{croitoru2023diffusion}{article}{}
+      \name{author}{3}{}{%
+        {{hash=30dabab3612e9796210debbb340dd889}{%
+           family={Croitoru},
+           familyi={C\bibinitperiod},
+           given={Florin-Gabriel},
+           giveni={F\bibinithyphendelim G\bibinitperiod}}}%
+        {{hash=03e85ba8c54988cecb50997952b5dc71}{%
+           family={Leordeanu},
+           familyi={L\bibinitperiod},
+           given={Marius},
+           giveni={M\bibinitperiod}}}%
+        {{hash=0c881a20b685d760d9286b0c22525505}{%
+           family={Ionescu},
+           familyi={I\bibinitperiod},
+           given={Radu\bibnamedelima Tudor},
+           giveni={R\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {MDPI}%
+      }
+      \strng{namehash}{701402216254bfb4321af298ecef755c}
+      \strng{fullhash}{701402216254bfb4321af298ecef755c}
+      \strng{bibnamehash}{701402216254bfb4321af298ecef755c}
+      \strng{authorbibnamehash}{701402216254bfb4321af298ecef755c}
+      \strng{authornamehash}{701402216254bfb4321af298ecef755c}
+      \strng{authorfullhash}{701402216254bfb4321af298ecef755c}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Imaging}
+      \field{number}{1}
+      \field{title}{Diffusion Models for Image Super-Resolution: A Survey}
+      \field{volume}{9}
+      \field{year}{2023}
+      \field{pages}{16}
+      \range{pages}{1}
+    \endentry
+    \entry{dirac}{inbook}{}
+      \name{author}{1}{}{%
+        {{hash=59342ede3a101402b34939644b51ad06}{%
+           family={Dirac},
+           familyi={D\bibinitperiod},
+           given={Paul\bibnamedelimb Adrien\bibnamedelima Maurice},
+           giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Clarendon Press}%
+      }
+      \strng{namehash}{59342ede3a101402b34939644b51ad06}
+      \strng{fullhash}{59342ede3a101402b34939644b51ad06}
+      \strng{bibnamehash}{59342ede3a101402b34939644b51ad06}
+      \strng{authorbibnamehash}{59342ede3a101402b34939644b51ad06}
+      \strng{authornamehash}{59342ede3a101402b34939644b51ad06}
+      \strng{authorfullhash}{59342ede3a101402b34939644b51ad06}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780198520115}
+      \field{series}{International series of monographs on physics}
+      \field{title}{The Principles of Quantum Mechanics}
+      \field{year}{1981}
+      \keyw{physics}
+    \endentry
+    \entry{knuthwebsite}{online}{}
+      \name{author}{1}{}{%
+        {{hash=1dd533466eb3313074d496394d319407}{%
+           family={Knuth},
+           familyi={K\bibinitperiod},
+           given={Donald},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{1dd533466eb3313074d496394d319407}
+      \strng{fullhash}{1dd533466eb3313074d496394d319407}
+      \strng{bibnamehash}{1dd533466eb3313074d496394d319407}
+      \strng{authorbibnamehash}{1dd533466eb3313074d496394d319407}
+      \strng{authornamehash}{1dd533466eb3313074d496394d319407}
+      \strng{authorfullhash}{1dd533466eb3313074d496394d319407}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{addendum}{accessed on 01.09.2016}
+      \field{title}{Knuth: Computers and Typesetting}
+      \verb{urlraw}
+      \verb http://www-cs-faculty.stanford.edu/~uno/abcde.html
+      \endverb
+      \verb{url}
+      \verb http://www-cs-faculty.stanford.edu/~uno/abcde.html
+      \endverb
+      \keyw{latex,knuth}
+    \endentry
+    \entry{mittal2016}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=795e6606f90d0ae1c865a8f4c6c71fee}{%
+           family={Mittal},
+           familyi={M\bibinitperiod},
+           given={Himani},
+           giveni={H\bibinitperiod}}}%
+        {{hash=44dd5b9189d2deb8fe35efc50c76c03e}{%
+           family={Syamala\bibnamedelima Devi},
+           familyi={S\bibinitperiod\bibinitdelim D\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \name{editor}{3}{}{%
+        {{hash=e8c153d7826b4b9b283dc719b71d4999}{%
+           family={Saini},
+           familyi={S\bibinitperiod},
+           given={H.\bibnamedelimi S.},
+           giveni={H\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=168e544d7db71081f8e0a53bd678c02f}{%
+           family={Sayal},
+           familyi={S\bibinitperiod},
+           given={Rishi},
+           giveni={R\bibinitperiod}}}%
+        {{hash=472cd241dd3bd8f24f963fbeafd26355}{%
+           family={Rawat},
+           familyi={R\bibinitperiod},
+           given={Sandeep\bibnamedelima Singh},
+           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Singapore}%
+      }
+      \list{publisher}{1}{%
+        {Springer Singapore}%
+      }
+      \strng{namehash}{451fb5b6c031d65a6bc8909914de8c5e}
+      \strng{fullhash}{451fb5b6c031d65a6bc8909914de8c5e}
+      \strng{bibnamehash}{451fb5b6c031d65a6bc8909914de8c5e}
+      \strng{authorbibnamehash}{451fb5b6c031d65a6bc8909914de8c5e}
+      \strng{authornamehash}{451fb5b6c031d65a6bc8909914de8c5e}
+      \strng{authorfullhash}{451fb5b6c031d65a6bc8909914de8c5e}
+      \strng{editorbibnamehash}{d44543963bcbb5d730ef3a4b8c1a4dc5}
+      \strng{editornamehash}{d44543963bcbb5d730ef3a4b8c1a4dc5}
+      \strng{editorfullhash}{d44543963bcbb5d730ef3a4b8c1a4dc5}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Innovations in Computer Science and Engineering}
+      \field{isbn}{978-981-10-0419-3}
+      \field{title}{Computerized Evaluation of Subjective Answers Using Hybrid Technique}
+      \field{year}{2016}
+      \field{pages}{295\bibrangedash 303}
+      \range{pages}{9}
+    \endentry
+    \entry{mohamad2015smart}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=a78cec8b6ba0b40d968dc3594eb74d6f}{%
+           family={Mohamad},
+           familyi={M\bibinitperiod},
+           given={Omar\bibnamedelima Abdulwahabe},
+           giveni={O\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{a78cec8b6ba0b40d968dc3594eb74d6f}
+      \strng{fullhash}{a78cec8b6ba0b40d968dc3594eb74d6f}
+      \strng{bibnamehash}{a78cec8b6ba0b40d968dc3594eb74d6f}
+      \strng{authorbibnamehash}{a78cec8b6ba0b40d968dc3594eb74d6f}
+      \strng{authornamehash}{a78cec8b6ba0b40d968dc3594eb74d6f}
+      \strng{authorfullhash}{a78cec8b6ba0b40d968dc3594eb74d6f}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2015 7th International Conference on Electronics, Computers and Artificial Intelligence (ECAI)}
+      \field{title}{Smart Home Security based on optimal wireless sensor network routing protocols}
+      \field{year}{2015}
+      \field{pages}{SSS\bibrangedash 17}
+      \range{pages}{-1}
+    \endentry
+    \entry{Tea}{article}{}
+      \name{author}{1}{}{%
+        {{hash=0f51311aca17549279ae7c940792a5b7}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={Lee},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{0f51311aca17549279ae7c940792a5b7}
+      \strng{fullhash}{0f51311aca17549279ae7c940792a5b7}
+      \strng{bibnamehash}{0f51311aca17549279ae7c940792a5b7}
+      \strng{authorbibnamehash}{0f51311aca17549279ae7c940792a5b7}
+      \strng{authornamehash}{0f51311aca17549279ae7c940792a5b7}
+      \strng{authorfullhash}{0f51311aca17549279ae7c940792a5b7}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Tablet}
+      \field{number}{18 March}
+      \field{title}{{City of Dreams}}
+      \field{year}{2008}
+      \verb{file}
+      \verb :Users/AbuDavid/Documents/ThesisDocs/Smith/2008/Smith - City of Dreams - 2008.pdf:pdf
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
