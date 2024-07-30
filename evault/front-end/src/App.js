@@ -1,152 +1,115 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Web3 from "web3";
 import EVault from "./contracts/EVault.json";
-import UserRegistry from "./contracts/UserRegistry.json";
-import './App.css';
-import SignUp from './SignUp';
-import SignIn from './SignIn';
-import Dashboard from './Dashboard';
-import { db, storage } from './firebase';
-import { addDoc, collection } from 'firebase/firestore';
-import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import CryptoJS from 'crypto-js';
+import "./App.css";
+import { db, storage, auth } from "./firebase";
+import Navigation from "./Navigation";
+import Footer from "./Footer";
+import SignUp from "./SignUp";
+import SignIn from "./SignIn";
+import Upload from "./Upload"; // Import Upload component
+import Retrieve from "./Retrieve"; // Import Retrieve component
 
 function App() {
   const [account, setAccount] = useState("");
   const [evault, setEVault] = useState(null);
-  const [fileHash, setFileHash] = useState("");
-  const [files, setFiles] = useState([]);
-  const [userRegistry, setUserRegistry] = useState(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [message, setMessage] = useState("");
+  const [sortConfig, setSortConfig] = useState({
+    key: "timestamp",
+    direction: "asc",
+  });
+  const [user, setUser] = useState(null);
+  const [authMode, setAuthMode] = useState("signIn");
+  const [activeContainer, setActiveContainer] = useState("upload");
 
   useEffect(() => {
     loadBlockchainData();
   }, []);
 
   const loadBlockchainData = async () => {
-    try {
-      const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
-      const accounts = await web3.eth.getAccounts();
-      setAccount(accounts[0]);
-
-      const networkId = await web3.eth.net.getId();
-      const evaultDeployedNetwork = EVault.networks[networkId];
-      const userRegistryDeployedNetwork = UserRegistry.networks[networkId];
-
-      if (evaultDeployedNetwork && userRegistryDeployedNetwork) {
-        const evaultInstance = new web3.eth.Contract(EVault.abi, evaultDeployedNetwork.address);
-        const userRegistryInstance = new web3.eth.Contract(UserRegistry.abi, userRegistryDeployedNetwork.address);
-        setEVault(evaultInstance);
-        setUserRegistry(userRegistryInstance);
-      } else {
-        setMessage("Smart contract not deployed to detected network.");
-      }
-    } catch (error) {
-      console.error("Error loading blockchain data", error);
-      setMessage("Error loading blockchain data. Check the console for more details.");
-    }
-  };
-
-  const handleFileChange = (e) => {
-    const selectedFiles = Array.from(e.target.files);
-
-    if (!selectedFiles.length) {
-      return;
-    }
-
-    setFiles(selectedFiles);
-
-    selectedFiles.forEach(file => {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        const binaryStr = event.target.result;
-        const hash = CryptoJS.SHA256(binaryStr).toString();
-        setFileHash(hash);
-      };
-      reader.readAsBinaryString(file);
-    });
-  };
-
-  const storeFile = async (e) => {
-    e.preventDefault();
-    if (!evault) {
-      setMessage("Smart contract is not loaded.");
-      return;
-    }
-
-    if (!files.length) {
-      setMessage("No file selected.");
-      return;
-    }
-
-    try {
-      files.forEach(async (file) => {
-        const storageRef = ref(storage, 'uploads/' + file.name);
-        const uploadTask = uploadBytesResumable(storageRef, file);
-
-        uploadTask.on('state_changed', (snapshot) => {
-          // Optional: Handle upload progress
-        }, (error) => {
-          console.error("Error uploading file:", error);
-          setMessage("Error uploading file. Check the console for more details.");
-        }, async () => {
-          const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-
-          // Store file metadata in Firestore
-          await addDoc(collection(db, "files"), {
-            name: file.name,
-            hash: fileHash,
-            downloadURL,
-            owner: account,
-            timestamp: new Date()
-          });
-
-          // Estimate gas and store file hash on blockchain
-          const gasEstimate = await evault.methods.storeFile(file.name, fileHash).estimateGas({ from: account });
-          await evault.methods.storeFile(file.name, fileHash).send({ from: account, gas: gasEstimate });
-
-          setMessage("File stored successfully!");
+    if (window.ethereum) {
+      const web3 = new Web3(window.ethereum);
+      try {
+        const accounts = await window.ethereum.request({
+          method: "eth_requestAccounts",
         });
-      });
-    } catch (error) {
-      console.error("Error storing file:", error);
-      setMessage("Error storing file. Check the console for more details.");
+        setAccount(accounts[0]);
+
+        const networkId = await web3.eth.net.getId();
+        const networkData = EVault.networks[networkId];
+        if (networkData) {
+          const evault = new web3.eth.Contract(EVault.abi, networkData.address);
+          setEVault(evault);
+        } else {
+          window.alert("Smart contract not deployed to detected network.");
+        }
+      } catch (error) {
+        console.error("Error connecting to blockchain:", error);
+      }
+    } else {
+      window.alert("Please install MetaMask!");
     }
+  };
+
+  const onSignUp = (email, password) => {
+    setAuthMode("signIn");
+  };
+
+  const onSignIn = (email, password) => {
+    setUser(auth.currentUser);
+  };
+
+  const switchToSignIn = () => {
+    setAuthMode("signIn");
+  };
+
+  const switchToSignUp = () => {
+    setAuthMode("signUp");
   };
 
   return (
-    <Router>
-      <div className="App">
-        <header>
-          <h1>B-lock</h1>
-        </header>
-        <main className="container">
-          <Routes>
-            <Route path="/signup" element={<SignUp setMessage={setMessage} setIsAuthenticated={setIsAuthenticated} />} />
-            <Route path="/signin" element={<SignIn setIsAuthenticated={setIsAuthenticated} setMessage={setMessage} setAccount={setAccount} />} />
-            <Route path="/dashboard" element={
-              isAuthenticated ? (
-                <Dashboard
-                  evault={evault}
-                  account={account}
-                  setMessage={setMessage}
-                  handleFileChange={handleFileChange}
-                  storeFile={storeFile}
-                  message={message}
-                  isAuthenticated={isAuthenticated}
-                  setIsAuthenticated={setIsAuthenticated}
-                />
-              ) : (
-                <p>Please sign in to access the dashboard.</p>
-              )
-            } />
-            <Route path="/" element={<p>Welcome to B-lock. <Link to="/signup">Sign Up</Link> or <Link to="/signin">Sign In</Link></p>} />
-          </Routes>
-        </main>
-      </div>
-    </Router>
+    <div className="App">
+      {!user ? (
+        authMode === "signUp" ? (
+          <SignUp onSignUp={onSignUp} switchToSignIn={switchToSignIn} />
+        ) : (
+          <SignIn onSignIn={onSignIn} switchToSignUp={switchToSignUp} />
+        )
+      ) : (
+        <>
+          <Navigation
+            onUploadClick={(e) => {
+              e.preventDefault();
+              setActiveContainer("upload");
+            }}
+            onStorageClick={(e) => {
+              e.preventDefault();
+              setActiveContainer("storage");
+            }}
+          />
+          <main className="container">
+            <div className={`upload-box ${activeContainer === "upload" ? 'show' : 'hide'}`}>
+              <Upload
+                evault={evault}
+                account={account}
+                storage={storage}
+                db={db}
+                user={user}
+                // fetchFiles={Retrieve.fetchFiles} // Pass fetchFiles to update stored files
+              />
+            </div>
+            <div className={`stored-files ${activeContainer === "storage" ? 'show' : 'hide'}`}>
+              <Retrieve
+                db={db}
+                user={user}
+                sortConfig={sortConfig}
+                setSortConfig={setSortConfig}
+              />
+            </div>
+          </main>
+          <Footer />
+        </>
+      )}
+    </div>
   );
 }
 

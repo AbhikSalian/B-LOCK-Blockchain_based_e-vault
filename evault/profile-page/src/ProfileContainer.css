@@ -1,0 +1,31 @@
+.profile-container {
+    width: 300px;
+    background-color: #191923;
+    color: #FBFEF9;
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+  }
+  
+  .profile-container h2 {
+    margin: 0;
+    color: #8954F2;
+  }
+  
+  .profile-container button {
+    background-color: #262183;
+    color: #FBFEF9;
+    border: none;
+    padding: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .profile-container button:hover {
+    background-color: #8954F2;
+  }
+  

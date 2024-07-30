@@ -1,0 +1,82 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(to right, #0F2143, #03306a, #023E8A, #0d5175, #0077B6);
+}
+
+/* Rest of your CSS remains the same */
+  
+  .auth-form {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+    width: 400px;
+  }
+  
+  .auth-form h2 {
+    font-size: 30px;
+    color: azure;
+    text-align: center;
+  }
+  
+  .auth-form .input-group {
+    position: relative;
+    margin: 30px 0;
+    border-bottom: 2px solid azure;
+  }
+  
+  .auth-form .input-group label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: azure;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+  
+  .auth-form .input-group input {
+    width: 320px;
+    height: 40px;
+    font-size: 16px;
+    color: azure;
+    padding: 0 5px;
+    background: transparent;
+    border: none;
+    outline: none;
+  }
+  
+  .auth-form .input-group input:focus ~ label,
+  .auth-form .input-group input:valid ~ label {
+    top: -5px;
+  }
+  
+  .auth-form button {
+    width: 100%;
+    height: 40px;
+    background: #023E8A;
+    font-size: 16px;
+    color: azure;
+    cursor: pointer;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+  }
+  
+  .auth-form p {
+    color: azure;
+    text-align: center;
+    margin-top: 15px;
+  }
+  

@@ -1,9 +1,8 @@
-/* App.css */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', Arial, sans-serif;
-  background-image: url('./space.avif');
+  background-image: url('./bg1.jpg');
   background-size: cover;
   background-attachment: fixed;
   color: white;
@@ -27,24 +26,52 @@ header h1 {
 }
 
 .container {
+  flex: 1;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 90%;
-  max-width: 800px;
-  margin: 0 auto;
+  width: 100%;
+  padding: 20px;
+  color: white;
+  overflow: hidden;
+  position: relative;
 }
 
 .upload-box, .stored-files {
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.1);
+  width: 80%;
+  max-width: 800px;
+  background-color: rgba(0, 0, 0, 0.7);
   padding: 30px;
   border-radius: 15px;
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  margin-bottom: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
+
+.upload-box.show {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.stored-files.show {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.upload-box.hide {
+  opacity: 0;
+  transform: translate(-150%, -50%);
+}
+
+.stored-files.hide {
+  opacity: 0;
+  transform: translate(150%, -50%);
+}
+
+
 
 .upload-box {
   display: flex;
@@ -203,16 +230,96 @@ li .download-button:hover {
     padding: 20px 10px;
   }
 
-  h1 {
+  header h1 {
     font-size: 2.5rem;
   }
 
   .upload-box, .stored-files {
     padding: 20px;
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
+
 .footer {
   background-color: #f4f4f4;
   padding: 10px;
   text-align: center;
+}
+
+/* Navigation styles */
+nav {
+  margin-bottom: 20px;
+}
+
+nav button {
+  margin: 0 10px;
+}
+
+/* Sort container styles */
+.sort-container {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.sort-container label {
+  margin-right: 10px;
+}
+
+.sort-container select {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Pagination styles */
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination button {
+  margin: 0 5px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.foot-pad {
+  padding-bottom: 10px;
 }

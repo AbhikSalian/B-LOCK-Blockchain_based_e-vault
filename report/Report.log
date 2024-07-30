@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.1)  30 JUL 2024 11:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.1)  30 JUL 2024 19:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -510,44 +510,75 @@ Package biblatex Info: ... file 'Report.bbl' found.
 Package biblatex Info: Reference section=0 on input line 59.
 Package biblatex Info: Reference segment=0 on input line 59.
 \c@lstlisting=\count410
-<./pic/vtu.png, id=1, 189.70876pt x 266.9975pt>
-File: ./pic/vtu.png Graphic file (type png)
-<use ./pic/vtu.png>
-Package pdftex.def Info: ./pic/vtu.png  used on input line 68.
-(pdftex.def)             Requested size: 65.4409pt x 85.35945pt.
+
+
+d:/COLLEGE/Mini Project/b-lock/report/Report.tex:68: LaTeX Error: File `./pic/vtu' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.68 ...raphics[width=2.3cm,height=3cm]{./pic/vtu}
+                                                  
+I could not locate the file with any of these extensions:
+.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 LaTeX Font Info:    Trying to load font information for U+msa on input line 93.
- (C:\Users\hp\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+(C:\Users\hp\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 93.
  (C:\Users\hp\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<./pic/sjeclogo.png, id=2, 158.09062pt x 145.29282pt>
-File: ./pic/sjeclogo.png Graphic file (type png)
-<use ./pic/sjeclogo.png>
-Package pdftex.def Info: ./pic/sjeclogo.png  used on input line 112.
-(pdftex.def)             Requested size: 94.85509pt x 87.17635pt.
- [1
 
-{C:/Users/hp/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./pic/vtu.png> <./pic/sjeclogo.png>]
-File: ./pic/sjeclogo.png Graphic file (type png)
-<use ./pic/sjeclogo.png>
-Package pdftex.def Info: ./pic/sjeclogo.png  used on input line 141.
-(pdftex.def)             Requested size: 79.0451pt x 72.64622pt.
- [1] [2
+d:/COLLEGE/Mini Project/b-lock/report/Report.tex:112: LaTeX Error: File `./pic/sjeclogo' not found.
 
-] (Report.toc [3
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.112 \includegraphics[scale=0.6]{./pic/sjeclogo}
+                                                 
+I could not locate the file with any of these extensions:
+.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
-])
+[1
+
+{C:/Users/hp/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+
+d:/COLLEGE/Mini Project/b-lock/report/Report.tex:141: LaTeX Error: File `./pic/sjeclogo' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 \includegraphics[scale=0.5]{./pic/sjeclogo}
+                                                 
+I could not locate the file with any of these extensions:
+.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[1] [2
+
+]
+No file Report.toc.
 \tf@toc=\write4
 \openout4 = `Report.toc'.
 
- [4] (Report.lof)
+[3
+
+]
+No file Report.lof.
 \tf@lof=\write5
 \openout5 = `Report.lof'.
 
- [5
+[4
 
 ]
 Chapter 1.
@@ -559,25 +590,35 @@ Chapter 2.
 
 ] [4] [5] [6]
 Chapter 3.
-<./pic/architecture.drawio.png, id=48, 483.8075pt x 247.92625pt>
+<./pic/architecture.drawio.png, id=41, 483.8075pt x 247.92625pt>
 File: ./pic/architecture.drawio.png Graphic file (type png)
 <use ./pic/architecture.drawio.png>
 Package pdftex.def Info: ./pic/architecture.drawio.png  used on input line 412.
 (pdftex.def)             Requested size: 397.49986pt x 216.81009pt.
-<./pic/flowchart.png, id=49, 162.6075pt x 438.63875pt>
+
+LaTeX Warning: Reference `fig:architecture' on page 7 undefined on input line 416.
+
+<./pic/flowchart.png, id=43, 162.6075pt x 438.63875pt>
 File: ./pic/flowchart.png Graphic file (type png)
 <use ./pic/flowchart.png>
 Package pdftex.def Info: ./pic/flowchart.png  used on input line 420.
 (pdftex.def)             Requested size: 122.86095pt x 289.0875pt.
+
+LaTeX Warning: Reference `fig:flowchart' on page 7 undefined on input line 424.
+
 [7
 
  <./pic/architecture.drawio.png>]
-<./pic/dataflow.png, id=55, 383.4325pt x 438.63875pt>
+<./pic/dataflow.png, id=48, 383.4325pt x 438.63875pt>
 File: ./pic/dataflow.png Graphic file (type png)
 <use ./pic/dataflow.png>
 Package pdftex.def Info: ./pic/dataflow.png  used on input line 437.
 (pdftex.def)             Requested size: 268.40092pt x 307.04501pt.
- [8 <./pic/flowchart.png>] [9 <./pic/dataflow.png>]
+
+
+LaTeX Warning: Reference `fig:dataflow' on page 8 undefined on input line 441.
+
+[8 <./pic/flowchart.png>] [9 <./pic/dataflow.png>]
 Chapter 4.
 
 Overfull \hbox (2.33301pt too wide) in paragraph at lines 462--463
@@ -605,39 +646,60 @@ Chapter 5.
 [17
 
 ]
-<./pic/signup.png, id=92, 1014.03844pt x 447.17062pt>
+<./pic/signup.png, id=86, 1014.03844pt x 447.17062pt>
 File: ./pic/signup.png Graphic file (type png)
 <use ./pic/signup.png>
 Package pdftex.def Info: ./pic/signup.png  used on input line 730.
 (pdftex.def)             Requested size: 405.60818pt x 178.86507pt.
-<./pic/signin.png, id=93, 1014.79124pt x 447.92343pt>
+<./pic/signin.png, id=87, 1014.79124pt x 447.92343pt>
 File: ./pic/signin.png Graphic file (type png)
 <use ./pic/signin.png>
 Package pdftex.def Info: ./pic/signin.png  used on input line 736.
 (pdftex.def)             Requested size: 405.9093pt x 179.1662pt.
-<./pic/emailver.png, id=94, 732.48656pt x 343.2825pt>
+<./pic/emailver.png, id=88, 732.48656pt x 343.2825pt>
 File: ./pic/emailver.png Graphic file (type png)
 <use ./pic/emailver.png>
 Package pdftex.def Info: ./pic/emailver.png  used on input line 742.
 (pdftex.def)             Requested size: 292.98943pt x 137.31056pt.
-<./pic/fileupload.png, id=95, 1014.03844pt x 484.05844pt>
+
+
+LaTeX Warning: Reference `fig:signup' on page 18 undefined on input line 746.
+
+
+LaTeX Warning: Reference `fig:signin' on page 18 undefined on input line 746.
+
+
+LaTeX Warning: Reference `fig:emailver' on page 18 undefined on input line 746.
+
+<./pic/fileupload.png, id=89, 1014.03844pt x 484.05844pt>
 File: ./pic/fileupload.png Graphic file (type png)
 <use ./pic/fileupload.png>
 Package pdftex.def Info: ./pic/fileupload.png  used on input line 751.
 (pdftex.def)             Requested size: 405.60818pt x 193.61993pt.
- [18] [19 <./pic/signup.png> <./pic/signin.png> <./pic/emailver.png>]
-<./pic/retrieve.png, id=106, 1014.79124pt x 433.62pt>
+
+LaTeX Warning: Reference `fig:fileupload' on page 18 undefined on input line 755.
+
+[18] [19 <./pic/signup.png> <./pic/signin.png> <./pic/emailver.png>]
+<./pic/retrieve.png, id=99, 1014.79124pt x 433.62pt>
 File: ./pic/retrieve.png Graphic file (type png)
 <use ./pic/retrieve.png>
 Package pdftex.def Info: ./pic/retrieve.png  used on input line 760.
 (pdftex.def)             Requested size: 405.9093pt x 173.44492pt.
- [20 <./pic/fileupload.png> <./pic/retrieve.png>]
-<./pic/ganache.png, id=112, 1027.58907pt x 539.01375pt>
+
+
+LaTeX Warning: Reference `fig:retrieve' on page 20 undefined on input line 764.
+
+[20 <./pic/fileupload.png> <./pic/retrieve.png>]
+<./pic/ganache.png, id=106, 1027.58907pt x 539.01375pt>
 File: ./pic/ganache.png Graphic file (type png)
 <use ./pic/ganache.png>
 Package pdftex.def Info: ./pic/ganache.png  used on input line 768.
 (pdftex.def)             Requested size: 411.02835pt x 215.60167pt.
- [21 <./pic/ganache.png>]
+
+
+LaTeX Warning: Reference `fig:ganache' on page 21 undefined on input line 772.
+
+[21 <./pic/ganache.png>]
 Chapter 6.
 [22
 
@@ -653,22 +715,34 @@ Overfull \hbox (32.40015pt too wide) in paragraph at lines 817--817
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                Report
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'Report.run.xml'.
 \openout1 = `Report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 13005 strings out of 474486
- 236438 string characters out of 5745172
+ 13036 strings out of 474486
+ 237090 string characters out of 5745172
  1976542 words of memory out of 5000000
- 35153 multiletter control sequences out of 15000+600000
+ 35188 multiletter control sequences out of 15000+600000
  570730 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  66i,13n,81p,1171b,1775s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\hp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1095.pk> <C:\Users\hp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Report.pdf (30 pages, 3654480 bytes).
+Output written on Report.pdf (29 pages, 3561524 bytes).
 PDF statistics:
- 175 PDF objects out of 1000 (max. 8388607)
+ 169 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
