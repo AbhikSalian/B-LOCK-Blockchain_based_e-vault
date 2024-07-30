@@ -38,50 +38,31 @@ header h1 {
 }
 
 .upload-box, .stored-files {
-  width: 150%;
+  width: 100%;
   max-width: 800px;
   background-color: rgba(0, 0, 0, 0.7);
-  padding: 30px;
+  padding: 20px;
   border-radius: 15px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  position: relative; /* Change to relative for better control within the container */
+  position: relative;
   margin: 0 auto; /* Center horizontally */
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
-.upload-box.show {
+.upload-box.show, .stored-files.show {
   opacity: 1;
-  transform: translate(-50%, -50%);
+  transform: translate(0, 0);
 }
 
-.stored-files.show {
-  opacity: 1;
-  transform: translate(-50%, -50%);
-}
-
-.upload-box.hide {
+.upload-box.hide, .stored-files.hide {
   opacity: 0;
-  transform: translate(-150%, -50%);
+  transform: translate(100%, 0);
 }
-
-.stored-files.hide {
-  opacity: 0;
-  transform: translate(150%, -50%);
-}
-
-
 
 .upload-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width:150%;
 }
 
 .file-input-wrapper {
@@ -169,8 +150,7 @@ button:hover {
 }
 
 .stored-files h2 {
-  margin-top: 50;
-  margin-bottom: 20px;
+  margin: 50px 0 20px;
 }
 
 ul {
@@ -218,13 +198,12 @@ li button {
   text-align: center;
   padding: 1rem;
   background: rgba(0, 0, 0, 0.7);
-  position: fixed; /* Change from absolute to fixed */
+  position: fixed;
   width: 100%;
-  bottom: 0; /* Position it at the bottom */
+  bottom: 0;
   z-index: 100;
-  line-height: 1.6; /* Adjust line-height for better spacing */
+  line-height: 1.6;
 }
-
 
 @media (max-width: 768px) {
   .App {
@@ -236,11 +215,10 @@ li button {
   }
 
   .upload-box, .stored-files {
-    padding: 20px;
-    width: 200%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    padding: 15px;
+    width: 100%;
+    max-width: none; /* Remove max-width */
+    box-sizing: border-box; /* Ensure padding is included in width */
   }
 }
 
