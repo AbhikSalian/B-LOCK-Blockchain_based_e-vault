@@ -1,2 +1,17 @@
 node_modules/
 cb25/
+
+.report/Report.aux
+.report/Report.bbl
+.report/Report.bbl-SAVE-ERROR
+.report/Report.bcf
+.report/Report.blg
+.report/Report.fdb_latexmk
+.report/Report.fls
+.report/Report.lof
+.report/Report.log
+.report/Report.lot
+.report/Report.pdf
+.report/Report.run.xml
+.report/Report.synctex.gz
+.report/Report.toc
