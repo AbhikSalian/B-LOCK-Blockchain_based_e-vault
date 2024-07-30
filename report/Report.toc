@@ -1,7 +1,6 @@
 \contentsline {chapter}{\hbox to\@tempdima {\hfil }Abstract}{ii}{}%
 \contentsline {chapter}{\hbox to\@tempdima {\hfil }Table of Contents}{iv}{}%
-\contentsline {chapter}{\hbox to\@tempdima {\hfil }List of Figures}{v}{}%
-\contentsline {chapter}{\hbox to\@tempdima {\hfil }List of Tables}{vi}{}%
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }List of Tables}{v}{}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{}%
 \contentsline {section}{\numberline {1.1}Background}{1}{}%
 \contentsline {section}{\numberline {1.2}Problem statement }{1}{}%
@@ -27,18 +26,20 @@
 \contentsline {section}{\numberline {4.2}Pseudocode and Algorithms}{10}{}%
 \contentsline {subsection}{\numberline {4.2.1}File Upload Algorithm}{10}{}%
 \contentsline {subsection}{\numberline {4.2.2}User Authentication Algorithm}{11}{}%
-\contentsline {section}{\numberline {4.3}Key Components Implementation}{11}{}%
-\contentsline {subsection}{\numberline {4.3.1}Frontend (React)}{11}{}%
-\contentsline {subsection}{\numberline {4.3.2}Backend (Firebase and Blockchain)}{13}{}%
-\contentsline {section}{\numberline {4.4}Integration}{14}{}%
-\contentsline {chapter}{\numberline {5}Results and Discussion}{15}{}%
-\contentsline {section}{\numberline {5.1}Results}{15}{}%
-\contentsline {section}{\numberline {5.2}Discussion}{16}{}%
-\contentsline {section}{\numberline {5.3}Screenshots}{16}{}%
-\contentsline {subsection}{\numberline {5.3.1}User Registration and Login}{16}{}%
-\contentsline {subsection}{\numberline {5.3.2}File Upload Interface}{18}{}%
-\contentsline {subsection}{\numberline {5.3.3}File Management Dashboard}{18}{}%
-\contentsline {subsection}{\numberline {5.3.4}File Details and Blockchain Verification}{19}{}%
-\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{20}{}%
-\contentsline {section}{\numberline {6.1}Conclusion}{20}{}%
-\contentsline {section}{\numberline {6.2}Future Work}{20}{}%
+\contentsline {section}{\numberline {4.3}Key Components Implementation}{12}{}%
+\contentsline {subsection}{\numberline {4.3.1}Smart Contract}{12}{}%
+\contentsline {subsection}{\numberline {4.3.2}Frontend (React)}{13}{}%
+\contentsline {subsection}{\numberline {4.3.3}Backend (Firebase and Blockchain)}{14}{}%
+\contentsline {section}{\numberline {4.4}Integration}{15}{}%
+\contentsline {chapter}{\numberline {5}Results and Discussion}{17}{}%
+\contentsline {section}{\numberline {5.1}Results}{17}{}%
+\contentsline {section}{\numberline {5.2}Discussion}{18}{}%
+\contentsline {section}{\numberline {5.3}Screenshots}{18}{}%
+\contentsline {subsection}{\numberline {5.3.1}User Registration and Login}{18}{}%
+\contentsline {subsection}{\numberline {5.3.2}File Upload Interface}{20}{}%
+\contentsline {subsection}{\numberline {5.3.3}File Retrieve Interface}{20}{}%
+\contentsline {subsection}{\numberline {5.3.4}File Details Getting Stored in Blockchain}{21}{}%
+\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{22}{}%
+\contentsline {section}{\numberline {6.1}Conclusion}{22}{}%
+\contentsline {section}{\numberline {6.2}Future Work}{22}{}%
+\contentsline {chapter}{References}{24}{}%

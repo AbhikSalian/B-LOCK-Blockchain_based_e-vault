@@ -6,10 +6,10 @@
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Dataflow Diagram}}{9}{}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Sign Up Page to register new users}}{17}{}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Sign In Page to login already registered users}}{17}{}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Verification email that users receive after signing up}}{17}{}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces File Upload Interface}}{18}{}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces File Management Dashboard}}{18}{}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces File Details and Blockchain Verification}}{19}{}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Sign Up Page to register new users}}{19}{}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Sign In Page to login already registered users}}{19}{}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Verification email that users receive after signing up}}{19}{}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces File Upload Interface}}{20}{}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces File Retrieve Interface that displays a list of uploaded files}}{20}{}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces File name and file hash getting stored in blocks in Ganache}}{21}{}%
 \addvspace {10\p@ }

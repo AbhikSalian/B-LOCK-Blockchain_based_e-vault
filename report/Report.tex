@@ -230,8 +230,8 @@ privacy.
 \tableofcontents
 \addcontentsline{toc}{chapter}{\numberline{}Table of Contents}
 \listoffigures
-\addcontentsline{toc}{chapter}{\numberline{}List of Figures}
-\listoftables
+% \addcontentsline{toc}{chapter}{\numberline{}List of Figures}
+% \listoftables
 \addcontentsline{toc}{chapter}{\numberline{}List of Tables}
 \newpage
 
@@ -389,8 +389,8 @@ The non-functional requirements define the quality attributes, performance stand
    The eVault relies on various software components and libraries to function correctly.
    \begin{itemize}
        \item \textbf{Operating Systems:} Compatible with Windows, macOS, and Linux for server deployments.
-       \item \textbf{Database Systems:} Supports MySQL and MongoDB for data storage and management.
-       \item \textbf{Programming Languages:} Developed using Python and JavaScript, leveraging frameworks such as Django and React.
+       \item \textbf{Database Systems:} Supports Node JS\cite{nodedocs} and Firebase for data storage and management.
+       \item \textbf{Programming Languages:} Developed using HTML\cite{duckett2011html}, CSS\cite{meyer2017css}, JavaScript\cite{hav2018eloquent} and Solidity\cite{soliditydocs}, leveraging frameworks such as Django and React.
    \end{itemize}
    
    \subsection{Network Requirements}
@@ -447,8 +447,8 @@ Figure \ref{fig:dataflow} depicts the data flow within the B-LOCK application. T
 \par
 The system is a blockchain-based e-vault application designed to securely store and manage files with metadata. The core components include:
 \begin{itemize}
-   \item \textbf{Frontend:} A React application for user interaction.
-   \item \textbf{Backend:} Firebase for file storage and Firestore for metadata management.
+   \item \textbf{Frontend:} A React application\cite{reactdocs} for user interaction created using Node Package Manager(npm)\cite{npmdocs}.
+   \item \textbf{Backend:} Firebase\cite{firebasedocs} for file storage and Firestore for metadata management.
    \item \textbf{Blockchain:} Ethereum for file hash storage and verification.
 \end{itemize}
 
@@ -469,7 +469,8 @@ The system is a blockchain-based e-vault application designed to securely store 
     onUploadComplete(uploadTask):
         downloadURL = getDownloadURL(uploadTask)
         storeFileHashInBlockchain(fileName, fileHash)
-        saveFileMetadataInFirestore(fileName, downloadURL, user.uid)
+        saveFileMetadataInFirestore(fileName, downloadURL, 
+        user.uid)
         displaySuccessMessage("File uploaded successfully")
 
     onUploadError(uploadTask):
@@ -506,6 +507,40 @@ The system is a blockchain-based e-vault application designed to securely store 
 
 
 \section{Key Components Implementation}
+\subsection{Smart Contract}
+The EVault smart contract\cite{antonopoulos2018mastering}, written in Solidity and compiled and migrated using Truffle\cite{truffledocs}, is integral to the B-LOCK e-vault application. It stores file names and hashes on the Ethereum blockchain to ensure file integrity and security. The contract has three main functions: storeFile for recording file details, retrieveFiles for fetching a user's files, and getFilenames for listing file names. This ensures tamper-proof, decentralized storage and secure file management, leveraging blockchain's transparency and immutability.
+\begin{lstlisting}[caption=Solidity Smart Contract (EVault.sol)]
+    pragma solidity ^0.8.0;
+
+contract EVault {
+    struct File {
+        string fileName;
+        string fileHash;
+    }
+
+    mapping(address => File[]) private userFiles;
+
+    function storeFile(string memory _fileName, 
+    string memory _fileHash) public {
+        userFiles[msg.sender].push(File(_fileName, _fileHash));
+    }
+
+    function retrieveFiles() public view returns (File[] memory){
+        return userFiles[msg.sender];
+    }
+    
+    function getFilenames() public view returns (string[] memory){
+        File[] memory files = userFiles[msg.sender];
+        string[] memory fileNames = new string[](files.length);
+
+        for (uint i = 0; i < files.length; i++) {
+            fileNames[i] = files[i].fileName;
+        }
+
+        return fileNames;
+    }
+}
+    \end{lstlisting}
 \subsection{Frontend (React)}
 \par
 The frontend is developed using React.js and consists of the following key components:
@@ -528,15 +563,18 @@ The frontend is developed using React.js and consists of the following key compo
        const handleSubmit = async (e) => {
            e.preventDefault();
            try {
-               const userCredential = await signInWithEmailAndPassword(auth, email, password);
+               const userCredential = await 
+               signInWithEmailAndPassword(auth, email, password);
                const user = userCredential.user;
    
                if (user.emailVerified) {
                    onSignIn(email, password);
                    setError(''); // Clear previous errors
                } else {
-                   setError('Please verify your email before signing in.');
-                   alert('Email not verified. Please check your inbox for the verification email.');
+                   setError('Please verify your email before 
+                   signing in.');
+                   alert('Email not verified. Please check your 
+                   inbox for the verification email.');
                }
            } catch (err) {
                console.error("Sign-in error:", err);
@@ -559,13 +597,15 @@ The frontend is developed using React.js and consists of the following key compo
                        type="password" 
                        placeholder="Password" 
                        value={password} 
-                       onChange={(e) => setPassword(e.target.value)} 
+                       onChange={(e) => setPassword
+                       (e.target.value)} 
                        required 
                    />
                    <button type="submit">Sign In</button>
                </form>
                {error && <p className="error">{error}</p>}
-               <p>Don't have an account? <button onClick={switchToSignUp}>Sign Up</button></p>
+               <p>Don't have an account? <button 
+               onClick={switchToSignUp}>Sign Up</button></p>
            </div>
        );
    };
@@ -581,27 +621,34 @@ The frontend is developed using React.js and consists of the following key compo
    \item \textbf{Ethereum Blockchain:} Stores the file hashes for verification.
 \end{itemize}
 \begin{lstlisting}[caption=Backend Code Snippet]
-   import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { ref, uploadBytesResumable, getDownloadURL } from 
+"firebase/storage";
 import { collection, addDoc } from "firebase/firestore";
 
-const uploadFile = async (file, user, storage, db, evault, account) => {
-    const hash = CryptoJS.SHA256(file.name + new Date().toISOString()).toString();
-    const storageRef = ref(storage, `uploads/${user.uid}/${hash}_${file.name}`);
+const uploadFile = async (file, user, storage, db, evault, 
+account) => {
+    const hash = CryptoJS.SHA256(file.name + new Date().
+    toISOString()).toString();
+    const storageRef = ref(storage, `uploads/${user.uid}/${hash}
+    _${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
 
     uploadTask.on(
         "state_changed",
         (snapshot) => {
-            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            const progress = (snapshot.bytesTransferred / 
+            snapshot.totalBytes) * 100;
             console.log(`Upload is ${progress.toFixed(2)}% done`);
         },
         (error) => {
             console.error("Upload error:", error);
         },
         async () => {
-            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+            const downloadURL = await getDownloadURL(uploadTask.
+            snapshot.ref);
             try {
-                await evault.methods.storeFile(file.name, hash).send({ from: account });
+                await evault.methods.storeFile(file.name, hash)
+                .send({ from: account });
                 await addDoc(collection(db, "files"), {
                     name: file.name,
                     owner: user.uid,
@@ -707,23 +754,22 @@ Figures \ref{fig:signup} and \ref{fig:signin} show the user registration and log
 \end{figure}
 The file upload interface, as shown in Figure \ref{fig:fileupload}, allows users to select files from their local device to upload to the e-vault. The interface supports multiple file uploads and provides feedback on the upload progress. Users are notified of the upload status, ensuring they are aware of successful uploads or any errors encountered during the process.
 
-\subsection{File Management Dashboard}
+\subsection{File Retrieve Interface}
 \begin{figure}[hbtp]
     \centering
-    \includegraphics[scale=0.4]{./pic/dataflow.png}
-    \caption{File Management Dashboard}
-    \label{fig:dashboard}
+    \includegraphics[scale=0.4]{./pic/retrieve.png}
+    \caption{File Retrieve Interface that displays a list of uploaded files}
+    \label{fig:retrieve}
 \end{figure}
-Figure \ref{fig:dashboard} displays the file management dashboard, where users can view the list of uploaded files. The dashboard provides details such as the file name, upload date, and file size. Users can also download or delete files from this interface, making it easy to manage their stored documents.
-
-\subsection{File Details and Blockchain Verification}
+As shown in Figure \ref{fig:retrieve}, the file retrieval interface allows users to access the files they have previously uploaded to the e-vault. This interface provides a list of files with details such as file name, upload date, and a download link. Users can easily search for specific files, sort the list based on different criteria, and download files directly to their devices. Additionally, the interface shows the verification status of each file, indicating whether the file hash has been successfully stored on the blockchain, thus ensuring the integrity and authenticity of the files.
+\subsection{File Details Getting Stored in Blockchain}
 \begin{figure}[hbtp]
     \centering
-    \includegraphics[scale=0.5]{./pic/dataflow.png}
-    \caption{File Details and Blockchain Verification}
-    \label{fig:filedetails}
+    \includegraphics[scale=0.4]{./pic/ganache.png}
+    \caption{File name and file hash getting stored in blocks in Ganache}
+    \label{fig:ganache}
 \end{figure}
-Figure \ref{fig:filedetails} shows the file details page, where users can view specific information about their uploaded files. The page includes the file name, hash, and download link. Additionally, it shows the blockchain verification status, confirming that the file hash has been successfully stored on the Ethereum blockchain, ensuring the integrity and authenticity of the file.
+Figure \ref{fig:ganache} shows the file details details getting stored as blocks in Ganache\cite{ganachedocs} on Ethereum\cite{ethereumdocs} local network. After successful deduction of ethers to upload the file, the file details gets stored here.
 
 
 \chapter{Conclusion and Future Work}
