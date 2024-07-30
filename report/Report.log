@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.1)  30 JUL 2024 04:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.1)  30 JUL 2024 09:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -670,36 +670,40 @@ Chapter 5.
 [15
 
 ]
-File: ./pic/dataflow.png Graphic file (type png)
-<use ./pic/dataflow.png>
-Package pdftex.def Info: ./pic/dataflow.png  used on input line 683.
-(pdftex.def)             Requested size: 191.71577pt x 219.31883pt.
-File: ./pic/dataflow.png Graphic file (type png)
-<use ./pic/dataflow.png>
-Package pdftex.def Info: ./pic/dataflow.png  used on input line 689.
-(pdftex.def)             Requested size: 191.71577pt x 219.31883pt.
-File: ./pic/dataflow.png Graphic file (type png)
-<use ./pic/dataflow.png>
-Package pdftex.def Info: ./pic/dataflow.png  used on input line 695.
-(pdftex.def)             Requested size: 191.71577pt x 219.31883pt.
-File: ./pic/dataflow.png Graphic file (type png)
-<use ./pic/dataflow.png>
-Package pdftex.def Info: ./pic/dataflow.png  used on input line 704.
-(pdftex.def)             Requested size: 191.71577pt x 219.31883pt.
- [16] [17] [18]
+<./pic/signup.png, id=89, 1014.03844pt x 447.17062pt>
+File: ./pic/signup.png Graphic file (type png)
+<use ./pic/signup.png>
+Package pdftex.def Info: ./pic/signup.png  used on input line 683.
+(pdftex.def)             Requested size: 405.60818pt x 178.86507pt.
+<./pic/signin.png, id=90, 1014.79124pt x 447.92343pt>
+File: ./pic/signin.png Graphic file (type png)
+<use ./pic/signin.png>
+Package pdftex.def Info: ./pic/signin.png  used on input line 689.
+(pdftex.def)             Requested size: 405.9093pt x 179.1662pt.
+<./pic/emailver.png, id=91, 732.48656pt x 343.2825pt>
+File: ./pic/emailver.png Graphic file (type png)
+<use ./pic/emailver.png>
+Package pdftex.def Info: ./pic/emailver.png  used on input line 695.
+(pdftex.def)             Requested size: 292.98943pt x 137.31056pt.
+<./pic/fileupload.png, id=92, 1014.03844pt x 484.05844pt>
+File: ./pic/fileupload.png Graphic file (type png)
+<use ./pic/fileupload.png>
+Package pdftex.def Info: ./pic/fileupload.png  used on input line 704.
+(pdftex.def)             Requested size: 405.60818pt x 193.61993pt.
+ [16] [17 <./pic/signup.png> <./pic/signin.png> <./pic/emailver.png>]
 File: ./pic/dataflow.png Graphic file (type png)
 <use ./pic/dataflow.png>
 Package pdftex.def Info: ./pic/dataflow.png  used on input line 713.
-(pdftex.def)             Requested size: 191.71577pt x 219.31883pt.
+(pdftex.def)             Requested size: 153.37029pt x 175.45238pt.
 File: ./pic/dataflow.png Graphic file (type png)
 <use ./pic/dataflow.png>
 Package pdftex.def Info: ./pic/dataflow.png  used on input line 722.
 (pdftex.def)             Requested size: 191.71577pt x 219.31883pt.
- [19] [20]
+ [18 <./pic/fileupload.png>] [19]
 Chapter 6.
-[21
+[20
 
-] [22]
+] [21]
 
 LaTeX Warning: Empty bibliography on input line 770.
 
@@ -713,17 +717,17 @@ Package logreq Info: Writing requests to 'Report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 12691 strings out of 474486
- 229309 string characters out of 5745172
+ 12719 strings out of 474486
+ 229991 string characters out of 5745172
  1980542 words of memory out of 5000000
- 34837 multiletter control sequences out of 15000+600000
+ 34865 multiletter control sequences out of 15000+600000
  570429 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  66i,13n,81p,1171b,1775s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\hp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1095.pk> <C:\Users\hp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Report.pdf (29 pages, 292558 bytes).
+Output written on Report.pdf (28 pages, 2739083 bytes).
 PDF statistics:
- 145 PDF objects out of 1000 (max. 8388607)
+ 150 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

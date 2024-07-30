@@ -1,11 +1,11 @@
 # Fdb version 4
-["biber Report"] 1722293361.29809 "Report.bcf" "Report.bbl" "Report" 1722293368.58209 0
-  "Report.bcf" 1722293368 107700 d20a2ddfd53b0af0e64da09c1465d8aa "pdflatex"
+["biber Report"] 1722311533.0479 "Report.bcf" "Report.bbl" "Report" 1722311756.00603 0
+  "Report.bcf" 1722311755 107700 d20a2ddfd53b0af0e64da09c1465d8aa "pdflatex"
   (generated)
   "Report.bbl"
   "Report.blg"
   (rewritten before read)
-["pdflatex"] 1722293366.41116 "d:/COLLEGE/Mini Project/b-lock/report/Report.tex" "Report.pdf" "Report" 1722293368.58295 0
+["pdflatex"] 1722311752.57769 "d:/COLLEGE/Mini Project/b-lock/report/Report.tex" "Report.pdf" "Report" 1722311756.00688 0
   "C:/Users/hp/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1721810386 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/hp/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk" 1720188778 14064 bcd68eff31cba7239bf59fddcf72e2dd ""
   "C:/Users/hp/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tctt1095.pk" 1722286928 10392 e7587814d6661b04c493c07d08429e3f ""
@@ -96,19 +96,23 @@
   "C:/Users/hp/AppData/Local/Programs/MiKTeX/tex/latex/tools/tabularx.sty" 1700599895 7147 d45559f8a31b8c53ada0640516660003 ""
   "C:/Users/hp/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/hp/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "Report.aux" 1722293368 7568 16f8001d240abedce2167f599ee849b5 "pdflatex"
-  "Report.bbl" 1722293364 486 ee04f40f768daeed26442158e95aba61 "biber Report"
-  "Report.lof" 1722293368 975 f7da244cad2760ac131b3a6004d653d4 "pdflatex"
-  "Report.lot" 1722293368 120 4b5392bf4295ae9f4473a7a4fff7fdc5 "pdflatex"
-  "Report.run.xml" 1722293368 2318 f0adea55aceb832676aa7c39dee982cc "pdflatex"
-  "Report.tex" 1722293341 41246 516990b892dffb28021d6db574e7271e ""
-  "Report.toc" 1722293368 3102 a476e26a2720dcce156545e274c92147 "pdflatex"
-  "d:/COLLEGE/Mini Project/b-lock/report/Report.tex" 1722293341 41246 516990b892dffb28021d6db574e7271e ""
-  "pic/architecture.drawio.png" 1722282021 28189 2da4884fc0a0e7f0d888ef0f2767043f ""
-  "pic/dataflow.png" 1722283487 26805 4f3512b8d647568a39ac39be302923e1 ""
-  "pic/flowchart.png" 1722282651 18161 871c01fdb7a2de2015f57f211dcb4daf ""
-  "pic/sjeclogo.png" 1722273066 90862 2d457708d4031877ae4292bc2aca8ecd ""
-  "pic/vtu.png" 1722273066 9856 003b21dff0d5e0ce2041831731421eae ""
+  "Report.aux" 1722311755 7568 155e443a2c77af9ac37674715f35288d "pdflatex"
+  "Report.bbl" 1722311536 486 ee04f40f768daeed26442158e95aba61 "biber Report"
+  "Report.lof" 1722311755 975 9bf70c15c3d5d1e52b9916679d9f1588 "pdflatex"
+  "Report.lot" 1722311755 120 4b5392bf4295ae9f4473a7a4fff7fdc5 "pdflatex"
+  "Report.run.xml" 1722311755 2318 f0adea55aceb832676aa7c39dee982cc "pdflatex"
+  "Report.tex" 1722311747 41244 d8f4edba2a5eee0a090752a07d2cee48 ""
+  "Report.toc" 1722311755 3102 aef2533e3f4a8f83bce7e007b6c43aa7 "pdflatex"
+  "d:/COLLEGE/Mini Project/b-lock/report/Report.tex" 1722311747 41244 d8f4edba2a5eee0a090752a07d2cee48 ""
+  "pic/architecture.drawio.png" 1722310446 28189 2da4884fc0a0e7f0d888ef0f2767043f ""
+  "pic/dataflow.png" 1722310446 26805 4f3512b8d647568a39ac39be302923e1 ""
+  "pic/emailver.png" 1722310007 44359 212cad67cd4ce37b35f4f9610af471a8 ""
+  "pic/fileupload.png" 1722310192 397038 8dd7f7a5da83fe82088dd261dc4321fb ""
+  "pic/flowchart.png" 1722310446 18161 871c01fdb7a2de2015f57f211dcb4daf ""
+  "pic/signin.png" 1722310071 1237888 070d178f6a71da4cf79459671808264e ""
+  "pic/signup.png" 1722309948 1233389 88ac275d991cefb9c5e48738d8b18808 ""
+  "pic/sjeclogo.png" 1722310446 90862 2d457708d4031877ae4292bc2aca8ecd ""
+  "pic/vtu.png" 1722310446 9856 003b21dff0d5e0ce2041831731421eae ""
   (generated)
   "Report.aux"
   "Report.bcf"
