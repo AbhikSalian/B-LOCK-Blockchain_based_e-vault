@@ -1,17 +1,9 @@
-[0] Config.pm:308> INFO - This is Biber 2.20
-[0] Config.pm:311> INFO - Logfile is 'Report.blg'
-[241] biber-MSWIN64:340> INFO - === 
-[322] Biber.pm:420> INFO - Reading 'Report.bcf'
-[583] Biber.pm:994> INFO - Found 7 citekeys in bib section 0
-[611] Biber.pm:4463> INFO - Processing section 0
-[633] Biber.pm:4654> INFO - Looking for bibtex file 'reference.bib' for section 0
-[731] bibtex.pm:1713> INFO - LaTeX decoding ...
-[796] bibtex.pm:1519> INFO - Found BibTeX data source 'reference.bib'
-[1000] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1000] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1000] Biber.pm:4283> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[1000] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
-[1026] bbl.pm:676> INFO - Writing 'Report.bbl' with encoding 'UTF-8'
-[1035] bbl.pm:779> INFO - Output to Report.bbl
-[1036] Biber.pm:131> WARN - BibTeX subsystem: C:\Users\jessi\AppData\Local\Temp\biber_tmp_l8tv\6f2727616e4c27537406678deaa225f7_17780.utf8, line 51, warning: 1 characters of junk seen at toplevel
-[1036] Biber.pm:133> INFO - WARNINGS: 1
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'Report.blg'
+[163] biber-MSWIN64:340> INFO - === 
+[211] Biber.pm:419> INFO - Reading 'Report.bcf'
+[367] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[387] bbl.pm:660> INFO - Writing 'Report.bbl' with encoding 'UTF-8'
+[387] bbl.pm:763> INFO - Output to Report.bbl
+[387] Biber.pm:131> WARN - The file 'Report.bcf' does not contain any citations!
+[387] Biber.pm:133> INFO - WARNINGS: 1
