@@ -2379,18 +2379,13 @@
     <bcf:citekey order="3" intorder="1">nodedocs</bcf:citekey>
     <bcf:citekey order="4" intorder="1">reactdocs</bcf:citekey>
     <bcf:citekey order="5" intorder="1">firebasedocs</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">nodedocs</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">duckett2011html</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">meyer2017css</bcf:citekey>
-    <bcf:citekey order="9" intorder="1">hav2018eloquent</bcf:citekey>
-    <bcf:citekey order="10" intorder="1">soliditydocs</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">reactdocs</bcf:citekey>
-    <bcf:citekey order="12" intorder="1">npmdocs</bcf:citekey>
-    <bcf:citekey order="13" intorder="1">firebasedocs</bcf:citekey>
-    <bcf:citekey order="14" intorder="1">antonopoulos2018mastering</bcf:citekey>
-    <bcf:citekey order="15" intorder="1">truffledocs</bcf:citekey>
-    <bcf:citekey order="16" intorder="1">ganachedocs</bcf:citekey>
-    <bcf:citekey order="17" intorder="1">ethereumdocs</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">reactdocs</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">npmdocs</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">firebasedocs</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">antonopoulos2018mastering</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">truffledocs</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">ganachedocs</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">ethereumdocs</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

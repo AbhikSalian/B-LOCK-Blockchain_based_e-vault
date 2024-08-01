@@ -51,33 +51,6 @@
       \field{title}{Mastering Ethereum: Building Smart Contracts and DApps}
       \field{year}{2018}
     \endentry
-    \entry{duckett2011html}{book}{}{}
-      \name{author}{1}{}{%
-        {{hash=84873f5a95c25fd4b6018acef0ed28af}{%
-           family={Duckett},
-           familyi={D\bibinitperiod},
-           given={Jon},
-           giveni={J\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Wiley}%
-      }
-      \strng{namehash}{84873f5a95c25fd4b6018acef0ed28af}
-      \strng{fullhash}{84873f5a95c25fd4b6018acef0ed28af}
-      \strng{fullhashraw}{84873f5a95c25fd4b6018acef0ed28af}
-      \strng{bibnamehash}{84873f5a95c25fd4b6018acef0ed28af}
-      \strng{authorbibnamehash}{84873f5a95c25fd4b6018acef0ed28af}
-      \strng{authornamehash}{84873f5a95c25fd4b6018acef0ed28af}
-      \strng{authorfullhash}{84873f5a95c25fd4b6018acef0ed28af}
-      \strng{authorfullhashraw}{84873f5a95c25fd4b6018acef0ed28af}
-      \field{sortinit}{D}
-      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{978-1118008188}
-      \field{title}{HTML and CSS: Design and Build Websites}
-      \field{year}{2011}
-    \endentry
     \entry{ethereumdocs}{manual}{}{}
       \name{author}{1}{}{%
         {{hash=91a561dbd1e35b5459edfad15075d17c}{%
@@ -134,67 +107,6 @@
       \verb{url}
       \verb https://firebase.google.com/docs
       \endverb
-    \endentry
-    \entry{hav2018eloquent}{book}{}{}
-      \name{author}{1}{}{%
-        {{hash=129098e814fb9141e381f6b3068dd41c}{%
-           family={Haverbeke},
-           familyi={H\bibinitperiod},
-           given={Marijn},
-           giveni={M\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {No Starch Press}%
-      }
-      \strng{namehash}{129098e814fb9141e381f6b3068dd41c}
-      \strng{fullhash}{129098e814fb9141e381f6b3068dd41c}
-      \strng{fullhashraw}{129098e814fb9141e381f6b3068dd41c}
-      \strng{bibnamehash}{129098e814fb9141e381f6b3068dd41c}
-      \strng{authorbibnamehash}{129098e814fb9141e381f6b3068dd41c}
-      \strng{authornamehash}{129098e814fb9141e381f6b3068dd41c}
-      \strng{authorfullhash}{129098e814fb9141e381f6b3068dd41c}
-      \strng{authorfullhashraw}{129098e814fb9141e381f6b3068dd41c}
-      \field{sortinit}{H}
-      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{edition}{3rd}
-      \field{isbn}{978-1593279509}
-      \field{title}{Eloquent JavaScript: A Modern Introduction to Programming}
-      \field{year}{2018}
-    \endentry
-    \entry{meyer2017css}{book}{}{}
-      \name{author}{2}{}{%
-        {{hash=61b4d9aa15d0ee9bad35f680ef7ec982}{%
-           family={Meyer},
-           familyi={M\bibinitperiod},
-           given={Eric\bibnamedelima A.},
-           giveni={E\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=563041b116255f8ed5e7f555f8cbad5a}{%
-           family={Weyl},
-           familyi={W\bibinitperiod},
-           given={Estelle},
-           giveni={E\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {O'Reilly Media}%
-      }
-      \strng{namehash}{9bff50e0d1e7ed601697cf0ef56fc814}
-      \strng{fullhash}{9bff50e0d1e7ed601697cf0ef56fc814}
-      \strng{fullhashraw}{9bff50e0d1e7ed601697cf0ef56fc814}
-      \strng{bibnamehash}{9bff50e0d1e7ed601697cf0ef56fc814}
-      \strng{authorbibnamehash}{9bff50e0d1e7ed601697cf0ef56fc814}
-      \strng{authornamehash}{9bff50e0d1e7ed601697cf0ef56fc814}
-      \strng{authorfullhash}{9bff50e0d1e7ed601697cf0ef56fc814}
-      \strng{authorfullhashraw}{9bff50e0d1e7ed601697cf0ef56fc814}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{edition}{4th}
-      \field{isbn}{978-1449393199}
-      \field{title}{CSS: The Definitive Guide}
-      \field{year}{2017}
     \endentry
     \entry{nodedocs}{manual}{}{}
       \name{author}{1}{}{%
@@ -281,36 +193,6 @@
       \endverb
       \verb{url}
       \verb https://react.dev/
-      \endverb
-    \endentry
-    \entry{soliditydocs}{manual}{}{}
-      \name{author}{1}{}{%
-        {{hash=c010ee338b377fd32df46acdc79510a6}{%
-           family={{Solidity Contributors}},
-           familyi={S\bibinitperiod}}}%
-      }
-      \list{organization}{1}{%
-        {Ethereum Foundation}%
-      }
-      \strng{namehash}{c010ee338b377fd32df46acdc79510a6}
-      \strng{fullhash}{c010ee338b377fd32df46acdc79510a6}
-      \strng{fullhashraw}{c010ee338b377fd32df46acdc79510a6}
-      \strng{bibnamehash}{c010ee338b377fd32df46acdc79510a6}
-      \strng{authorbibnamehash}{c010ee338b377fd32df46acdc79510a6}
-      \strng{authornamehash}{c010ee338b377fd32df46acdc79510a6}
-      \strng{authorfullhash}{c010ee338b377fd32df46acdc79510a6}
-      \strng{authorfullhashraw}{c010ee338b377fd32df46acdc79510a6}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Solidity Documentation}
-      \field{year}{2024}
-      \verb{urlraw}
-      \verb https://soliditylang.org/docs/
-      \endverb
-      \verb{url}
-      \verb https://soliditylang.org/docs/
       \endverb
     \endentry
     \entry{ganachedocs}{manual}{}{}

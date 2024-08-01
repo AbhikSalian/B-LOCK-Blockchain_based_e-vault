@@ -388,9 +388,9 @@ Non-functional requirements describe the quality attributes, performance standar
    \subsection{Accessibility}
    The application should be accessible to all users, including those with disabilities, by adhering to accessibility standards.
    \begin{itemize}
-       \item \textbf{Screen Readers:} The UI should support screen readers to assist visually impaired users in navigating the application.
-       \item \textbf{Keyboard Navigation:} Users should be able to navigate the application using keyboard shortcuts without relying on a mouse.
-       \item \textbf{Color Contrast:} Ensure sufficient contrast between text and background colors to improve readability for users with visual impairments.
+        \item \textbf{Consistent Navigation:} Design the application's navigation to be consistent across all pages, allowing users to predictably move through the application without confusion.
+        \item \textbf{Flexible Input Methods:} Support multiple input methods, such as touch, keyboard, and mouse, to cater to different user preferences and abilities.
+        \item \textbf{Color Contrast:} Ensure sufficient contrast between text and background colors to improve readability for users with visual impairments.
    \end{itemize}
    
    \subsection{User Feedback}
@@ -398,35 +398,27 @@ Non-functional requirements describe the quality attributes, performance standar
    \begin{itemize}
        \item \textbf{Error Messages:} Provide clear and informative error messages to guide users in resolving issues.
        \item \textbf{User Surveys:} Periodic surveys can be conducted to collect user feedback on the UI and identify areas for improvement.
-       \item \textbf{Help Resources:} Offer tutorials and help sections to assist users in understanding and using the application's features.
    \end{itemize}
    
    \section{Software Requirements}
-   
-   This section specifies the technical requirements of the eVault system, covering hardware, software, network, and operational aspects to ensure efficient and reliable performance.
-   
-   \subsection{Hardware Requirements}
-   The eVault system requires specific hardware configurations to operate efficiently and support user needs.
-   \begin{itemize}
-       \item \textbf{Server Specifications:} Minimum server requirements include 16 GB RAM, 4-core CPU, and 500 GB SSD for optimal performance.
-       \item \textbf{User Devices:} Users should have access to devices with at least 4 GB RAM and a modern web browser to use the application effectively.
-   \end{itemize}
-   
-   \subsection{Software Dependencies}
-   The eVault relies on various software components and libraries to function correctly.
-   \begin{itemize}
-       \item \textbf{Operating Systems:} Compatible with Windows, macOS, and Linux for server deployments.
-       \item \textbf{Database Systems:} Supports Node JS\cite{nodedocs} and Firebase for data storage and management.
-       \item \textbf{Programming Languages:} Developed using HTML\cite{duckett2011html}, CSS\cite{meyer2017css}, JavaScript\cite{hav2018eloquent} and Solidity\cite{soliditydocs}, leveraging frameworks such as Django and React.
-   \end{itemize}
-   
-   \subsection{Network Requirements}
-   Ensure stable and secure network connectivity to support application operations and data transmission.
-   \begin{itemize}
-       \item \textbf{Bandwidth:} The application requires a minimum internet speed of 10 Mbps for smooth operation.
-       \item \textbf{Firewall Settings:} Configure firewalls to allow traffic through necessary ports while blocking unauthorized access.
-       \item \textbf{Data Encryption:} All data transmitted over the network must be encrypted using TLS to prevent interception.
-   \end{itemize}
+
+This section outlines the technical requirements for the eVault system, addressing hardware, software, network, and operational needs to ensure efficient and reliable performance.
+
+\subsection{Hardware Requirements}
+The eVault system requires specific hardware configurations to deliver optimal performance and support user needs.
+\begin{itemize}
+    \item \textbf{Server Specifications:} Requires a minimum of 16 GB RAM, a 4-core CPU, and a 500 GB SSD.
+    \item \textbf{User Devices:} Devices must have at least 4 GB RAM and a modern web browser for optimal functionality.
+\end{itemize}
+
+\subsection{Software Dependencies}
+The system relies on several software components and libraries for its functionality.
+\begin{itemize}
+    \item \textbf{Operating Systems:} Compatible with Windows Server 2019 and macOS Mojave (10.14).
+    \item \textbf{Database Systems:} Utilizes Node.js and Firebase for data management.
+    \item \textbf{Tech Stack:} Developed with HTML, CSS, JavaScript, and Solidity, utilizing the React library for building user interfaces.
+\end{itemize}
+
 
 
 
