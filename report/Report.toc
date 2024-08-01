@@ -19,7 +19,7 @@
 \contentsline {chapter}{\numberline {3}System Design}{7}{}%
 \contentsline {section}{\numberline {3.1}Architecture Design}{7}{}%
 \contentsline {section}{\numberline {3.2}Decomposition Description}{8}{}%
-\contentsline {section}{\numberline {3.3}Data Flow Design}{8}{}%
+\contentsline {section}{\numberline {3.3}Data Flow Design}{9}{}%
 \contentsline {chapter}{\numberline {4}Implementation}{10}{}%
 \contentsline {section}{\numberline {4.1}System Overview}{10}{}%
 \contentsline {section}{\numberline {4.2}Algorithms}{10}{}%
@@ -27,8 +27,8 @@
 \contentsline {subsection}{\numberline {4.2.2}User Authentication Algorithm}{11}{}%
 \contentsline {section}{\numberline {4.3}Key Components Implementation}{11}{}%
 \contentsline {subsection}{\numberline {4.3.1}Smart Contract}{11}{}%
-\contentsline {subsection}{\numberline {4.3.2}Frontend (React)}{11}{}%
-\contentsline {subsection}{\numberline {4.3.3}Backend (Firebase and Blockchain)}{11}{}%
+\contentsline {subsection}{\numberline {4.3.2}Frontend (React)}{12}{}%
+\contentsline {subsection}{\numberline {4.3.3}Backend (Firebase and Blockchain)}{12}{}%
 \contentsline {section}{\numberline {4.4}Integration}{12}{}%
 \contentsline {chapter}{\numberline {5}Results and Discussion}{13}{}%
 \contentsline {section}{\numberline {5.1}Results}{13}{}%

@@ -104,10 +104,10 @@ bottom=1.0in,
 \textit{\textbf{Under the Guidance of}}
 \par
 \vspace{6pt}
-\textbf{Dr. Santhosh Kumar DK}
+\textbf{Ms. L Hema}
 \par
 \vspace{2pt}
-\normalsize {Associate Professor, Department of CSE}
+\normalsize {Assistant Professor, Department of CSE}
 \par
 \begin{figure}[hbtp]
 \centering
@@ -218,7 +218,7 @@ digital security and privacy.
 \addcontentsline{toc}{chapter}{\numberline{}Table of Contents}
 \listoffigures
 \addcontentsline{toc}{chapter}{\numberline{}List of Figures}
-\listoftables
+% \listoftables
 %\addcontentsline{toc}{chapter}{\numberline{}List of Tables}
 \newpage
 
@@ -423,38 +423,44 @@ The system relies on several software components and libraries for its functiona
 
 \chapter{System Design}
 \section{Architecture Design}
+Figure \ref{fig:architecture} illustrates the high-level architecture of the B-LOCK system. This architecture comprises several key components: the user interface, blockchain smart contracts, and the storage backend. The user interface allows users to interact with the application, facilitating file uploads and retrieval. The blockchain smart contracts, deployed on Ethereum, handle file metadata storage and verification. The storage backend, implemented using Firebase, manages the actual file storage and retrieval. This design ensures a secure and user-friendly application where file integrity and ownership are maintained through blockchain technology.
+
 \begin{figure}[hbtp]
 \centering
-\includegraphics[width=5.5in,height=3in]{./pic/architecture.drawio.png}
-\caption{System Architecture Diagram}
+\includegraphics[scale=0.49]{./pic/architecture.png}
+\caption{System Architecture Diagram of B-LOCK}
 \label{fig:architecture}
 \end{figure}
-Figure \ref{fig:architecture} illustrates the high-level architecture of the B-LOCK system. This architecture comprises several key components: the user interface, blockchain smart contracts, and the storage backend. The user interface allows users to interact with the application, facilitating file uploads and retrieval. The blockchain smart contracts, deployed on Ethereum, handle file metadata storage and verification. The storage backend, implemented using Firebase, manages the actual file storage and retrieval. This design ensures a secure and user-friendly application where file integrity and ownership are maintained through blockchain technology.
 \section{Decomposition Description}
+Figure \ref{fig:flowchart} presents a decomposition diagram of the B-LOCK system. This diagram breaks down the system into its core modules: user authentication, file upload, blockchain integration, and file retrieval. Each module is responsible for specific functionalities:
+\begin{itemize}
+    \item \textbf{User Interface:} Central point where users interact with the system for various functionalities including registration, file upload/retrieve, and file management dashboard.
+    \item \textbf{Authentication Service:} Handles user registration and email verification.
+    \item \textbf{File Storage Service:} Manages the storage of files and stores files in the Firestore Database.
+    \item \textbf{Blockchain Interaction Service:} Manages interaction with the blockchain for file verification.
+    \item \textbf{File details and verification service:} Provides a file management dashboard for users to manage their files.
+    % \item \textbf{Smart Contract:} Facilitates secure and verifiable interactions on the blockchain.
+    % \item \textbf{Firestore Database:} Central storage for user and file data.
+    % \item \textbf{Ethereum Network:} The blockchain network where the smart contract is deployed.
+\end{itemize}
 \begin{figure}[hbtp]
 \centering
-\includegraphics[width=1.7in,height=4in]{./pic/flowchart.png}
-\caption{Flow chart}
-\label{fig:flowchart}
+\includegraphics[scale=0.5]{./pic/decomposition.png}
+\caption{Decomposition Diagram of B-LOCK}
+\label{fig:flowchart} 
 \end{figure}
-Figure \ref{fig:flowchart} presents a decomposition diagram (or a flow chart) of the B-LOCK system. This diagram breaks down the system into its core modules: user authentication, file upload, blockchain integration, and data retrieval. Each module is responsible for specific functionalities:
-\begin{itemize}
-   \item \textbf{User Authentication:} Manages user sign-in and sign-up, including email verification and session management.
-   \item \textbf{File Upload:} Handles file selection, uploading to Firebase Storage, and associating file metadata with the blockchain.
-   \item \textbf{Blockchain Integration:} Interacts with Ethereum smart contracts to store and retrieve file hashes and metadata.
-   \item \textbf{Data Retrieval:} Provides mechanisms for users to access their uploaded files and associated data.
-\end{itemize}
+
 
 
 \section{Data Flow Design}
+Figure \ref{fig:dataflow} depicts the data flow within the B-LOCK application. The diagram illustrates the process from file upload to storage and retrieval. When a user uploads a file, the file is first hashed and then uploaded to Firebase Storage. The file's metadata, including its name and hash, is sent to the Ethereum smart contract for secure storage on the blockchain. Upon successful upload, the application updates the user interface to reflect the new file and its status. During file retrieval, the application queries both Firebase and the blockchain to provide users with the necessary information and access to their files.
 
 \begin{figure}[hbtp]
 \centering
-\includegraphics[scale=0.7]{./pic/dataflow.png}
-\caption{Dataflow Diagram}
+\includegraphics[scale=0.5]{./pic/dataflow.png}
+\caption{Dataflow Diagram of B-LOCK}
 \label{fig:dataflow}
-\end{figure}
-Figure \ref{fig:dataflow} depicts the data flow within the B-LOCK application. The diagram illustrates the process from file upload to storage and retrieval. When a user uploads a file, the file is first hashed and then uploaded to Firebase Storage. The file's metadata, including its name and hash, is sent to the Ethereum smart contract for secure storage on the blockchain. Upon successful upload, the application updates the user interface to reflect the new file and its status. During file retrieval, the application queries both Firebase and the blockchain to provide users with the necessary information and access to their files.
+\end{figure} 
 
 
 
@@ -466,6 +472,7 @@ The system is a blockchain-based e-vault application designed to securely store 
    \item \textbf{Frontend:} A React application\cite{reactdocs} for user interaction created using Node Package Manager(npm)\cite{npmdocs}.
    \item \textbf{Backend:} Firebase\cite{firebasedocs} for file storage and Firestore for metadata management.
    \item \textbf{Blockchain:} Ethereum\cite{ethereumdocs} for file hash storage and verification.
+   \item \textbf{Smart Contract:} Smart contract written using Solidity language\cite{soliditydocs} and migrated to the Ethereum network\cite{ethereumdocs} using Truffle\cite{truffledocs}. 
 \end{enumerate}
 
 %\section{Pseudocode and Algorithms}
@@ -525,38 +532,38 @@ The system is a blockchain-based e-vault application designed to securely store 
 \section{Key Components Implementation}
 \subsection{Smart Contract}
 The EVault smart contract\cite{antonopoulos2018mastering}, written in Solidity and compiled and migrated using Truffle\cite{truffledocs}, is integral to the B-LOCK e-vault application. It stores file names and hashes on the Ethereum blockchain to ensure file integrity and security. The contract has three main functions: storeFile for recording file details, retrieveFiles for fetching a user's files, and getFilenames for listing file names. This ensures tamper-proof, decentralized storage and secure file management, leveraging blockchain's transparency and immutability.
-% \begin{lstlisting}[caption=Solidity Smart Contract (EVault.sol)]
-%     pragma solidity ^0.8.0;
+\begin{lstlisting}[caption=Solidity Smart Contract (EVault.sol)]
+    pragma solidity ^0.8.0;
 
-% contract EVault {
-%     struct File {
-%         string fileName;
-%         string fileHash;
-%     }
+contract EVault {
+    struct File {
+        string fileName;
+        string fileHash;
+    }
 
-%     mapping(address => File[]) private userFiles;
+    mapping(address => File[]) private userFiles;
 
-%     function storeFile(string memory _fileName, 
-%     string memory _fileHash) public {
-%         userFiles[msg.sender].push(File(_fileName, _fileHash));
-%     }
+    function storeFile(string memory _fileName, 
+    string memory _fileHash) public {
+        userFiles[msg.sender].push(File(_fileName, _fileHash));
+    }
 
-%     function retrieveFiles() public view returns (File[] memory){
-%         return userFiles[msg.sender];
-%     }
+    function retrieveFiles() public view returns (File[] memory){
+        return userFiles[msg.sender];
+    }
     
-%     function getFilenames() public view returns (string[] memory){
-%         File[] memory files = userFiles[msg.sender];
-%         string[] memory fileNames = new string[](files.length);
+    function getFilenames() public view returns (string[] memory){
+        File[] memory files = userFiles[msg.sender];
+        string[] memory fileNames = new string[](files.length);
 
-%         for (uint i = 0; i < files.length; i++) {
-%             fileNames[i] = files[i].fileName;
-%         }
+        for (uint i = 0; i < files.length; i++) {
+            fileNames[i] = files[i].fileName;
+        }
 
-%         return fileNames;
-%     }
-% }
-%     \end{lstlisting}
+        return fileNames;
+    }
+}
+    \end{lstlisting}
 \subsection{Frontend (React)}
 \par
 The frontend of the eVault system is developed using React.js, supported by HTML, CSS, and JavaScript to deliver a dynamic and responsive user experience. The key components of the frontend are:
@@ -762,45 +769,49 @@ Below are screenshots of the B-LOCK application demonstrating key features and u
 Figures \ref{fig:signup} and \ref{fig:signin} show the user registration and login interface. Users can create an account by entering their email and password, and existing users can sign in using their credentials. Upon successful registration, a verification email is sent to the user to confirm their email address before accessing the application, as shown in Figure \ref{fig:emailver}.
 
 \subsection{File Upload Interface}
+The file upload interface, as shown in Figure \ref{fig:fileupload}, allows users to select files from their local device to upload to the e-vault. The interface supports multiple file uploads and provides feedback on the upload progress. Users are notified of the upload status, ensuring they are aware of successful uploads or any errors encountered during the process.
+
 \begin{figure}[hbtp]
     \centering
     \includegraphics[scale=0.4]{./pic/fileupload.png}
     \caption{File Upload Interface}
     \label{fig:fileupload}
 \end{figure}
-The file upload interface, as shown in Figure \ref{fig:fileupload}, allows users to select files from their local device to upload to the e-vault. The interface supports multiple file uploads and provides feedback on the upload progress. Users are notified of the upload status, ensuring they are aware of successful uploads or any errors encountered during the process.
 
 \subsection{File Retrieve Interface}
+As shown in Figure \ref{fig:retrieve}, the file retrieval interface allows users to access the files they have previously uploaded to the e-vault. Users can easily search for specific files, sort the list based on different criteria, and download files directly to their devices.
+
 \begin{figure}[hbtp]
     \centering
     \includegraphics[scale=0.4]{./pic/retrieve.png}
     \caption{File Retrieve Interface that displays a list of uploaded files}
     \label{fig:retrieve}
 \end{figure}
-As shown in Figure \ref{fig:retrieve}, the file retrieval interface allows users to access the files they have previously uploaded to the e-vault. This interface provides a list of files with details such as file name, upload date, and a download link. Users can easily search for specific files, sort the list based on different criteria, and download files directly to their devices. Additionally, the interface shows the verification status of each file, indicating whether the file hash has been successfully stored on the blockchain, thus ensuring the integrity and authenticity of the files.
 \subsection{File Details Getting Stored in Blockchain}
+Figure \ref{fig:ganache} shows the file details details getting stored as blocks in Ganache\cite{ganachedocs} on Ethereum\cite{ethereumdocs} local network. After successful deduction of ethers to upload the file, the file details gets stored here.
+
 \begin{figure}[hbtp]
     \centering
     \includegraphics[scale=0.4]{./pic/ganache.png}
     \caption{File name and file hash getting stored in blocks in Ganache}
     \label{fig:ganache}
 \end{figure}
-Figure \ref{fig:ganache} shows the file details details getting stored as blocks in Ganache\cite{ganachedocs} on Ethereum\cite{ethereumdocs} local network. After successful deduction of ethers to upload the file, the file details gets stored here.
 
 
 \chapter{Conclusion and Future Work}
 \section{Conclusion}
 % \cite{bashir2021subjective} \cite{mittal2016}
-The B-LOCK project successfully demonstrates the integration of blockchain technology with file storage solutions to create a secure e-vault application. Throughout the development process, we addressed critical aspects of data security, user authentication, and file integrity. By leveraging Ethereum's blockchain, we ensured that every uploaded file is securely hashed and its integrity verifiable, thus preventing unauthorized tampering or data breaches.
-\\
-Key accomplishments of the B-LOCK project include:
-\begin{itemize}
-\item \textbf{Secure File Uploads:} Implementation of an intuitive interface allowing users to upload files securely.
-\item \textbf{Blockchain Verification:} Integration with the Ethereum blockchain to store file hashes, ensuring the authenticity and integrity of uploaded files.
-\item \textbf{User Authentication:} A robust user registration and login system, including email verification for added security.
-\item \textbf{Efficient File Management:} A user-friendly dashboard for managing uploaded files, with options to view, download, and delete files.
+The B-LOCK project successfully demonstrates the integration of blockchain technology with file storage solutions to create a secure e-vault application. Throughout the development process, we meticulously addressed critical aspects of data security, user authentication, and file integrity. By leveraging Ethereum’s blockchain, we ensured that every uploaded file is securely hashed and its integrity verifiable, thereby preventing unauthorized tampering or data breaches. This innovative approach not only enhances the security and transparency of file storage but also builds user trust by providing a decentralized and tamper-proof system. The project's success illustrates the powerful synergy between blockchain technology and modern file management, setting a robust foundation for future advancements in secure digital storage solutions.
+The project files can be found at: \url{https://github.com/AbhikSalian/B-LOCK-Blockchain_based_e-vault}
+% \\
+% Key accomplishments of the B-LOCK project include:
+% \begin{itemize}
+% \item \textbf{Secure File Uploads:} Implementation of an intuitive interface allowing users to upload files securely.
+% \item \textbf{Blockchain Verification:} Integration with the Ethereum blockchain to store file hashes, ensuring the authenticity and integrity of uploaded files.
+% \item \textbf{User Authentication:} A robust user registration and login system, including email verification for added security.
+% \item \textbf{Efficient File Management:} A user-friendly dashboard for managing uploaded files, with options to view, download, and delete files.
 
-\end{itemize}
+% \end{itemize}
 
 \section{Future Work}
 While the current implementation of B-LOCK meets its primary objectives, there are several areas for potential improvement and expansion. Future work could focus on the following aspects:
@@ -809,9 +820,9 @@ While the current implementation of B-LOCK meets its primary objectives, there a
    \item \textbf{Mobile Application:} Developing a mobile version of B-LOCK to extend accessibility and usability across various devices.
    \item \textbf{Advanced Security Features:} Integrating additional security measures such as multi-factor authentication (MFA), biometric verification, and encryption for stored files.
    \item \textbf{Decentralized Storage Integration:} Exploring decentralized storage solutions such as IPFS (InterPlanetary File System) or Filecoin to further enhance data availability and redundancy.
-   \item \textbf{Smart Contract Enhancements:} Improving the smart contract logic to include features like file versioning, access control, and more sophisticated file-sharing mechanisms.
-   \item \textbf{User Experience Improvements:} Continuously refining the user interface and experience based on user feedback and emerging best practices in UI/UX design.
-   \item \textbf{Automated Backup and Recovery:} Implementing automated backup and disaster recovery solutions to ensure data availability and integrity in case of system failures.
+%    \item \textbf{Smart Contract Enhancements:} Improving the smart contract logic to include features like file versioning, access control, and more sophisticated file-sharing mechanisms.
+%    \item \textbf{User Experience Improvements:} Continuously refining the user interface and experience based on user feedback and emerging best practices in UI/UX design.
+%    \item \textbf{Automated Backup and Recovery:} Implementing automated backup and disaster recovery solutions to ensure data availability and integrity in case of system failures.
 \end{itemize}
 By addressing these areas, B-LOCK can evolve into a more comprehensive and versatile e-vault solution, offering enhanced security, scalability, and user experience. The project's success serves as a testament to the potential of blockchain technology in revolutionizing secure data storage and management systems.
 
