@@ -179,7 +179,3 @@ This project is licensed under the MIT License.
 - Ethereum and Solidity documentation
 - Firebase documentation
 - React.js documentation
-
----
-
-Feel free to customize this README file according to your specific needs and project details.
