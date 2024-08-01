@@ -22,23 +22,23 @@
 \contentsline {section}{\numberline {3.3}Data Flow Design}{8}{}%
 \contentsline {chapter}{\numberline {4}Implementation}{10}{}%
 \contentsline {section}{\numberline {4.1}System Overview}{10}{}%
-\contentsline {section}{\numberline {4.2}Pseudocode and Algorithms}{10}{}%
+\contentsline {section}{\numberline {4.2}Algorithms}{10}{}%
 \contentsline {subsection}{\numberline {4.2.1}File Upload Algorithm}{10}{}%
 \contentsline {subsection}{\numberline {4.2.2}User Authentication Algorithm}{11}{}%
-\contentsline {section}{\numberline {4.3}Key Components Implementation}{12}{}%
-\contentsline {subsection}{\numberline {4.3.1}Smart Contract}{12}{}%
-\contentsline {subsection}{\numberline {4.3.2}Frontend (React)}{13}{}%
-\contentsline {subsection}{\numberline {4.3.3}Backend (Firebase and Blockchain)}{14}{}%
-\contentsline {section}{\numberline {4.4}Integration}{15}{}%
-\contentsline {chapter}{\numberline {5}Results and Discussion}{17}{}%
-\contentsline {section}{\numberline {5.1}Results}{17}{}%
-\contentsline {section}{\numberline {5.2}Discussion}{18}{}%
-\contentsline {section}{\numberline {5.3}Screenshots}{18}{}%
-\contentsline {subsection}{\numberline {5.3.1}User Registration and Login}{18}{}%
-\contentsline {subsection}{\numberline {5.3.2}File Upload Interface}{20}{}%
-\contentsline {subsection}{\numberline {5.3.3}File Retrieve Interface}{20}{}%
-\contentsline {subsection}{\numberline {5.3.4}File Details Getting Stored in Blockchain}{21}{}%
-\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{22}{}%
-\contentsline {section}{\numberline {6.1}Conclusion}{22}{}%
-\contentsline {section}{\numberline {6.2}Future Work}{22}{}%
-\contentsline {chapter}{References}{24}{}%
+\contentsline {section}{\numberline {4.3}Key Components Implementation}{11}{}%
+\contentsline {subsection}{\numberline {4.3.1}Smart Contract}{11}{}%
+\contentsline {subsection}{\numberline {4.3.2}Frontend (React)}{11}{}%
+\contentsline {subsection}{\numberline {4.3.3}Backend (Firebase and Blockchain)}{11}{}%
+\contentsline {section}{\numberline {4.4}Integration}{12}{}%
+\contentsline {chapter}{\numberline {5}Results and Discussion}{13}{}%
+\contentsline {section}{\numberline {5.1}Results}{13}{}%
+\contentsline {section}{\numberline {5.2}Discussion}{14}{}%
+\contentsline {section}{\numberline {5.3}Screenshots}{14}{}%
+\contentsline {subsection}{\numberline {5.3.1}User Registration and Login}{14}{}%
+\contentsline {subsection}{\numberline {5.3.2}File Upload Interface}{16}{}%
+\contentsline {subsection}{\numberline {5.3.3}File Retrieve Interface}{16}{}%
+\contentsline {subsection}{\numberline {5.3.4}File Details Getting Stored in Blockchain}{17}{}%
+\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{18}{}%
+\contentsline {section}{\numberline {6.1}Conclusion}{18}{}%
+\contentsline {section}{\numberline {6.2}Future Work}{18}{}%
+\contentsline {chapter}{References}{20}{}%

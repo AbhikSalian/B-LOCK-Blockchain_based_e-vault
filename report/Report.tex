@@ -421,9 +421,6 @@ The system relies on several software components and libraries for its functiona
 
 
 
-
-
-
 \chapter{System Design}
 \section{Architecture Design}
 \begin{figure}[hbtp]
@@ -465,224 +462,224 @@ Figure \ref{fig:dataflow} depicts the data flow within the B-LOCK application. T
 \section{System Overview}
 \par
 The system is a blockchain-based e-vault application designed to securely store and manage files with metadata. The core components include:
-\begin{itemize}
+\begin{enumerate}
    \item \textbf{Frontend:} A React application\cite{reactdocs} for user interaction created using Node Package Manager(npm)\cite{npmdocs}.
    \item \textbf{Backend:} Firebase\cite{firebasedocs} for file storage and Firestore for metadata management.
-   \item \textbf{Blockchain:} Ethereum for file hash storage and verification.
-\end{itemize}
+   \item \textbf{Blockchain:} Ethereum\cite{ethereumdocs} for file hash storage and verification.
+\end{enumerate}
 
-\section{Pseudocode and Algorithms}
-
+%\section{Pseudocode and Algorithms}
+\section{Algorithms}
 \subsection{File Upload Algorithm}
 
-\begin{lstlisting}[caption=File Upload Algorithm]
-   function uploadFile(file):
-    hash = generateFileHash(file.name, currentTimestamp)
-    storageRef = createStorageReference(user.uid, hash, file.name)
-    uploadTask = uploadFileToStorage(storageRef, file)
+% \begin{lstlisting}[caption=File Upload Algorithm]
+%    function uploadFile(file):
+%     hash = generateFileHash(file.name, currentTimestamp)
+%     storageRef = createStorageReference(user.uid, hash, file.name)
+%     uploadTask = uploadFileToStorage(storageRef, file)
 
-    onUploadProgress(uploadTask):
-        progress = calculateUploadProgress(uploadTask)
-        displayUploadProgress(progress)
+%     onUploadProgress(uploadTask):
+%         progress = calculateUploadProgress(uploadTask)
+%         displayUploadProgress(progress)
 
-    onUploadComplete(uploadTask):
-        downloadURL = getDownloadURL(uploadTask)
-        storeFileHashInBlockchain(fileName, fileHash)
-        saveFileMetadataInFirestore(fileName, downloadURL, 
-        user.uid)
-        displaySuccessMessage("File uploaded successfully")
+%     onUploadComplete(uploadTask):
+%         downloadURL = getDownloadURL(uploadTask)
+%         storeFileHashInBlockchain(fileName, fileHash)
+%         saveFileMetadataInFirestore(fileName, downloadURL, 
+%         user.uid)
+%         displaySuccessMessage("File uploaded successfully")
 
-    onUploadError(uploadTask):
-        displayErrorMessage("Error uploading file")
+%     onUploadError(uploadTask):
+%         displayErrorMessage("Error uploading file")
 
-   \end{lstlisting}
+%    \end{lstlisting}
    
-\begin{itemize}
+\begin{enumerate}
    \item \textbf{Generate File Hash:} Create a unique hash using the file name and current timestamp.
    \item \textbf{Create Storage Reference:} Create a reference in Firebase Storage using the hash and file name.
    \item \textbf{Upload File:} Perform the file upload asynchronously.
    \item \textbf{Progress Monitoring:} Update progress based on the upload state.
    \item \textbf{Completion Handling:} On success, store the file hash in the blockchain and metadata in Firestore.
    \item \textbf{Error Handling:} Display appropriate error messages if the upload fails.
-\end{itemize}
+\end{enumerate}
 
 \subsection{User Authentication Algorithm}
-\begin{lstlisting}[caption=User Authentication Algorithm]
-   function signIn(email, password):
-    try:
-        user = authenticateUserWithEmail(email, password)
-        if user.isEmailVerified:
-            redirectToDashboard()
-        else:
-            displayErrorMessage("Email not verified")
-    except AuthenticationError as e:
-        displayErrorMessage(e.message)
-   \end{lstlisting}
-\begin{itemize}
+% \begin{lstlisting}[caption=User Authentication Algorithm]
+%    function signIn(email, password):
+%     try:
+%         user = authenticateUserWithEmail(email, password)
+%         if user.isEmailVerified:
+%             redirectToDashboard()
+%         else:
+%             displayErrorMessage("Email not verified")
+%     except AuthenticationError as e:
+%         displayErrorMessage(e.message)
+%    \end{lstlisting}
+\begin{enumerate}
    \item \textbf{Authenticate User:} Check user credentials against Firebase Authentication.
    \item \textbf{Email Verification Check:} Ensure the user’s email is verified before granting access.
    \item \textbf{Error Handling:} Handle and display errors during authentication.
-\end{itemize}
+\end{enumerate}
 
 
 \section{Key Components Implementation}
 \subsection{Smart Contract}
 The EVault smart contract\cite{antonopoulos2018mastering}, written in Solidity and compiled and migrated using Truffle\cite{truffledocs}, is integral to the B-LOCK e-vault application. It stores file names and hashes on the Ethereum blockchain to ensure file integrity and security. The contract has three main functions: storeFile for recording file details, retrieveFiles for fetching a user's files, and getFilenames for listing file names. This ensures tamper-proof, decentralized storage and secure file management, leveraging blockchain's transparency and immutability.
-\begin{lstlisting}[caption=Solidity Smart Contract (EVault.sol)]
-    pragma solidity ^0.8.0;
+% \begin{lstlisting}[caption=Solidity Smart Contract (EVault.sol)]
+%     pragma solidity ^0.8.0;
 
-contract EVault {
-    struct File {
-        string fileName;
-        string fileHash;
-    }
+% contract EVault {
+%     struct File {
+%         string fileName;
+%         string fileHash;
+%     }
 
-    mapping(address => File[]) private userFiles;
+%     mapping(address => File[]) private userFiles;
 
-    function storeFile(string memory _fileName, 
-    string memory _fileHash) public {
-        userFiles[msg.sender].push(File(_fileName, _fileHash));
-    }
+%     function storeFile(string memory _fileName, 
+%     string memory _fileHash) public {
+%         userFiles[msg.sender].push(File(_fileName, _fileHash));
+%     }
 
-    function retrieveFiles() public view returns (File[] memory){
-        return userFiles[msg.sender];
-    }
+%     function retrieveFiles() public view returns (File[] memory){
+%         return userFiles[msg.sender];
+%     }
     
-    function getFilenames() public view returns (string[] memory){
-        File[] memory files = userFiles[msg.sender];
-        string[] memory fileNames = new string[](files.length);
+%     function getFilenames() public view returns (string[] memory){
+%         File[] memory files = userFiles[msg.sender];
+%         string[] memory fileNames = new string[](files.length);
 
-        for (uint i = 0; i < files.length; i++) {
-            fileNames[i] = files[i].fileName;
-        }
+%         for (uint i = 0; i < files.length; i++) {
+%             fileNames[i] = files[i].fileName;
+%         }
 
-        return fileNames;
-    }
-}
-    \end{lstlisting}
+%         return fileNames;
+%     }
+% }
+%     \end{lstlisting}
 \subsection{Frontend (React)}
 \par
-The frontend is developed using React.js and consists of the following key components:
-\begin{itemize}
+The frontend of the eVault system is developed using React.js, supported by HTML, CSS, and JavaScript to deliver a dynamic and responsive user experience. The key components of the frontend are:
+\begin{enumerate}
    \item \textbf{SignIn Component:} Handles user login.
    \item \textbf{SignUp Component:} Manages user registration and email verification.
    \item \textbf{Upload Component:} Manages file upload and progress display.
    \item \textbf{Retrieve Component:} Allows users to view and manage uploaded files.
-\end{itemize}
-\begin{lstlisting}[caption=Frontend Code Snippet]
-   import React, { useState } from 'react';
-   import { signInWithEmailAndPassword } from 'firebase/auth';
-   import { auth } from './firebase';
+\end{enumerate}
+% \begin{lstlisting}[caption=Frontend Code Snippet]
+%    import React, { useState } from 'react';
+%    import { signInWithEmailAndPassword } from 'firebase/auth';
+%    import { auth } from './firebase';
    
-   const SignIn = ({ onSignIn, switchToSignUp }) => {
-       const [email, setEmail] = useState('');
-       const [password, setPassword] = useState('');
-       const [error, setError] = useState('');
+%    const SignIn = ({ onSignIn, switchToSignUp }) => {
+%        const [email, setEmail] = useState('');
+%        const [password, setPassword] = useState('');
+%        const [error, setError] = useState('');
    
-       const handleSubmit = async (e) => {
-           e.preventDefault();
-           try {
-               const userCredential = await 
-               signInWithEmailAndPassword(auth, email, password);
-               const user = userCredential.user;
+%        const handleSubmit = async (e) => {
+%            e.preventDefault();
+%            try {
+%                const userCredential = await 
+%                signInWithEmailAndPassword(auth, email, password);
+%                const user = userCredential.user;
    
-               if (user.emailVerified) {
-                   onSignIn(email, password);
-                   setError(''); // Clear previous errors
-               } else {
-                   setError('Please verify your email before 
-                   signing in.');
-                   alert('Email not verified. Please check your 
-                   inbox for the verification email.');
-               }
-           } catch (err) {
-               console.error("Sign-in error:", err);
-               setError(err.message);
-           }
-       };
+%                if (user.emailVerified) {
+%                    onSignIn(email, password);
+%                    setError(''); // Clear previous errors
+%                } else {
+%                    setError('Please verify your email before 
+%                    signing in.');
+%                    alert('Email not verified. Please check your 
+%                    inbox for the verification email.');
+%                }
+%            } catch (err) {
+%                console.error("Sign-in error:", err);
+%                setError(err.message);
+%            }
+%        };
    
-       return (
-           <div className="auth-form">
-               <h2>Sign In</h2>
-               <form onSubmit={handleSubmit}>
-                   <input 
-                       type="email" 
-                       placeholder="Email" 
-                       value={email} 
-                       onChange={(e) => setEmail(e.target.value)} 
-                       required 
-                   />
-                   <input 
-                       type="password" 
-                       placeholder="Password" 
-                       value={password} 
-                       onChange={(e) => setPassword
-                       (e.target.value)} 
-                       required 
-                   />
-                   <button type="submit">Sign In</button>
-               </form>
-               {error && <p className="error">{error}</p>}
-               <p>Don't have an account? <button 
-               onClick={switchToSignUp}>Sign Up</button></p>
-           </div>
-       );
-   };
+%        return (
+%            <div className="auth-form">
+%                <h2>Sign In</h2>
+%                <form onSubmit={handleSubmit}>
+%                    <input 
+%                        type="email" 
+%                        placeholder="Email" 
+%                        value={email} 
+%                        onChange={(e) => setEmail(e.target.value)} 
+%                        required 
+%                    />
+%                    <input 
+%                        type="password" 
+%                        placeholder="Password" 
+%                        value={password} 
+%                        onChange={(e) => setPassword
+%                        (e.target.value)} 
+%                        required 
+%                    />
+%                    <button type="submit">Sign In</button>
+%                </form>
+%                {error && <p className="error">{error}</p>}
+%                <p>Don't have an account? <button 
+%                onClick={switchToSignUp}>Sign Up</button></p>
+%            </div>
+%        );
+%    };
    
-   export default SignIn;
+%    export default SignIn;
    
-   \end{lstlisting}
+%    \end{lstlisting}
 
 \subsection{Backend (Firebase and Blockchain)}
-\begin{itemize}
+\begin{enumerate}
    \item \textbf{Firebase Storage:} Stores the uploaded files.
    \item \textbf{Firestore Database:} Saves metadata about the files.
    \item \textbf{Ethereum Blockchain:} Stores the file hashes for verification.
-\end{itemize}
-\begin{lstlisting}[caption=Backend Code Snippet]
-import { ref, uploadBytesResumable, getDownloadURL } from 
-"firebase/storage";
-import { collection, addDoc } from "firebase/firestore";
+\end{enumerate}
+% \begin{lstlisting}[caption=Backend Code Snippet]
+% import { ref, uploadBytesResumable, getDownloadURL } from 
+% "firebase/storage";
+% import { collection, addDoc } from "firebase/firestore";
 
-const uploadFile = async (file, user, storage, db, evault, 
-account) => {
-    const hash = CryptoJS.SHA256(file.name + new Date().
-    toISOString()).toString();
-    const storageRef = ref(storage, `uploads/${user.uid}/${hash}
-    _${file.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, file);
+% const uploadFile = async (file, user, storage, db, evault, 
+% account) => {
+%     const hash = CryptoJS.SHA256(file.name + new Date().
+%     toISOString()).toString();
+%     const storageRef = ref(storage, `uploads/${user.uid}/${hash}
+%     _${file.name}`);
+%     const uploadTask = uploadBytesResumable(storageRef, file);
 
-    uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-            const progress = (snapshot.bytesTransferred / 
-            snapshot.totalBytes) * 100;
-            console.log(`Upload is ${progress.toFixed(2)}% done`);
-        },
-        (error) => {
-            console.error("Upload error:", error);
-        },
-        async () => {
-            const downloadURL = await getDownloadURL(uploadTask.
-            snapshot.ref);
-            try {
-                await evault.methods.storeFile(file.name, hash)
-                .send({ from: account });
-                await addDoc(collection(db, "files"), {
-                    name: file.name,
-                    owner: user.uid,
-                    downloadURL,
-                    timestamp: new Date(),
-                });
-                console.log("File uploaded successfully");
-            } catch (error) {
-                console.error("Error saving file data", error);
-            }
-        }
-    );
-};
+%     uploadTask.on(
+%         "state_changed",
+%         (snapshot) => {
+%             const progress = (snapshot.bytesTransferred / 
+%             snapshot.totalBytes) * 100;
+%             console.log(`Upload is ${progress.toFixed(2)}% done`);
+%         },
+%         (error) => {
+%             console.error("Upload error:", error);
+%         },
+%         async () => {
+%             const downloadURL = await getDownloadURL(uploadTask.
+%             snapshot.ref);
+%             try {
+%                 await evault.methods.storeFile(file.name, hash)
+%                 .send({ from: account });
+%                 await addDoc(collection(db, "files"), {
+%                     name: file.name,
+%                     owner: user.uid,
+%                     downloadURL,
+%                     timestamp: new Date(),
+%                 });
+%                 console.log("File uploaded successfully");
+%             } catch (error) {
+%                 console.error("Error saving file data", error);
+%             }
+%         }
+%     );
+% };
 
-   \end{lstlisting}
+%    \end{lstlisting}
 
 
 \section{Integration}
